@@ -1,7 +1,14 @@
-# Piton-mobile-template
+# Piton-mobile-template - Mobil projeler icin template
 
-Mobil projeler icin template
-Git stratejileri için : https://pikipedia.piton.com.tr/books/yazilim-gelistirme-surecleri/page/git-branch-olusturma-stratejileri
+## Dokümantasyon
+[git branch stratejileri](https://pikipedia.piton.com.tr/books/yazilim-gelistirme-surecleri/page/git-branch-olusturma-stratejileri)
+
+## Başlangıç
+Bilgisayarınızda Pyhthon ver3 kurulu olmalidir
+
 Proje içindeki hooks klasorunu aynı dizinde bulunan .git klasoru icine kopyalayın.
-Pyhthon3 kurulu olmalidir
 
+Commit mesajlarınız çalıştığınız branch'e göre aşağıdaki formatlardan biri olmalıdır.
+```bash
+#{issue-id}-branch-aciklama [yapilan işler]
+hotfix-{ver} [yapilan işler]
