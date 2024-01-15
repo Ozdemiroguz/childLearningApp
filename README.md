@@ -1,14 +1,16 @@
-# Piton-mobile-template - Mobil projeler icin template
+# eski_su
 
-## Dokümantasyon
-[git branch stratejileri](https://pikipedia.piton.com.tr/books/yazilim-gelistirme-surecleri/page/git-branch-olusturma-stratejileri)
+A new Flutter project.
 
-## Başlangıç
-Bilgisayarınızda Pyhthon ver3 kurulu olmalidir
+## Getting Started
 
-Proje içindeki hooks klasorunu aynı dizinde bulunan .git klasoru icine kopyalayın.
+This project is a starting point for a Flutter application.
 
-Commit mesajlarınız çalıştığınız branch'e göre aşağıdaki formatlardan biri olmalıdır.
-```bash
-#{issue-id}-branch-aciklama [yapilan işler]
-hotfix-{ver} [yapilan işler]
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
