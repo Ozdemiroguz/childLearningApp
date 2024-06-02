@@ -1,7 +1,7 @@
-import 'package:eski_su/core/injections/locator.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:injectable/injectable.dart';
+import 'package:rota/core/injections/locator.config.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../router/router.dart';

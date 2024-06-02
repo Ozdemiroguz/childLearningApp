@@ -1,9 +1,8 @@
-import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
-import 'package:eski_su/utils/text_input_formatters.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../constants/regexps.dart';
+import 'text_input_formatters.dart';
 
 final phoneFormatter = MaskTextInputFormatter(mask: '#### ### ## ##');
 
@@ -75,10 +74,10 @@ List<TextInputFormatter> tcNoInputFormatters() {
   ];
 }
 
-CurrencyTextInputFormatter getAmountTextInputFormatter({bool useFractionalDigits = true}) => CurrencyTextInputFormatter(
-      name: "",
-      customPattern: "###.###,##",
-      locale: "tr_TR",
-      enableNegative: false,
-      decimalDigits: 2,
-    );
+// CurrencyTextInputFormatter getAmountTextInputFormatter({bool useFractionalDigits = true}) => CurrencyTextInputFormatter(
+//       name: "",
+//       customPattern: "###.###,##",
+//       locale: "tr_TR",
+//       enableNegative: false,
+//       decimalDigits: 2,
+//     );

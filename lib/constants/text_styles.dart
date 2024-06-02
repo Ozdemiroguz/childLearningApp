@@ -7,24 +7,24 @@ final titleSmall = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
   fontSize: fontSize12,
-  height: kLineHeight1_21,
-  color: darkBlue,
+  height: kLineHeight1_18,
+  color: AppColors.primary600,
 );
 
 final titleMedium = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
   fontSize: fontSize16,
-  height: kLineHeight1_21,
-  color: darkBlue,
+  height: kLineHeight1_24,
+  color: AppColors.primary600,
 );
 
 final titleLarge = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
   fontSize: fontSize20,
-  height: kLineHeight1_21,
-  color: darkBlue,
+  height: kLineHeight1_24,
+  color: AppColors.primary600,
 );
 
 final headlineSmall = TextStyle(
@@ -32,7 +32,7 @@ final headlineSmall = TextStyle(
   fontFamily: kFontFamily,
   fontSize: fontSize12,
   height: kLineHeight1_21,
-  color: darkBlue,
+  color: AppColors.primary600,
 );
 
 final headlineMedium = TextStyle(
@@ -40,7 +40,7 @@ final headlineMedium = TextStyle(
   fontFamily: kFontFamily,
   fontSize: fontSize16,
   height: kLineHeight1_21,
-  color: darkBlue,
+  color: AppColors.primary600,
 );
 
 final headlineLarge = TextStyle(
@@ -48,39 +48,39 @@ final headlineLarge = TextStyle(
   fontFamily: kFontFamily,
   fontSize: fontSize20,
   height: kLineHeight1_21,
-  color: darkBlue,
+  color: AppColors.primary600,
 );
 
 final bodySmall = TextStyle(
   fontWeight: FontWeight.w400,
   fontFamily: kFontFamily,
   fontSize: fontSize12,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  height: kLineHeight1_18,
+  color: AppColors.primary600,
 );
 
 final bodyMedium = TextStyle(
   fontWeight: FontWeight.w400,
   fontFamily: kFontFamily,
   fontSize: fontSize14,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  height: kLineHeight1_21,
+  color: AppColors.primary600,
 );
 
 final bodyLarge = TextStyle(
   fontWeight: FontWeight.w400,
   fontFamily: kFontFamily,
   fontSize: fontSize16,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  height: kLineHeight1_24,
+  color: AppColors.primary600,
 );
 
 final labelSmall = TextStyle(
-  fontWeight: FontWeight.w300,
+  fontWeight: FontWeight.w400,
   fontFamily: kFontFamily,
-  fontSize: fontSize12,
-  height: kLineHeight1_416,
-  color: gray,
+  fontSize: fontSize10,
+  height: kLineHeight1_15,
+  color: AppColors.primary600,
 );
 
 final labelMedium = TextStyle(
@@ -88,7 +88,7 @@ final labelMedium = TextStyle(
   fontFamily: kFontFamily,
   fontSize: fontSize14,
   height: kLineHeight1_416,
-  color: gray,
+  color: AppColors.primary,
 );
 
 final labelLarge = TextStyle(
@@ -96,29 +96,29 @@ final labelLarge = TextStyle(
   fontFamily: kFontFamily,
   fontSize: fontSize16,
   height: kLineHeight1_416,
-  color: gray,
+  color: AppColors.primary,
 );
 
 final displaySmall = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
-  fontSize: fontSize14,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  fontSize: fontSize16,
+  height: kLineHeight1_24,
+  color: AppColors.primary600,
 );
 
 final displayMedium = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
-  fontSize: fontSize22,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  fontSize: fontSize20,
+  height: kLineHeight1_3,
+  color: AppColors.primary600,
 );
 
 final displayLarge = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: kFontFamily,
   fontSize: fontSize24,
-  height: kLineHeight1_416,
-  color: darkBlue,
+  height: kLineHeight1_36,
+  color: AppColors.primary600,
 );

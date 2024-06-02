@@ -1,8 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+  
 import 'package:auto_route/auto_route.dart';
-import 'package:eski_su/core/injections/locator.dart';
-import 'package:eski_su/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -11,7 +10,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'bootstrap.dart';
 import 'constants/colors.dart';
+import 'core/injections/locator.dart';
 import 'gen/assets.gen.dart';
+import 'router/router.dart';
 
 final _isTokenExpiredProvider = FutureProvider.autoDispose((ref) => ref.watch(authRepositoryProvider).isTokenExpired());
 
@@ -64,7 +65,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               SizedBox(
                 width: 240.r,
                 height: 240.r,
-                child: Assets.icons.logo.svg(width: 240.r, height: 240.r),
+                child: Assets.icons.pitonLogo.svg(width: 240.r, height: 240.r),
               ),
             ],
           ),

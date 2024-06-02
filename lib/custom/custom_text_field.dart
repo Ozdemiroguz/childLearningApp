@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/colors.dart';
 
 class CustomTextField extends HookWidget {
@@ -28,10 +29,11 @@ class CustomTextField extends HookWidget {
   final String? initialValue;
   final String? hintText;
   final String? labelText;
-  final bool expands;
+  final bool? expands;
   final bool obscureText;
-  final int maxLines;
+  final int? maxLines;
   final int? minLines;
+  final int? maxLength;
   final bool enabled;
   final bool readOnly;
   final Color? fillColor;
@@ -66,11 +68,12 @@ class CustomTextField extends HookWidget {
     this.prefixIcon,
     this.labelStyle,
     this.hintStyle,
-    this.maxLines = 1,
+    this.maxLines,
     this.minLines,
+    this.maxLength,
     this.obscureText = false,
     this.enabled = true,
-    this.expands = false,
+    this.expands,
     this.readOnly = false,
     this.style,
     this.fillColor,
@@ -91,9 +94,10 @@ class CustomTextField extends HookWidget {
     useListenable(focusNode);
 
     return TextFormField(
+      maxLength: maxLength,
       key: formFieldKey,
       initialValue: initialValue,
-      style: style ?? Theme.of(context).textTheme.labelLarge?.copyWith(color: darkBlue, fontWeight: FontWeight.w300),
+      style: style,
       onFieldSubmitted: onFieldSubmitted,
       onEditingComplete: onEditingComplete,
       inputFormatters: inputFormatters,
@@ -106,16 +110,23 @@ class CustomTextField extends HookWidget {
       textInputAction: textInputAction ?? TextInputAction.next,
       validator: validator,
       keyboardType: textInputType,
-      maxLines: maxLines,
-      minLines: minLines,
+      maxLines: maxLines ?? 1,
       enabled: enabled,
-      expands: expands,
       readOnly: readOnly,
       textAlign: textAlign,
       decoration: InputDecoration(
-        suffixIconConstraints: suffixIconConstraints,
+        counterText: "",
+        suffixIconConstraints: BoxConstraints(
+          maxHeight: suffixIconConstraints?.maxHeight ?? 56.h,
+          maxWidth: suffixIconConstraints?.maxWidth ?? 56.w,
+        ),
         prefixIconConstraints: prefixIconConstraints,
-        suffixIcon: suffixIcon,
+        suffixIcon: suffixIcon ??
+            SizedBox(
+              width: 1.w,
+              height: 56.h,
+            ),
+        prefixIcon: prefixIcon,
         enabled: enabled,
         contentPadding: contentPadding,
         // fillColor: !enabled ? gray.withOpacity(0.4) : fillColor,
@@ -129,8 +140,70 @@ class CustomTextField extends HookWidget {
         enabledBorder: enabledBorder,
         focusedBorder: focusedBorder,
         errorBorder: errorBorder,
-        focusedErrorBorder: focusedErrorBorder,
         disabledBorder: disabledBorder,
+        focusedErrorBorder: focusedErrorBorder,
+      ),
+    );
+  }
+}
+
+class CustomTextFieldBorderless extends HookWidget {
+  final String hintText;
+  final Widget prefixIcon;
+  final Widget? suffixIcon;
+  final VoidCallback? onEditingComplete;
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String?>? onSaved;
+  final FocusNode? focusNode;
+
+  const CustomTextFieldBorderless({
+    required this.hintText,
+    required this.prefixIcon,
+    this.suffixIcon,
+    this.onEditingComplete,
+    this.onChanged,
+    this.onSaved,
+    this.focusNode,
+  });
+  @override
+  Widget build(BuildContext context) {
+    final focusNode = this.focusNode ?? useFocusNode();
+    useListenable(focusNode);
+    return TextField(
+      onEditingComplete: onEditingComplete,
+      onChanged: onChanged,
+      onSubmitted: onSaved,
+      decoration: InputDecoration(
+        fillColor: bgColor,
+        hintText: hintText,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon ??
+            SizedBox(
+              height: 56.h,
+            ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8.r),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8.r),
+          ),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8.r),
+          ),
+          borderSide: BorderSide.none,
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8.r),
+          ),
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }

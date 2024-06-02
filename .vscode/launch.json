@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "eski_su",
+            "name": "Rota",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "eski_su (profile mode)",
+            "name": "Rota (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "eski_su (release mode)",
+            "name": "Rota (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

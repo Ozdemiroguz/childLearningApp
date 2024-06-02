@@ -1,18 +1,19 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:eski_su/constants/colors.dart';
-import 'package:eski_su/constants/font_sizes.dart';
-import 'package:eski_su/constants/text_styles.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../constants/colors.dart';
 import '../constants/constans.dart';
+import '../constants/font_sizes.dart';
 import '../constants/system_ui_overlay_styles.dart';
+import '../constants/text_styles.dart';
 import '../gen/assets.gen.dart';
 
 final theme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: primary),
-  scaffoldBackgroundColor: bgColor,
+  colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+  scaffoldBackgroundColor: darkBgColor,
   // outlinedButtonTheme: _outLinedButtonThemeData,
   filledButtonTheme: _filledButtomThemeData,
   // datePickerTheme: _datePickerThemeData,
@@ -20,13 +21,14 @@ final theme = ThemeData(
   cupertinoOverrideTheme: _cupertinoThemeData,
   inputDecorationTheme: _inputDecorationTheme,
   // bottomSheetTheme: _bottomSheetThemeData,
-  primaryColorLight: primary,
+  primaryColorLight: AppColors.primary,
   textButtonTheme: _textButtonThemeData,
   actionIconTheme: _actionIconThemeData,
   iconButtonTheme: _iconButtonThemeData,
   dialogBackgroundColor: white,
   // dialogTheme: _dialogTheme,
-  primaryColor: primary,
+  primaryColor: AppColors.primary,
+
   primaryTextTheme: _textTheme,
   popupMenuTheme: _popupMenuThemeData,
   dividerTheme: _dividerThemeData,
@@ -43,24 +45,25 @@ final theme = ThemeData(
 
 final _filledButtomThemeData = FilledButtonThemeData(
   style: ButtonStyle(
-    minimumSize: MaterialStatePropertyAll(Size.fromHeight(54.r)),
-    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+    maximumSize: WidgetStatePropertyAll(Size.fromHeight(56.r)),
+    minimumSize: WidgetStatePropertyAll(Size.fromHeight(56.r)),
+    backgroundColor: WidgetStateProperty.resolveWith<Color>(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
+        if (states.contains(WidgetState.disabled)) {
           return gray;
         } else {
-          return primary;
+          return AppColors.primary;
         }
       },
     ),
-    side: const MaterialStatePropertyAll(BorderSide.none),
-    padding: const MaterialStatePropertyAll(EdgeInsets.zero),
-    shape: MaterialStatePropertyAll(
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.r)),
+    side: const WidgetStatePropertyAll(BorderSide.none),
+    padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+    shape: WidgetStatePropertyAll(
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
     ),
-    textStyle: MaterialStatePropertyAll(titleMedium.copyWith(color: white)),
-    foregroundColor: const MaterialStatePropertyAll(white),
-    elevation: const MaterialStatePropertyAll(0),
+    textStyle: WidgetStatePropertyAll(displaySmall.copyWith(color: white)),
+    foregroundColor: const WidgetStatePropertyAll(white),
+    elevation: const WidgetStatePropertyAll(0),
   ),
 );
 
@@ -72,7 +75,7 @@ final _popupMenuThemeData = PopupMenuThemeData(
 );
 
 final _floatingActionButtonThemeData = FloatingActionButtonThemeData(
-  backgroundColor: primary,
+  backgroundColor: AppColors.primary,
   foregroundColor: bgColor,
   elevation: 0,
   focusElevation: 0,
@@ -94,7 +97,7 @@ final _floatingActionButtonThemeData = FloatingActionButtonThemeData(
 );
 
 const _cupertinoThemeData = CupertinoThemeData(
-  primaryColor: primary,
+  primaryColor: AppColors.primary,
   applyThemeToAll: true,
   scaffoldBackgroundColor: bgColor,
   barBackgroundColor: Colors.white,
@@ -102,57 +105,60 @@ const _cupertinoThemeData = CupertinoThemeData(
 );
 
 final _inputDecorationTheme = InputDecorationTheme(
+  constraints: BoxConstraints(
+    minHeight: 56.h,
+    maxHeight: 177.h,
+    maxWidth: 328.w,
+    minWidth: 42.w,
+  ),
   filled: true,
-  fillColor: bgColor,
-  iconColor: darkBlue,
+  fillColor: white,
+  iconColor: AppColors.primary,
   suffixIconColor: darkBlue,
   prefixIconColor: darkBlue,
-  hintStyle: labelLarge.copyWith(color: darkBlue.withOpacity(.4)),
-  labelStyle: labelLarge.copyWith(color: darkBlue),
+  hintStyle: bodyLarge.copyWith(color: gray),
+  labelStyle: bodyLarge.copyWith(color: red),
   errorStyle: bodySmall.copyWith(color: red),
   errorMaxLines: 2,
-  contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 16.h),
+  contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
   floatingLabelStyle: bodySmall.copyWith(color: darkBlue),
   enabledBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide(color: ligthBlue, width: 1.r),
+    borderRadius: BorderRadius.circular(8.r),
+    borderSide: BorderSide(color: gray, width: 0.5.r),
   ),
   focusedBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide(color: primary, width: 1.r),
-  ),
-  border: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide(color: ligthBlue, width: 1.r),
-  ),
-  disabledBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide.none,
+    borderRadius: BorderRadius.circular(8.r),
+    borderSide: BorderSide(color: AppColors.primary, width: 0.5.r),
   ),
   errorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide(color: red, width: 1.r),
+    borderRadius: BorderRadius.circular(8.r),
+    borderSide: BorderSide(color: red, width: 0.5.r),
+  ),
+  disabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(8.r),
+    borderSide: BorderSide.none,
   ),
   focusedErrorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(6.r),
-    borderSide: BorderSide(color: red, width: 1.r),
+    borderRadius: BorderRadius.circular(8.r),
+    borderSide: BorderSide(color: red, width: 0.5.r),
   ),
 );
 
 final _textButtonThemeData = TextButtonThemeData(
   style: ButtonStyle(
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    foregroundColor: const MaterialStatePropertyAll(primary),
-    backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-    overlayColor: const MaterialStatePropertyAll(Colors.transparent),
-    padding: const MaterialStatePropertyAll(EdgeInsets.zero),
-    textStyle: MaterialStatePropertyAll(titleMedium.copyWith(fontSize: fontSize14)),
+    foregroundColor: const WidgetStatePropertyAll(AppColors.primary),
+    backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
+    overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+    padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+    textStyle:
+        WidgetStatePropertyAll(titleMedium.copyWith(fontSize: fontSize14)),
   ),
 );
 
 final _actionIconThemeData = ActionIconThemeData(
   backButtonIconBuilder: (context) => IconButton(
-    onPressed: context.router.pop,
+    onPressed: context.router.maybePop,
     icon: Assets.icons.arrowLeft.svg(),
   ),
 );
@@ -160,11 +166,11 @@ final _actionIconThemeData = ActionIconThemeData(
 final _iconButtonThemeData = IconButtonThemeData(style: _iconButtonStyle);
 
 final _iconButtonStyle = ButtonStyle(
-  foregroundColor: const MaterialStatePropertyAll(primary),
-  backgroundColor: const MaterialStatePropertyAll(primary),
-  iconColor: const MaterialStatePropertyAll(bgColor),
-  padding: MaterialStatePropertyAll(EdgeInsets.all(10.r)),
-  shape: const MaterialStatePropertyAll(CircleBorder()),
+  foregroundColor: const WidgetStatePropertyAll(AppColors.primary),
+  backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
+  iconColor: const WidgetStatePropertyAll(bgColor),
+  padding: WidgetStatePropertyAll(EdgeInsets.all(10.r)),
+  shape: const WidgetStatePropertyAll(CircleBorder()),
 );
 
 // final _dialogTheme = DialogTheme(
@@ -194,27 +200,27 @@ final _listTileThemeData = ListTileThemeData(
   textColor: textColor,
   tileColor: bgColor,
   horizontalTitleGap: 0,
-  iconColor: primary,
+  iconColor: AppColors.primary,
 );
 
 final _checkboxThemeData = CheckboxThemeData(
   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-  checkColor: const MaterialStatePropertyAll(white),
+  checkColor: const WidgetStatePropertyAll(white),
   shape: RoundedRectangleBorder(
-    side: BorderSide(color: primary, width: 1.r),
+    side: BorderSide(color: AppColors.primary, width: 1.r),
     borderRadius: BorderRadius.circular(4.r),
   ),
   side: BorderSide(color: darkBlue.withOpacity(.2), width: 1.r),
-  fillColor: MaterialStateProperty.resolveWith((states) {
-    if (states.contains(MaterialState.selected)) return primary;
+  fillColor: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) return AppColors.primary;
     return null;
   }),
 );
 
 final _radioThemeData = RadioThemeData(
   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-  fillColor: MaterialStateProperty.resolveWith((states) {
-    if (states.contains(MaterialState.selected)) return primary;
+  fillColor: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) return AppColors.primary;
     return gray;
   }),
 );

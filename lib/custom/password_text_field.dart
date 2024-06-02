@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -53,10 +52,14 @@ class PasswordTextField extends HookWidget {
     useListenable(focusNode);
 
     return CustomTextField(
+      maxLines: 1,
+      expands: false,
       onFieldSubmitted: onFieldSubmitted,
       onEditingComplete: onEditingComplete,
       textInputType: textInputType,
-      inputFormatters: isNewPassword! ? newPasswordInputFormatters() : passwordInputFormatters(),
+      inputFormatters: isNewPassword!
+          ? newPasswordInputFormatters()
+          : passwordInputFormatters(),
       controller: controller,
       focusNode: focusNode,
       onChanged: onChanged,
@@ -105,7 +108,7 @@ class PasswordTextField extends HookWidget {
         width: 24.r,
         fit: BoxFit.scaleDown,
         colorFilter: ColorFilter.mode(
-          isDisabled ? gray : darkBlue,
+          isDisabled ? gray : AppColors.primary,
           BlendMode.srcIn,
         ),
       ),

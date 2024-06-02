@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:eski_su/core/extensions/position_extension.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:rota/core/extensions/position_extension.dart';
 
 import '../../constants/durations.dart';
 import '../../constants/failure_message.dart';

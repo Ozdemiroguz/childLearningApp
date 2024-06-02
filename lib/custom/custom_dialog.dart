@@ -79,7 +79,7 @@ abstract final class CustomDialog extends StatelessWidget {
     return showDialog<T>(
       context: context,
       barrierDismissible: false,
-      barrierColor: darkBlue.withOpacity(0.4),
+      barrierColor: AppColors.primary.withOpacity(0.4),
       builder: (context) => this,
     );
   }
@@ -100,7 +100,7 @@ final class _FailureDialog extends CustomDialog {
   @override
   Widget build(BuildContext context) {
     return _SimpleDialog(
-      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.popRoute,
+      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.maybePop,
       onSecondaryButtonPressed: onSecondaryButtonPressed,
       onClosedPressed: onClosedPressed,
       title: title ?? "actionFailed".tr(),
@@ -127,7 +127,7 @@ final class _SuccessDialog extends CustomDialog {
   @override
   Widget build(BuildContext context) {
     return _SimpleDialog(
-      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.popRoute,
+      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.maybePop,
       onSecondaryButtonPressed: onSecondaryButtonPressed,
       onClosedPressed: onClosedPressed,
       title: title ?? "actionCompleted".tr(),
@@ -153,7 +153,7 @@ final class _WarningDialog extends CustomDialog {
   @override
   Widget build(BuildContext context) {
     return _SimpleDialog(
-      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.popRoute,
+      onPrimaryButtonPressed: onPrimaryButtonPressed ?? context.maybePop,
       onSecondaryButtonPressed: onSecondaryButtonPressed,
       onClosedPressed: onClosedPressed,
       title: title ?? "areYouSure".tr(),
@@ -252,8 +252,8 @@ class _SimpleDialog extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
 //     return GestureDetector(
-//       onTap: onPressed ?? context.popRoute,
-//       // onTap: context.popRoute,
+//       onTap: onPressed ?? context.maybePop,
+//       // onTap: context.maybePop,
 //       child: Align(
 //         alignment: Alignment.centerRight,
 //         child: Assets.icons.tabletClose.svg(
@@ -275,7 +275,7 @@ class _Icon extends StatelessWidget {
     return switch (type) {
       _Type.failure => BackgroundedIcon(backgroundColor: red, icon: Assets.icons.failure),
       _Type.success => BackgroundedIcon(backgroundColor: green, icon: Assets.icons.success),
-      _Type.warning => BackgroundedIcon(backgroundColor: primary, icon: Assets.icons.alert),
+      _Type.warning => BackgroundedIcon(backgroundColor: AppColors.primary, icon: Assets.icons.alert),
     };
   }
 }
@@ -352,7 +352,7 @@ class _OutlinedButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: darkBlue.withOpacity(.6),
+                color: AppColors.primary.withOpacity(.6),
                 fontSize: 16.sp,
               ),
         ),

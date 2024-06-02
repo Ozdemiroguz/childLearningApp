@@ -14,6 +14,8 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
   final FormFieldValidator<T>? validator;
   final T? value;
   final String? labelText;
+  final TextStyle? hintStyle;
+  final EdgeInsetsGeometry? contentPadding;
   final Color? color;
   final String? prefixIconPath;
   final ColorFilter? prefixIconColorFilter;
@@ -25,7 +27,9 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.hintText,
+    this.hintStyle,
     this.labelText,
+    this.contentPadding,
     this.value,
     this.color,
     this.prefixIconPath,
@@ -46,6 +50,7 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                   .map(
                     (e) => DropdownMenuItem<T>(
                       value: e.value,
+                      //açılan kısmın
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 6.h,
@@ -59,7 +64,10 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
               hint: hintText != null
                   ? Text(
                       hintText!,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(color: color ?? darkBlue.withOpacity(.4)),
+                      style: hintStyle ??
+                          Theme.of(context).textTheme.labelLarge?.copyWith(
+                              color:
+                                  color ?? AppColors.primary.withOpacity(.4)),
                     )
                   : null,
               value: value,
@@ -82,21 +90,24 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
               decoration: InputDecoration(
                 // constraints: BoxConstraints.loose(Size(double.infinity, 140.h)),
                 enabled: onChanged != null,
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 16.h,
-                  horizontal: 16.w,
-                ),
+                contentPadding: contentPadding ??
+                    EdgeInsets.only(
+                      top: 16.h,
+                      bottom: 16.h,
+                      left: 6.w,
+                      right: 4.w,
+                    ),
                 prefixIconConstraints: BoxConstraints.expand(
-                  width: 42.r,
-                  height: 48.r,
+                  width: 56.r,
+                  height: 56.r,
                 ),
                 prefixIcon: prefixIconPath != null
                     ? Padding(
                         padding: EdgeInsets.only(left: 12.w),
                         child: SvgPicture.asset(
                           prefixIconPath!,
-                          height: 24.r,
-                          width: 24.r,
+                          height: 20.r,
+                          width: 20.r,
                           fit: BoxFit.scaleDown,
                           colorFilter: prefixIconColorFilter,
                         ),
@@ -112,7 +123,11 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                 fillColor: white,
                 labelStyle: Theme.of(context).inputDecorationTheme.labelStyle,
               ),
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(color: darkBlue),
+              style: hintStyle ??
+                  Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(color: AppColors.primary),
               dropdownStyleData: DropdownStyleData(
                 padding: EdgeInsets.symmetric(vertical: 8.h),
                 offset: Offset(0, -8.h),
@@ -127,26 +142,32 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                 icon: Visibility(
                   visible: onChanged != null && iconVisibility,
                   child: Assets.icons.arrowDown.svg(
-                    height: 24.r,
-                    width: 24.r,
-                    colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+                    height: 20.r,
+                    width: 20.r,
+                    colorFilter: color != null
+                        ? ColorFilter.mode(color!, BlendMode.srcIn)
+                        : null,
                   ),
                 ),
                 openMenuIcon: RotatedBox(
                   quarterTurns: 2,
                   child: Assets.icons.arrowDown.svg(
-                    height: 24.r,
-                    width: 24.r,
+                    height: 20.r,
+                    width: 20.r,
+                    colorFilter: color != null
+                        ? ColorFilter.mode(color!, BlendMode.srcIn)
+                        : null,
                   ),
                 ),
-                iconEnabledColor: primary,
+                iconEnabledColor: AppColors.primary600,
                 iconSize: 24.r,
               ),
               isExpanded: true,
               onChanged: (value) => onChanged!.call(value),
               onSaved: onChanged,
               validator: validator,
-              selectedItemBuilder: (context) => items.map((e) => e.child).toList(),
+              selectedItemBuilder: (context) =>
+                  items.map((e) => e.child).toList(),
             ),
           ),
         ),
