@@ -29,7 +29,7 @@ class TersUcgen extends StatelessWidget {
     return Transform(
       // Ters üçgeni döndürmek için Transform widget'ını kullanın
       alignment: Alignment.center,
-      transform: Matrix4.rotationZ(180 * 3.1415927 / 180),
+      transform: Matrix4.rotationX(180 * 3.1415927 / 180),
       child: CustomPaint(
         painter: TersUcgenPainter(),
         size: Size(25.w, 25.h), // Ters üçgenin boyutunu ayarlayın

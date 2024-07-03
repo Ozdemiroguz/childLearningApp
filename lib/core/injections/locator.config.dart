@@ -8,7 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:typed_data' as _i11;
+import 'dart:typed_data' as _i15;
 
 import 'package:cross_connectivity/cross_connectivity.dart' as _i8;
 import 'package:dio/dio.dart' as _i9;
@@ -21,18 +21,18 @@ import '../../features/auth/data/repositories/auth_repository_impl.dart'
     as _i22;
 import '../../features/auth/domain/repositories/auth_repository.dart' as _i21;
 import '../../router/router.dart' as _i7;
-import '../../services/jwt/jwt_service.dart' as _i15;
-import '../../services/jwt/jwt_service_impl.dart' as _i16;
+import '../../services/jwt/jwt_service.dart' as _i17;
+import '../../services/jwt/jwt_service_impl.dart' as _i18;
 import '../../services/locale/locale_resources_service.dart' as _i3;
 import '../../services/locale/locale_resources_service_impl.dart' as _i4;
-import '../../services/location/location_service.dart' as _i13;
-import '../../services/location/location_service_impl.dart' as _i14;
-import '../../services/network/network_info.dart' as _i17;
-import '../../services/network/network_info_impl.dart' as _i18;
+import '../../services/location/location_service.dart' as _i10;
+import '../../services/location/location_service_impl.dart' as _i11;
+import '../../services/network/network_info.dart' as _i12;
+import '../../services/network/network_info_impl.dart' as _i13;
 import '../../services/network/network_service.dart' as _i19;
 import '../../services/network/network_service_impl.dart' as _i20;
-import '../models/usecases/base_64_encode.dart' as _i12;
-import '../models/usecases/usecase.dart' as _i10;
+import '../models/usecases/base_64_encode.dart' as _i16;
+import '../models/usecases/usecase.dart' as _i14;
 import 'register_module.dart' as _i23;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -61,17 +61,17 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i5.FlutterSecureStorage>(
         () => registerModule.secureStorage);
     gh.lazySingleton<_i9.Dio>(() => registerModule.dio);
-    gh.lazySingleton<_i10.UseCase<String, _i11.Uint8List>>(
-        () => const _i12.Base64Encode());
-    gh.lazySingleton<_i13.LocationService>(
-        () => const _i14.LocationServiceImpl());
-    gh.lazySingleton<_i15.JwtService>(() => _i16.JwtServiceImpl());
-    gh.lazySingleton<_i17.NetworkInfo>(
-        () => _i18.NetworkInfoImpl(connectivity: gh<_i8.Connectivity>()));
+    gh.lazySingleton<_i10.LocationService>(
+        () => const _i11.LocationServiceImpl());
+    gh.lazySingleton<_i12.NetworkInfo>(
+        () => _i13.NetworkInfoImpl(connectivity: gh<_i8.Connectivity>()));
+    gh.lazySingleton<_i14.UseCase<String, _i15.Uint8List>>(
+        () => const _i16.Base64Encode());
+    gh.lazySingleton<_i17.JwtService>(() => _i18.JwtServiceImpl());
     gh.lazySingleton<_i19.NetworkService>(() => _i20.NetworkServiceImpl(
           gh<_i9.Dio>(),
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
-          networkInfo: gh<_i17.NetworkInfo>(),
+          networkInfo: gh<_i12.NetworkInfo>(),
         ));
     gh.lazySingleton<_i21.AuthRepository>(() => _i22.AuthRepositoryImpl(
           networkService: gh<_i19.NetworkService>(),

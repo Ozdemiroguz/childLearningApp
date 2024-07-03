@@ -3,11 +3,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tododyst/custom/custom_app_bar.dart';
+import 'package:tododyst/custom/password_text_field.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../custom/custom_filled_button.dart';
 import '../../../../custom/custom_text_field.dart';
-import '../../../../gen/assets.gen.dart';
 import '../../../../router/router.dart';
 
 @RoutePage()
@@ -16,6 +17,7 @@ class LoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: CustomAppBar(),
       backgroundColor: bgColor,
       body: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -23,30 +25,26 @@ class LoginPage extends ConsumerWidget {
           padding: EdgeInsets.only(
             left: 16.w,
             right: 16.w,
-            top: 99.h,
+            top: 85.h,
             bottom: 40.h,
           ),
           child: Column(
             children: [
               Logo(),
-              SizedBox(height: 38.h),
+              SizedBox(height: 70.h),
               _UserNamePhoneMail(),
               SizedBox(
-                height: 16.h,
+                height: 18.h,
               ),
-              Password(),
+              _Password(),
               SizedBox(
-                height: 19.h,
+                height: 42.h,
               ),
-              ForgotPassword(),
+              _LoginButton(),
               SizedBox(
-                height: 19.h,
+                height: 42.h,
               ),
-              LoginButton(),
-              SizedBox(
-                height: 50.h,
-              ),
-              RegisterDirection(),
+              _RegisterDirection(),
             ],
           ),
         ),
@@ -58,27 +56,12 @@ class LoginPage extends ConsumerWidget {
 class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: logoBack,
-            borderRadius: BorderRadius.circular(11.r),
-            border: Border.all(color: white, width: 3.r),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primary.withOpacity(0.2),
-                blurRadius: 12.r,
-                offset: const Offset(0, 4), // changes position of shadow
-              ),
-            ],
+    return Text(
+      "Sing In",
+      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+            color: darBlue2,
+            fontSize: 46.sp,
           ),
-          width: 133.r,
-          height: 133.r,
-          child: Assets.icons.tramvay.svg(),
-        ),
-      ],
     );
   }
 }
@@ -86,22 +69,52 @@ class Logo extends StatelessWidget {
 class _UserNamePhoneMail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const CustomTextField(
-      hintText: "Kullanıcı adı, e-posta , telefon",
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 12.w, bottom: 8.h),
+          child: Text(
+            "UserName",
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: darBlue2,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+        ),
+        const CustomTextField(
+          hintText: "Your Username",
+        ),
+      ],
     );
   }
 }
 
-class Password extends ConsumerWidget {
+class _Password extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const CustomTextField(
-      hintText: "Şifre",
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 12.w, bottom: 8.h),
+          child: Text(
+            "Password",
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: darBlue2,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+        ),
+        PasswordTextField(
+          hintText: "Your Password",
+        ),
+      ],
     );
   }
 }
 
-class ForgotPassword extends ConsumerWidget {
+class _ForgotPassword extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Align(
@@ -110,57 +123,51 @@ class ForgotPassword extends ConsumerWidget {
         onTap: () {},
         child: Text(
           "Şifreni mi unuttun?",
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: gray,
-              ),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(),
         ),
       ),
     );
   }
 }
 
-class LoginButton extends ConsumerWidget {
+class _LoginButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
-      // width: double.infinity,
-      // height: 56.h,
       child: CustomFilledButton(
-        onPressed: () {
-          AutoRouter.of(context).replace(const MainRoute());
-        },
-        child: const Text("Giriş Yap"),
+        color: blue,
+        onPressed: () {},
+        child: const Text("Confirm"),
       ),
     );
   }
 }
 
-class RegisterDirection extends StatelessWidget {
+class _RegisterDirection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          "Hesabın yok mu? ",
-          style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                color: AppColors.primary700,
-              ),
-        ),
+        Text("Don't have an account? ",
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontFamily: "Rubik",
+                color: black,
+                fontWeight: FontWeight.w500)),
         GestureDetector(
           onTap: () {
-            AutoRouter.of(context).replace(const RegisterPhoneRoute());
+            context.router.replaceAll([const RegisterRoute()]);
           },
           child: Text(
-            "Kayıt Ol",
+            "Register here",
             //altı çizili
 
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontSize: 14.sp,
-                  color: AppColors.orange,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   decoration: TextDecoration.underline,
-                  decorationColor: AppColors.orange,
                   decorationThickness: 1.5,
+                  decorationColor: blue2,
+                  fontFamily: "Rubik",
+                  color: blue2,
                 ),
           ),
         ),

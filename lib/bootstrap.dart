@@ -37,18 +37,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
       HttpOverrides.global = MyHttpOverrides();
 
-      await SentryFlutter.init(
-        (options) {
-          options.dsn =
-              'https://3b2c6fbf29164da89d5e2761df212588@thoth.piton.com.tr/33';
-
-          options.tracesSampleRate = 1.0;
-          options.sendDefaultPii = true;
-          options.maxRequestBodySize = MaxRequestBodySize.small;
-          options.maxResponseBodySize = MaxResponseBodySize.small;
-        },
-      );
-
       appVersion = (await PackageInfo.fromPlatform()).version;
 
       runApp(

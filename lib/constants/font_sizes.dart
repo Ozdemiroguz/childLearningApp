@@ -1,12 +1,13 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-const kFontFamily = "Popins";
+const kFontFamily = "SansitaOne";
 
 const kLineHeight1_0 = 1.0;
 const kLineHeight1_15 = 1.15;
 const kLineHeight1_18 = 1.18;
 const kLineHeight1_21 = 1.21;
 const kLineHeight1_24 = 1.24;
+const kLineHeight1_26 = 1.26;
 const kLineHeight1_3 = 1.3;
 const kLineHeight1_33 = 1.33;
 const kLineHeight1_36 = 1.36;

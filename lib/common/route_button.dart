@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rota/common/circular_back_container.dart';
+import 'package:tododyst/common/circular_back_container.dart';
 
 import '../constants/colors.dart';
 
@@ -62,10 +62,7 @@ class RouteButton extends StatelessWidget {
               child: GestureDetector(
                 onTap: callbackIn,
                 child: iconData ??
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.primary600,
-                    ),
+                    const Icon(Icons.arrow_forward_ios, color: darkBlue1),
               ),
             ),
           ],

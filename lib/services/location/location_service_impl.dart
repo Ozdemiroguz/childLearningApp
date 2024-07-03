@@ -4,7 +4,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:rota/core/extensions/position_extension.dart';
+import 'package:tododyst/core/extensions/position_extension.dart';
 
 import '../../constants/durations.dart';
 import '../../constants/failure_message.dart';
@@ -53,33 +53,49 @@ class LocationServiceImpl implements LocationService {
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied) {
-          return left(Failure.locationPermissionDenied(message: locationPermissionDeniedMessage));
+          return left(
+            Failure.locationPermissionDenied(
+              message: locationPermissionDeniedMessage,
+            ),
+          );
         }
       } else if (permission == LocationPermission.deniedForever) {
         // await Geolocator.openLocationSettings();
-        return left(Failure.locationPermissionDenied(message: locationDeniedForever));
+        return left(
+          Failure.locationPermissionDenied(message: locationDeniedForever),
+        );
       } else {
-        final position = await Geolocator.getCurrentPosition().timeout(locationTimeoutDuration);
+        final position = await Geolocator.getCurrentPosition()
+            .timeout(locationTimeoutDuration);
 
         return right(position.toLatLng);
       }
 
       return left(
         Failure.locationPermissionDenied(
-          message:
-              permission == LocationPermission.deniedForever ? locationDeniedForever : locationPermissionDeniedMessage,
+          message: permission == LocationPermission.deniedForever
+              ? locationDeniedForever
+              : locationPermissionDeniedMessage,
         ),
       );
     } on PermissionDeniedException {
-      return left(Failure.locationPermissionDenied(message: locationPermissionDeniedMessage));
+      return left(
+        Failure.locationPermissionDenied(
+          message: locationPermissionDeniedMessage,
+        ),
+      );
     } on LocationServiceDisabledException {
-      return left(Failure.locationServiceDisabled(message: locationServiceDisabledMessage));
+      return left(
+        Failure.locationServiceDisabled(
+          message: locationServiceDisabledMessage,
+        ),
+      );
     } on TimeoutException {
       final lastKnownPosition = await Geolocator.getLastKnownPosition();
 
-      return optionOf(lastKnownPosition)
-          .map((t) => t.toLatLng)
-          .toEither(() => Failure.connectionTimedOut(connectionTimedOutMessage));
+      return optionOf(lastKnownPosition).map((t) => t.toLatLng).toEither(
+            () => Failure.connectionTimedOut(connectionTimedOutMessage),
+          );
     }
   }
 }

@@ -1,4 +1,4 @@
-name: rota
+name: tododyst
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -42,6 +42,7 @@ dependencies:
   http_parser: ^4.0.2
   injectable: ^2.3.2
   intl: ^0.19.0
+  intro_slider: ^4.2.1
   json_annotation: ^4.8.1
   jwt_decoder: ^2.0.1
   latlong2: ^0.9.0
@@ -77,21 +78,14 @@ flutter:
     - assets/lang/
 
   fonts:
-    - family: Popins
+    - family: SansitaOne
       fonts:
-        - asset: assets/fonts/Poppins-Thin.ttf
-        - weight: 200
-        - asset: assets/fonts/Poppins-Regular.ttf
-        - weight: 400
-        - asset: assets/fonts/Poppins-Medium.ttf
-        - weight: 500
-        - asset: assets/fonts/Poppins-SemiBold.ttf
-        - weight: 600
-        - asset: assets/fonts/Poppins-Bold.ttf
-        - weight: 700
-        - asset: assets/fonts/Poppins-ExtraBold.ttf
-        - weight: 800
-        - asset: assets/fonts/Poppins-Italic.ttf
+        - asset: assets/fonts/SansitaOne.ttf
+          weight: 500
+        
+
+
+       
      
       
 flutter_gen:

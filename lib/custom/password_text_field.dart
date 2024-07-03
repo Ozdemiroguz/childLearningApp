@@ -23,6 +23,7 @@ class PasswordTextField extends HookWidget {
 
   ///Default is lock icon
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final String? hintText;
   final String? labelText;
   final bool? isNewPassword;
@@ -34,6 +35,7 @@ class PasswordTextField extends HookWidget {
     this.textInputAction,
     this.textInputType = TextInputType.visiblePassword,
     this.prefixIcon,
+    this.suffixIcon,
     this.controller,
     this.validator,
     this.onChanged,
@@ -71,7 +73,7 @@ class PasswordTextField extends HookWidget {
       validator: validator,
       prefixIcon: prefixIcon,
       prefixIconConstraints: prefixIconConstraints,
-      suffixIconConstraints: BoxConstraints(minHeight: 48.r, minWidth: 48.r),
+      suffixIconConstraints: BoxConstraints(minHeight: 12.r, minWidth: 47.r),
       suffixIcon: GestureDetector(
         onTap: () => obscureText.value = !obscureText.value,
         child: getSuffixIcon(
@@ -99,16 +101,13 @@ class PasswordTextField extends HookWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 10.w,
-        vertical: 16.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 16.0.r, vertical: 12.r),
       child: image.svg(
-        height: 24.r,
+        height: 26.r,
         width: 24.r,
         fit: BoxFit.scaleDown,
         colorFilter: ColorFilter.mode(
-          isDisabled ? gray : AppColors.primary,
+          isDisabled ? darkGray : darkBlue1,
           BlendMode.srcIn,
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rota/core/injections/locator.config.dart';
+import 'package:tododyst/core/injections/locator.config.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../router/router.dart';
@@ -14,6 +14,8 @@ Future<void> configureDependencies() => getIt.init();
 
 final appRouterProvider = Provider.autoDispose((ref) => getIt<AppRouter>());
 
-final localeResourcesServiceProvider = Provider.autoDispose((ref) => getIt<LocaleResourcesService>());
+final localeResourcesServiceProvider =
+    Provider.autoDispose((ref) => getIt<LocaleResourcesService>());
 
-final authRepositoryProvider = Provider.autoDispose((ref) => getIt<AuthRepository>());
+final authRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<AuthRepository>());

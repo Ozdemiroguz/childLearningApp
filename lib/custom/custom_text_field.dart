@@ -116,21 +116,16 @@ class CustomTextField extends HookWidget {
       textAlign: textAlign,
       decoration: InputDecoration(
         counterText: "",
-        suffixIconConstraints: BoxConstraints(
-          maxHeight: suffixIconConstraints?.maxHeight ?? 56.h,
-          maxWidth: suffixIconConstraints?.maxWidth ?? 56.w,
-        ),
+        suffixIconConstraints: suffixIconConstraints,
         prefixIconConstraints: prefixIconConstraints,
         suffixIcon: suffixIcon ??
             SizedBox(
-              width: 1.w,
-              height: 56.h,
+              height: 50.h,
             ),
         prefixIcon: prefixIcon,
         enabled: enabled,
         contentPadding: contentPadding,
-        // fillColor: !enabled ? gray.withOpacity(0.4) : fillColor,
-        fillColor: fillColor ?? (!enabled ? gray : null),
+        fillColor: fillColor,
         error: errorWidget,
         hintText: hintText,
         hintStyle: hintStyle,
@@ -142,68 +137,6 @@ class CustomTextField extends HookWidget {
         errorBorder: errorBorder,
         disabledBorder: disabledBorder,
         focusedErrorBorder: focusedErrorBorder,
-      ),
-    );
-  }
-}
-
-class CustomTextFieldBorderless extends HookWidget {
-  final String hintText;
-  final Widget prefixIcon;
-  final Widget? suffixIcon;
-  final VoidCallback? onEditingComplete;
-  final ValueChanged<String>? onChanged;
-  final ValueChanged<String?>? onSaved;
-  final FocusNode? focusNode;
-
-  const CustomTextFieldBorderless({
-    required this.hintText,
-    required this.prefixIcon,
-    this.suffixIcon,
-    this.onEditingComplete,
-    this.onChanged,
-    this.onSaved,
-    this.focusNode,
-  });
-  @override
-  Widget build(BuildContext context) {
-    final focusNode = this.focusNode ?? useFocusNode();
-    useListenable(focusNode);
-    return TextField(
-      onEditingComplete: onEditingComplete,
-      onChanged: onChanged,
-      onSubmitted: onSaved,
-      decoration: InputDecoration(
-        fillColor: bgColor,
-        hintText: hintText,
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon ??
-            SizedBox(
-              height: 56.h,
-            ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.r),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.r),
-          ),
-          borderSide: BorderSide.none,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.r),
-          ),
-          borderSide: BorderSide.none,
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.r),
-          ),
-          borderSide: BorderSide.none,
-        ),
       ),
     );
   }

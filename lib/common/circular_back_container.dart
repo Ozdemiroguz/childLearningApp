@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rota/constants/colors.dart';
+import 'package:tododyst/constants/colors.dart';
 
 class CircularBackContainer extends StatelessWidget {
   final Color? color;
@@ -19,12 +19,13 @@ class CircularBackContainer extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Align(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          child,
-        ],
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            child,
+          ],
+        ),
+      ),
     );
     // TODO: implement build
   }

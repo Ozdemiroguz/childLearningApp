@@ -183,7 +183,9 @@ class CustomFilledButton extends HookWidget {
         //border side color
         side: WidgetStateProperty.resolveWith<BorderSide>(
           (states) => BorderSide(
-              color: borderColor ?? (color ?? AppColors.primary), width: 1.0.r),
+            color: borderColor ?? (color ?? darkBlue1),
+            width: 1.0.r,
+          ),
         ),
 
         backgroundColor: WidgetStateProperty.resolveWith<Color>(
@@ -191,7 +193,7 @@ class CustomFilledButton extends HookWidget {
             if (states.contains(WidgetState.disabled)) {
               return Colors.grey;
             } else {
-              return color ?? AppColors.primary;
+              return color ?? darkBlue1;
             }
           },
         ),
@@ -201,7 +203,7 @@ class CustomFilledButton extends HookWidget {
               buttonText!,
               style: Theme.of(context)
                   .textTheme
-                  .displaySmall!
+                  .displayMedium!
                   .copyWith(color: Colors.white),
             )
           : child ??
@@ -209,7 +211,7 @@ class CustomFilledButton extends HookWidget {
                 "CustomFilledButton",
                 style: Theme.of(context)
                     .textTheme
-                    .displaySmall!
+                    .displayMedium!
                     .copyWith(color: Colors.white),
               ),
     );

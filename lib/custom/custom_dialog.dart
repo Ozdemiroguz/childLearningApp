@@ -79,7 +79,7 @@ abstract final class CustomDialog extends StatelessWidget {
     return showDialog<T>(
       context: context,
       barrierDismissible: false,
-      barrierColor: AppColors.primary.withOpacity(0.4),
+      barrierColor: darkBlue1.withOpacity(.6),
       builder: (context) => this,
     );
   }
@@ -220,7 +220,8 @@ class _SimpleDialog extends StatelessWidget {
                     SizedBox(height: 48.h),
                   Row(
                     children: [
-                      if (onSecondaryButtonPressed != null && secondaryButtonText != null) ...[
+                      if (onSecondaryButtonPressed != null &&
+                          secondaryButtonText != null) ...[
                         Expanded(
                           child: _OutlinedButton(
                             onPressed: onSecondaryButtonPressed!,
@@ -230,7 +231,11 @@ class _SimpleDialog extends StatelessWidget {
                         SizedBox(width: 10.w),
                       ],
                       Expanded(
-                        child: _Button(onPressed: onPrimaryButtonPressed, type: type, buttonText: primaryButtonText),
+                        child: _Button(
+                          onPressed: onPrimaryButtonPressed,
+                          type: type,
+                          buttonText: primaryButtonText,
+                        ),
                       ),
                     ],
                   ),
@@ -273,9 +278,14 @@ class _Icon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (type) {
-      _Type.failure => BackgroundedIcon(backgroundColor: red, icon: Assets.icons.failure),
-      _Type.success => BackgroundedIcon(backgroundColor: green, icon: Assets.icons.success),
-      _Type.warning => BackgroundedIcon(backgroundColor: AppColors.primary, icon: Assets.icons.alert),
+      _Type.failure => BackgroundedIcon(
+          backgroundColor: Colors.red,
+          icon: Assets.icons.failure,
+        ),
+      _Type.success =>
+        BackgroundedIcon(backgroundColor: green, icon: Assets.icons.success),
+      _Type.warning =>
+        BackgroundedIcon(backgroundColor: darkBlue1, icon: Assets.icons.alert),
     };
   }
 }
@@ -352,7 +362,7 @@ class _OutlinedButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.primary.withOpacity(.6),
+                color: darkBlue1.withOpacity(.6),
                 fontSize: 16.sp,
               ),
         ),

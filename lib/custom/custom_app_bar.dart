@@ -66,7 +66,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rota/constants/colors.dart';
+import 'package:tododyst/constants/colors.dart';
 
 import '../gen/assets.gen.dart';
 
@@ -99,14 +99,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        left: 20.w,
-        right: 20.w,
-        top: 58.h,
-      ),
       decoration: BoxDecoration(
-        color: backgroundColor ?? darkBgColor,
+        color: white,
+        boxShadow: [
+          BoxShadow(
+            color: black.withOpacity(0.1),
+            offset: const Offset(0, 2),
+            blurRadius: 4,
+          ),
+        ],
       ),
+      padding:
+          EdgeInsets.only(left: 30.w, right: 30.w, top: 50.h, bottom: 24.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -116,40 +120,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   context.router.maybePop();
                 },
             child: leading ??
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: onBackPressed ?? () => context.router.maybePop(),
-                      child: SizedBox(
-                        width: 24.w,
-                        height: 24.h,
-                        child: Assets.icons.arrowLeft.svg(),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 16.w,
-                    ),
-                    Text(
-                      leadingText ?? "",
-                      style: Theme.of(context).textTheme.displayMedium,
-                    ),
-                  ],
+                GestureDetector(
+                  onTap: onBackPressed ?? () => context.router.maybePop(),
+                  child: SizedBox(
+                      width: 24.w,
+                      height: 24.h,
+                      child: Assets.icons.vector.svg()),
                 ),
           ),
+          Assets.images.tododysLogo.image(
+            height: 36.h,
+          ),
+          SizedBox(height: 24.h, child: Assets.icons.threedot.svg()),
 
           //actions null değilse ekle yoksa boş bırak
-          if (actions != null)
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: actions!,
-              ),
-            ),
         ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight((toolbarHeight ?? 24.h) + 80.h);
+  Size get preferredSize => Size.fromHeight((toolbarHeight ?? 30.h) + 80.h);
 }

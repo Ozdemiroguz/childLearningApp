@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-  
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -14,7 +13,9 @@ import 'core/injections/locator.dart';
 import 'gen/assets.gen.dart';
 import 'router/router.dart';
 
-final _isTokenExpiredProvider = FutureProvider.autoDispose((ref) => ref.watch(authRepositoryProvider).isTokenExpired());
+final _isTokenExpiredProvider = FutureProvider.autoDispose(
+  (ref) => ref.watch(authRepositoryProvider).isTokenExpired(),
+);
 
 @RoutePage()
 class SplashPage extends StatefulHookConsumerWidget {
@@ -34,14 +35,14 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       () {
         FlutterNativeSplash.remove();
 
-        Future.delayed(const Duration(seconds: 3), () async {
-          if (await ref.watch(_isTokenExpiredProvider.future)) {
+        Future.delayed(const Duration(seconds: 1), () async {
+          if (!await ref.watch(_isTokenExpiredProvider.future)) {
             if (context.mounted) {
-              context.replaceRoute(const LoginRoute());
+              context.replaceRoute(const IntroRoute());
             }
           } else {
             if (context.mounted) {
-              return context.replaceRoute(const HomeRoute());
+              return context.replaceRoute(const LoginRoute());
             }
           }
         });
@@ -51,7 +52,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       [],
     );
     return Material(
-      color: darkBlue,
+      color: white,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -64,8 +65,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             children: [
               SizedBox(
                 width: 240.r,
-                height: 240.r,
-                child: Assets.icons.pitonLogo.svg(width: 240.r, height: 240.r),
+                child: Assets.images.tododysTLogo.image(fit: BoxFit.fill),
               ),
             ],
           ),
@@ -73,7 +73,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             bottom: 36.h,
             right: 0,
             left: 0,
-            child: const _PitonLogoAndVersionInfo(),
+            child: const _TododysLogoAndVersionInfo(),
           ),
         ],
       ),
@@ -81,18 +81,20 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
 }
 
-class _PitonLogoAndVersionInfo extends StatelessWidget {
-  const _PitonLogoAndVersionInfo();
+class _TododysLogoAndVersionInfo extends StatelessWidget {
+  const _TododysLogoAndVersionInfo();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Assets.icons.pitonLogoWhite.svg(width: 108.w, height: 36.h),
         SizedBox(height: 20.h),
         Text(
           'V.$appVersion',
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: white.withOpacity(.4)),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14.sp,
+              ),
         ),
       ],
     );

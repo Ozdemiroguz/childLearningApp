@@ -29,11 +29,12 @@ class BackgroundedIcon extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Assets.images.iconBg.image(color: backgroundColor),
           icon.svg(
             height: iconSize ?? 32.r,
             width: iconSize ?? 32.r,
-            colorFilter: iconColor != null ? ColorFilter.mode(iconColor!, BlendMode.srcIn) : null,
+            colorFilter: iconColor != null
+                ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
+                : null,
           ),
         ],
       ),

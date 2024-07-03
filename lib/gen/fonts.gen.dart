@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Popins
-  static const String popins = 'Popins';
+  /// Font family: SansitaOne
+  static const String sansitaOne = 'SansitaOne';
 }

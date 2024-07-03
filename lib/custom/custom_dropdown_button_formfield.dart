@@ -66,8 +66,8 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                       hintText!,
                       style: hintStyle ??
                           Theme.of(context).textTheme.labelLarge?.copyWith(
-                              color:
-                                  color ?? AppColors.primary.withOpacity(.4)),
+                                color: color ?? darkBlue1.withOpacity(.4),
+                              ),
                     )
                   : null,
               value: value,
@@ -120,14 +120,14 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                       )
                     : null,
                 isCollapsed: true,
-                fillColor: white,
+                fillColor: lightBlue0,
                 labelStyle: Theme.of(context).inputDecorationTheme.labelStyle,
               ),
               style: hintStyle ??
                   Theme.of(context)
                       .textTheme
                       .labelLarge
-                      ?.copyWith(color: AppColors.primary),
+                      ?.copyWith(color: darkBlue1),
               dropdownStyleData: DropdownStyleData(
                 padding: EdgeInsets.symmetric(vertical: 8.h),
                 offset: Offset(0, -8.h),
@@ -159,7 +159,7 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
                         : null,
                   ),
                 ),
-                iconEnabledColor: AppColors.primary600,
+                iconEnabledColor: darkBlue1,
                 iconSize: 24.r,
               ),
               isExpanded: true,

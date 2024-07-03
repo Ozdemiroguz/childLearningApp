@@ -1,9 +1,9 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-const appName = "Rota App"; 
+const appName = "tododyst App";
 const languagePath = "assets/lang";
 
-const passwordRules=[
+const passwordRules = [
   "6 rakamdan oluşmalıdır.",
   "Ardışık (123456) karakter içermemelidir.",
   "Yan yana beşten fazla tekrar eden (111111,222222) karakter içermemelidir.",

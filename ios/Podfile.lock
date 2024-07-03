@@ -25,7 +25,7 @@ PODS:
     - FlutterMacOS
   - permission_handler_apple (9.3.0):
     - Flutter
-  - ReachabilitySwift (5.2.2)
+  - ReachabilitySwift (5.2.3)
   - Sentry/HybridSDK (8.25.2)
   - sentry_flutter (8.2.0):
     - Flutter
@@ -106,7 +106,7 @@ SPEC CHECKSUMS:
   package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
-  ReachabilitySwift: 2128f3a8c9107e1ad33574c6e58e8285d460b149
+  ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
   Sentry: 51b056d96914a741f63eca774d118678b1eb05a1
   sentry_flutter: e8397d13e297a5d4b6be8a752e33140b21c5cc97
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78

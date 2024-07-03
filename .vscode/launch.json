@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Rota",
+            "name": "tododyst",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "Rota (profile mode)",
+            "name": "tododyst (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "Rota (release mode)",
+            "name": "tododyst (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

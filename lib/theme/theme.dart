@@ -12,8 +12,8 @@ import '../constants/text_styles.dart';
 import '../gen/assets.gen.dart';
 
 final theme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
-  scaffoldBackgroundColor: darkBgColor,
+  colorScheme: ColorScheme.fromSeed(seedColor: darkBlue1),
+  scaffoldBackgroundColor: white,
   // outlinedButtonTheme: _outLinedButtonThemeData,
   filledButtonTheme: _filledButtomThemeData,
   // datePickerTheme: _datePickerThemeData,
@@ -21,18 +21,20 @@ final theme = ThemeData(
   cupertinoOverrideTheme: _cupertinoThemeData,
   inputDecorationTheme: _inputDecorationTheme,
   // bottomSheetTheme: _bottomSheetThemeData,
-  primaryColorLight: AppColors.primary,
+  primaryColorLight: lightBlue0,
+  primaryColor: darkBlue1,
+  primaryColorDark: lightBlue1,
+
   textButtonTheme: _textButtonThemeData,
   actionIconTheme: _actionIconThemeData,
   iconButtonTheme: _iconButtonThemeData,
   dialogBackgroundColor: white,
   // dialogTheme: _dialogTheme,
-  primaryColor: AppColors.primary,
 
   primaryTextTheme: _textTheme,
   popupMenuTheme: _popupMenuThemeData,
   dividerTheme: _dividerThemeData,
-  dividerColor: gray,
+  dividerColor: darkGray,
   drawerTheme: _drawerThemeData,
   listTileTheme: _listTileThemeData,
   checkboxTheme: _checkboxThemeData,
@@ -45,21 +47,21 @@ final theme = ThemeData(
 
 final _filledButtomThemeData = FilledButtonThemeData(
   style: ButtonStyle(
-    maximumSize: WidgetStatePropertyAll(Size.fromHeight(56.r)),
-    minimumSize: WidgetStatePropertyAll(Size.fromHeight(56.r)),
+    maximumSize: WidgetStatePropertyAll(Size.fromHeight(46.r)),
+    minimumSize: WidgetStatePropertyAll(Size.fromHeight(46.r)),
     backgroundColor: WidgetStateProperty.resolveWith<Color>(
       (states) {
         if (states.contains(WidgetState.disabled)) {
-          return gray;
+          return darkGray;
         } else {
-          return AppColors.primary;
+          return darkGray;
         }
       },
     ),
     side: const WidgetStatePropertyAll(BorderSide.none),
     padding: const WidgetStatePropertyAll(EdgeInsets.zero),
     shape: WidgetStatePropertyAll(
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
     ),
     textStyle: WidgetStatePropertyAll(displaySmall.copyWith(color: white)),
     foregroundColor: const WidgetStatePropertyAll(white),
@@ -75,7 +77,7 @@ final _popupMenuThemeData = PopupMenuThemeData(
 );
 
 final _floatingActionButtonThemeData = FloatingActionButtonThemeData(
-  backgroundColor: AppColors.primary,
+  backgroundColor: darkBlue1,
   foregroundColor: bgColor,
   elevation: 0,
   focusElevation: 0,
@@ -97,7 +99,7 @@ final _floatingActionButtonThemeData = FloatingActionButtonThemeData(
 );
 
 const _cupertinoThemeData = CupertinoThemeData(
-  primaryColor: AppColors.primary,
+  primaryColor: darkBlue1,
   applyThemeToAll: true,
   scaffoldBackgroundColor: bgColor,
   barBackgroundColor: Colors.white,
@@ -106,48 +108,48 @@ const _cupertinoThemeData = CupertinoThemeData(
 
 final _inputDecorationTheme = InputDecorationTheme(
   constraints: BoxConstraints(
-    minHeight: 56.h,
+    minHeight: 48.h,
     maxHeight: 177.h,
     maxWidth: 328.w,
     minWidth: 42.w,
   ),
   filled: true,
-  fillColor: white,
-  iconColor: AppColors.primary,
+  fillColor: lightBlue0,
+  iconColor: darkGray,
   suffixIconColor: darkBlue,
   prefixIconColor: darkBlue,
-  hintStyle: bodyLarge.copyWith(color: gray),
+  hintStyle: bodyLarge.copyWith(color: lightGreen),
   labelStyle: bodyLarge.copyWith(color: red),
   errorStyle: bodySmall.copyWith(color: red),
   errorMaxLines: 2,
-  contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
+  contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
   floatingLabelStyle: bodySmall.copyWith(color: darkBlue),
   enabledBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.r),
-    borderSide: BorderSide(color: gray, width: 0.5.r),
+    borderRadius: BorderRadius.circular(20.r),
+    borderSide: BorderSide.none,
   ),
   focusedBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.r),
-    borderSide: BorderSide(color: AppColors.primary, width: 0.5.r),
+    borderRadius: BorderRadius.circular(20.r),
+    borderSide: BorderSide.none,
   ),
   errorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.r),
-    borderSide: BorderSide(color: red, width: 0.5.r),
+    borderRadius: BorderRadius.circular(20.r),
+    borderSide: BorderSide.none,
   ),
   disabledBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.r),
+    borderRadius: BorderRadius.circular(20.r),
     borderSide: BorderSide.none,
   ),
   focusedErrorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.r),
-    borderSide: BorderSide(color: red, width: 0.5.r),
+    borderRadius: BorderRadius.circular(20.r),
+    borderSide: BorderSide.none,
   ),
 );
 
 final _textButtonThemeData = TextButtonThemeData(
   style: ButtonStyle(
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    foregroundColor: const WidgetStatePropertyAll(AppColors.primary),
+    foregroundColor: const WidgetStatePropertyAll(darkGray),
     backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
     overlayColor: const WidgetStatePropertyAll(Colors.transparent),
     padding: const WidgetStatePropertyAll(EdgeInsets.zero),
@@ -166,8 +168,8 @@ final _actionIconThemeData = ActionIconThemeData(
 final _iconButtonThemeData = IconButtonThemeData(style: _iconButtonStyle);
 
 final _iconButtonStyle = ButtonStyle(
-  foregroundColor: const WidgetStatePropertyAll(AppColors.primary),
-  backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
+  foregroundColor: const WidgetStatePropertyAll(darkGray),
+  backgroundColor: const WidgetStatePropertyAll(darkGray),
   iconColor: const WidgetStatePropertyAll(bgColor),
   padding: WidgetStatePropertyAll(EdgeInsets.all(10.r)),
   shape: const WidgetStatePropertyAll(CircleBorder()),
@@ -182,7 +184,7 @@ final _iconButtonStyle = ButtonStyle(
 // );
 
 final _dividerThemeData = DividerThemeData(
-  color: gray,
+  color: darkGray,
   thickness: 1.r,
   space: 0,
 );
@@ -200,19 +202,19 @@ final _listTileThemeData = ListTileThemeData(
   textColor: textColor,
   tileColor: bgColor,
   horizontalTitleGap: 0,
-  iconColor: AppColors.primary,
+  iconColor: darkGray,
 );
 
 final _checkboxThemeData = CheckboxThemeData(
   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
   checkColor: const WidgetStatePropertyAll(white),
   shape: RoundedRectangleBorder(
-    side: BorderSide(color: AppColors.primary, width: 1.r),
+    side: BorderSide(color: darkGray, width: 1.r),
     borderRadius: BorderRadius.circular(4.r),
   ),
   side: BorderSide(color: darkBlue.withOpacity(.2), width: 1.r),
   fillColor: WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.selected)) return AppColors.primary;
+    if (states.contains(WidgetState.selected)) return darkGray;
     return null;
   }),
 );
@@ -220,8 +222,8 @@ final _checkboxThemeData = CheckboxThemeData(
 final _radioThemeData = RadioThemeData(
   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
   fillColor: WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.selected)) return AppColors.primary;
-    return gray;
+    if (states.contains(WidgetState.selected)) return darkGray;
+    return darkGray;
   }),
 );
 
