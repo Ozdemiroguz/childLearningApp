@@ -16,20 +16,32 @@ String get emptyEmailFailureMessage => "emptyEmailFailureMessage".tr();
 ///password
 String get shortPasswordFailureMessage => "shortPasswordFailureMessage".tr();
 String get longPasswordFailureMessage => "longPasswordFailureMessage".tr();
-String get invalidPasswordFailureMessage => "invalidPasswordFailureMessage".tr();
+String get invalidPasswordFailureMessage =>
+    "invalidPasswordFailureMessage".tr();
 String get emptyPasswordFailureMessage => "emptyPasswordFailureMessage".tr();
-String get emptyNewPasswordFailureMessage => "emptyNewPasswordFailureMessage".tr();
-String get passwordNotMatchFailureMessage => "passwordNotMatchFailureMessage".tr();
+String get emptyNewPasswordFailureMessage =>
+    "emptyNewPasswordFailureMessage".tr();
+String get passwordNotMatchFailureMessage =>
+    "passwordNotMatchFailureMessage".tr();
 
-String get passwordLowerCaseFailureMessage => "passwordLowerCaseFailureMessage".tr();
-String get passwordUpperCaseFailureMessage => "passwordUpperCaseFailureMessage".tr();
-String get passwordSpecialCharacterFailureMessage => "passwordSpecialCharacterFailureMessage".tr();
-String get passwordTurkishCharacterFailureMessage => "passwordTurkishCharacterFailureMessage".tr();
+String get passwordLowerCaseFailureMessage =>
+    "passwordLowerCaseFailureMessage".tr();
+String get passwordUpperCaseFailureMessage =>
+    "passwordUpperCaseFailureMessage".tr();
+String get passwordSpecialCharacterFailureMessage =>
+    "passwordSpecialCharacterFailureMessage".tr();
+String get passwordTurkishCharacterFailureMessage =>
+    "passwordTurkishCharacterFailureMessage".tr();
 
 ///description
-String get emptyDescriptionStatusFailureMessage => "emptyDescriptionStatusFailureMessage".tr();
+String get emptyDescriptionStatusFailureMessage =>
+    "emptyDescriptionStatusFailureMessage".tr();
 String get emptyDescriptionFailureMessage => "emptyCommentFailureMessage".tr();
 
 ///amount
 String get invalidAmountFailureMessage => "invalidAmountFailureMessage".tr();
 String get zeroAmountFailureMessage => "zeroAmountFailureMessage".tr();
+
+//pınput
+String get emptyPinputFailureMessage => "emptyPinputFailureMessage".tr();
+String get invalidPinputFailureMessage => "wrongPinFailureMessage".tr();

@@ -13,7 +13,7 @@ class PhoneNumberTextInputFormatter extends TextInputFormatter {
   ) {
     String text = newValue.text;
 
-    if (text.startsWith('+255 ')) {
+    if (text.startsWith('+90 ')) {
       final rawText = text.substring(5);
       if (text.length > 14 || rawText.contains(RegExp("[^0-9]"))) {
         text = oldValue.text;
@@ -41,7 +41,9 @@ class PhoneNumberTextInputFormatter extends TextInputFormatter {
 class PhoneNumberFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue,) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     // If the new value is empty, allow clearing the field
     if (newValue.text.isEmpty) {
       return newValue;
@@ -51,17 +53,25 @@ class PhoneNumberFormatter extends TextInputFormatter {
     final cleanValue = newValue.text.replaceAll(RegExp(r'\D'), '');
 
     // Apply #### ### ## ## format
+
+    if (cleanValue.length > 10) {
+      return TextEditingValue(
+        text: oldValue.text,
+        selection: TextSelection.collapsed(offset: oldValue.text.length),
+      );
+    }
+
     for (int i = 0; i < cleanValue.length; i++) {
       //parantezleme yaparak 4, 7 ve 9. karakterlerin arasına boş55luk ekliyoruz
 
       if (i == 0) {
         newText.write('(');
-      } 
-       if (i == 3) {
+      }
+      if (i == 3) {
         newText.write(')');
-      } 
-      
-      if (i == 3 || i == 6 ) {
+      }
+
+      if (i == 3 || i == 6) {
         newText.write(' ${cleanValue[i]}');
       } else {
         newText.write(cleanValue[i]);
@@ -76,7 +86,8 @@ class PhoneNumberFormatter extends TextInputFormatter {
 }
 
 final specialAndAlphaCharacters = RegExp(
-    r"[a-zA-Z\$\R\Ü\Ö\T\Q\Ç\%\#\@\_\:\!\?\&\|\£\½\§\{\[\]\}\\\>\<\=\'\.\,\*\-\,+\ü\ğ\ö\ç\/\;(\) ]+$",);
+  r"[a-zA-Z\$\R\Ü\Ö\T\Q\Ç\%\#\@\_\:\!\?\&\|\£\½\§\{\[\]\}\\\>\<\=\'\.\,\*\-\,+\ü\ğ\ö\ç\/\;(\) ]+$",
+);
 
 //this is the regexp for all non alpha numeric characters
 final RegExp nonAlphaNumericRegExp = RegExp("[^a-zA-Z0-9]");

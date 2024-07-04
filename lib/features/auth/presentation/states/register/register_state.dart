@@ -12,9 +12,12 @@ class RegisterState with _$RegisterState {
   factory RegisterState({
     required bool isLoading,
     required String phoneNumber,
+    required String countryCode,
+    required String pinput,
     required String password,
     required Option<Failure> failure,
-    required Option<ValueFailure> userNameFailure,
+    required Option<ValueFailure> phoneNumberFailure,
+    required Option<ValueFailure> pinputFailure,
     required Option<ValueFailure> passwordFailure,
     required ValidationErrorVisibility validationErrorVisibility,
   }) = _RegisterState;
@@ -22,14 +25,17 @@ class RegisterState with _$RegisterState {
   factory RegisterState.initial() => RegisterState(
         isLoading: false,
         phoneNumber: "",
+        countryCode: "+90",
+        pinput: "",
         password: "",
         failure: none(),
-        userNameFailure: none(),
+        phoneNumberFailure: none(),
+        pinputFailure: none(),
         passwordFailure: none(),
         validationErrorVisibility: const ValidationErrorVisibility.hide(),
       );
 
   const RegisterState._();
 
-  bool get isFormValid => userNameFailure.isNone() && passwordFailure.isNone();
+  //bool get isFormValid => phoneNumber.isNone() && passwordFailure.isNone();
 }

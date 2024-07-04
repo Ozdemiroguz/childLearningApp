@@ -18,10 +18,13 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterState {
   bool get isLoading => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
+  String get pinput => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   Option<Failure> get failure => throw _privateConstructorUsedError;
-  Option<ValueFailure> get userNameFailure =>
+  Option<ValueFailure> get phoneNumberFailure =>
       throw _privateConstructorUsedError;
+  Option<ValueFailure> get pinputFailure => throw _privateConstructorUsedError;
   Option<ValueFailure> get passwordFailure =>
       throw _privateConstructorUsedError;
   ValidationErrorVisibility get validationErrorVisibility =>
@@ -41,9 +44,12 @@ abstract class $RegisterStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       String phoneNumber,
+      String countryCode,
+      String pinput,
       String password,
       Option<Failure> failure,
-      Option<ValueFailure> userNameFailure,
+      Option<ValueFailure> phoneNumberFailure,
+      Option<ValueFailure> pinputFailure,
       Option<ValueFailure> passwordFailure,
       ValidationErrorVisibility validationErrorVisibility});
 
@@ -65,9 +71,12 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
   $Res call({
     Object? isLoading = null,
     Object? phoneNumber = null,
+    Object? countryCode = null,
+    Object? pinput = null,
     Object? password = null,
     Object? failure = null,
-    Object? userNameFailure = null,
+    Object? phoneNumberFailure = null,
+    Object? pinputFailure = null,
     Object? passwordFailure = null,
     Object? validationErrorVisibility = null,
   }) {
@@ -80,6 +89,14 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      pinput: null == pinput
+          ? _value.pinput
+          : pinput // ignore: cast_nullable_to_non_nullable
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -88,9 +105,13 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Option<Failure>,
-      userNameFailure: null == userNameFailure
-          ? _value.userNameFailure
-          : userNameFailure // ignore: cast_nullable_to_non_nullable
+      phoneNumberFailure: null == phoneNumberFailure
+          ? _value.phoneNumberFailure
+          : phoneNumberFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
+      pinputFailure: null == pinputFailure
+          ? _value.pinputFailure
+          : pinputFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
       passwordFailure: null == passwordFailure
           ? _value.passwordFailure
@@ -124,9 +145,12 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
   $Res call(
       {bool isLoading,
       String phoneNumber,
+      String countryCode,
+      String pinput,
       String password,
       Option<Failure> failure,
-      Option<ValueFailure> userNameFailure,
+      Option<ValueFailure> phoneNumberFailure,
+      Option<ValueFailure> pinputFailure,
       Option<ValueFailure> passwordFailure,
       ValidationErrorVisibility validationErrorVisibility});
 
@@ -147,9 +171,12 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? phoneNumber = null,
+    Object? countryCode = null,
+    Object? pinput = null,
     Object? password = null,
     Object? failure = null,
-    Object? userNameFailure = null,
+    Object? phoneNumberFailure = null,
+    Object? pinputFailure = null,
     Object? passwordFailure = null,
     Object? validationErrorVisibility = null,
   }) {
@@ -162,6 +189,14 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      pinput: null == pinput
+          ? _value.pinput
+          : pinput // ignore: cast_nullable_to_non_nullable
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -170,9 +205,13 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Option<Failure>,
-      userNameFailure: null == userNameFailure
-          ? _value.userNameFailure
-          : userNameFailure // ignore: cast_nullable_to_non_nullable
+      phoneNumberFailure: null == phoneNumberFailure
+          ? _value.phoneNumberFailure
+          : phoneNumberFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
+      pinputFailure: null == pinputFailure
+          ? _value.pinputFailure
+          : pinputFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
       passwordFailure: null == passwordFailure
           ? _value.passwordFailure
@@ -192,9 +231,12 @@ class _$RegisterStateImpl extends _RegisterState {
   _$RegisterStateImpl(
       {required this.isLoading,
       required this.phoneNumber,
+      required this.countryCode,
+      required this.pinput,
       required this.password,
       required this.failure,
-      required this.userNameFailure,
+      required this.phoneNumberFailure,
+      required this.pinputFailure,
       required this.passwordFailure,
       required this.validationErrorVisibility})
       : super._();
@@ -204,11 +246,17 @@ class _$RegisterStateImpl extends _RegisterState {
   @override
   final String phoneNumber;
   @override
+  final String countryCode;
+  @override
+  final String pinput;
+  @override
   final String password;
   @override
   final Option<Failure> failure;
   @override
-  final Option<ValueFailure> userNameFailure;
+  final Option<ValueFailure> phoneNumberFailure;
+  @override
+  final Option<ValueFailure> pinputFailure;
   @override
   final Option<ValueFailure> passwordFailure;
   @override
@@ -216,7 +264,7 @@ class _$RegisterStateImpl extends _RegisterState {
 
   @override
   String toString() {
-    return 'RegisterState(isLoading: $isLoading, phoneNumber: $phoneNumber, password: $password, failure: $failure, userNameFailure: $userNameFailure, passwordFailure: $passwordFailure, validationErrorVisibility: $validationErrorVisibility)';
+    return 'RegisterState(isLoading: $isLoading, phoneNumber: $phoneNumber, countryCode: $countryCode, pinput: $pinput, password: $password, failure: $failure, phoneNumberFailure: $phoneNumberFailure, pinputFailure: $pinputFailure, passwordFailure: $passwordFailure, validationErrorVisibility: $validationErrorVisibility)';
   }
 
   @override
@@ -228,11 +276,16 @@ class _$RegisterStateImpl extends _RegisterState {
                 other.isLoading == isLoading) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode) &&
+            (identical(other.pinput, pinput) || other.pinput == pinput) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.failure, failure) || other.failure == failure) &&
-            (identical(other.userNameFailure, userNameFailure) ||
-                other.userNameFailure == userNameFailure) &&
+            (identical(other.phoneNumberFailure, phoneNumberFailure) ||
+                other.phoneNumberFailure == phoneNumberFailure) &&
+            (identical(other.pinputFailure, pinputFailure) ||
+                other.pinputFailure == pinputFailure) &&
             (identical(other.passwordFailure, passwordFailure) ||
                 other.passwordFailure == passwordFailure) &&
             (identical(other.validationErrorVisibility,
@@ -241,8 +294,18 @@ class _$RegisterStateImpl extends _RegisterState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, phoneNumber, password,
-      failure, userNameFailure, passwordFailure, validationErrorVisibility);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      phoneNumber,
+      countryCode,
+      pinput,
+      password,
+      failure,
+      phoneNumberFailure,
+      pinputFailure,
+      passwordFailure,
+      validationErrorVisibility);
 
   @JsonKey(ignore: true)
   @override
@@ -255,9 +318,12 @@ abstract class _RegisterState extends RegisterState {
   factory _RegisterState(
           {required final bool isLoading,
           required final String phoneNumber,
+          required final String countryCode,
+          required final String pinput,
           required final String password,
           required final Option<Failure> failure,
-          required final Option<ValueFailure> userNameFailure,
+          required final Option<ValueFailure> phoneNumberFailure,
+          required final Option<ValueFailure> pinputFailure,
           required final Option<ValueFailure> passwordFailure,
           required final ValidationErrorVisibility validationErrorVisibility}) =
       _$RegisterStateImpl;
@@ -268,11 +334,17 @@ abstract class _RegisterState extends RegisterState {
   @override
   String get phoneNumber;
   @override
+  String get countryCode;
+  @override
+  String get pinput;
+  @override
   String get password;
   @override
   Option<Failure> get failure;
   @override
-  Option<ValueFailure> get userNameFailure;
+  Option<ValueFailure> get phoneNumberFailure;
+  @override
+  Option<ValueFailure> get pinputFailure;
   @override
   Option<ValueFailure> get passwordFailure;
   @override

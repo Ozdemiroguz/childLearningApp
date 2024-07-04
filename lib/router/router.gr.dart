@@ -33,10 +33,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: LoginPage(),
       );
     },
-    RegisterRoute.name: (routeData) {
+    PhoneInputRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: RegisterPage(),
+        child: PhoneInputPage(),
+      );
+    },
+    PhoneVerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PhoneVerificationPage(),
       );
     },
     SplashRoute.name: (routeData) {
@@ -48,6 +54,12 @@ abstract class _$AppRouter extends RootStackRouter {
           resetToken: args.resetToken,
           userId: args.userId,
         ),
+      );
+    },
+    UserTypeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UserTypePage(),
       );
     },
   };
@@ -96,15 +108,29 @@ class LoginRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [RegisterPage]
-class RegisterRoute extends PageRouteInfo<void> {
-  const RegisterRoute({List<PageRouteInfo>? children})
+/// [PhoneInputPage]
+class PhoneInputRoute extends PageRouteInfo<void> {
+  const PhoneInputRoute({List<PageRouteInfo>? children})
       : super(
-          RegisterRoute.name,
+          PhoneInputRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'RegisterRoute';
+  static const String name = 'PhoneInputRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PhoneVerificationPage]
+class PhoneVerificationRoute extends PageRouteInfo<void> {
+  const PhoneVerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          PhoneVerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhoneVerificationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -144,4 +170,18 @@ class SplashRouteArgs {
   String toString() {
     return 'SplashRouteArgs{resetToken: $resetToken, userId: $userId}';
   }
+}
+
+/// generated route for
+/// [UserTypePage]
+class UserTypeRoute extends PageRouteInfo<void> {
+  const UserTypeRoute({List<PageRouteInfo>? children})
+      : super(
+          UserTypeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserTypeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

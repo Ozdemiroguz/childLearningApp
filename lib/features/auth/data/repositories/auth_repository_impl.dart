@@ -11,8 +11,10 @@ final class AuthRepositoryImpl implements AuthRepository {
   final NetworkService networkService;
   final LocaleResourcesService localeResourcesService;
 
-  AuthRepositoryImpl(
-      {required this.networkService, required this.localeResourcesService});
+  AuthRepositoryImpl({
+    required this.networkService,
+    required this.localeResourcesService,
+  });
 
   @override
   Future<bool> isTokenExpired() async {

@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:tododyst/custom/custom_app_bar.dart';
 import 'package:tododyst/custom/password_text_field.dart';
 
 import '../../../../constants/colors.dart';
@@ -11,13 +10,14 @@ import '../../../../custom/custom_filled_button.dart';
 import '../../../../custom/custom_text_field.dart';
 import '../../../../router/router.dart';
 
+final _keyProvider = Provider.autoDispose((ref) => GlobalKey<FormState>());
+
 @RoutePage()
 //statefull widget
 class LoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: CustomAppBar(),
       backgroundColor: bgColor,
       body: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -25,27 +25,30 @@ class LoginPage extends ConsumerWidget {
           padding: EdgeInsets.only(
             left: 16.w,
             right: 16.w,
-            top: 85.h,
+            top: 185.h,
             bottom: 40.h,
           ),
-          child: Column(
-            children: [
-              Logo(),
-              SizedBox(height: 70.h),
-              _UserNamePhoneMail(),
-              SizedBox(
-                height: 18.h,
-              ),
-              _Password(),
-              SizedBox(
-                height: 42.h,
-              ),
-              _LoginButton(),
-              SizedBox(
-                height: 42.h,
-              ),
-              _RegisterDirection(),
-            ],
+          child: Form(
+            key: ref.watch(_keyProvider),
+            child: Column(
+              children: [
+                Logo(),
+                SizedBox(height: 70.h),
+                _UserNamePhoneMail(),
+                SizedBox(
+                  height: 18.h,
+                ),
+                _Password(),
+                SizedBox(
+                  height: 42.h,
+                ),
+                _LoginButton(),
+                SizedBox(
+                  height: 42.h,
+                ),
+                _RegisterDirection(),
+              ],
+            ),
           ),
         ),
       ),
@@ -57,7 +60,7 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Sing In",
+      "Sign In",
       style: Theme.of(context).textTheme.displayLarge?.copyWith(
             color: darBlue2,
             fontSize: 46.sp,
@@ -106,7 +109,7 @@ class _Password extends ConsumerWidget {
                 ),
           ),
         ),
-        PasswordTextField(
+        const PasswordTextField(
           hintText: "Your Password",
         ),
       ],
@@ -136,7 +139,13 @@ class _LoginButton extends ConsumerWidget {
     return SizedBox(
       child: CustomFilledButton(
         color: blue,
-        onPressed: () {},
+        onPressed: () {
+          final formState = ref.read(_keyProvider).currentState;
+          if (formState != null && formState.validate()) {
+            formState.save();
+            context.router.replaceAll([const HomeRoute()]);
+          }
+        },
         child: const Text("Confirm"),
       ),
     );
@@ -149,14 +158,17 @@ class _RegisterDirection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't have an account? ",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        Text(
+          "Don't have an account? ",
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 fontFamily: "Rubik",
                 color: black,
-                fontWeight: FontWeight.w500)),
+                fontWeight: FontWeight.w500,
+              ),
+        ),
         GestureDetector(
           onTap: () {
-            context.router.replaceAll([const RegisterRoute()]);
+            context.router.replaceAll([const PhoneInputRoute()]);
           },
           child: Text(
             "Register here",
