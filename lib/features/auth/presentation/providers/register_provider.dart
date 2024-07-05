@@ -1,8 +1,10 @@
 //register state ile register provider
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tododyst/core/models/user_models/user/user.dart';
 import 'package:tododyst/utils/validators.dart';
 
+import '../../../../core/models/user_models/user_type.dart';
 import '../states/register/register_state.dart';
 
 final registerProvider =
@@ -44,5 +46,9 @@ class _RegisterNotifier extends AutoDisposeNotifier<RegisterState> {
 
   void onChangedPassword(String password) {
     state = state.copyWith(password: password);
+  }
+
+  void onChangedType(UserType userType) {
+    state = state.copyWith(userType: userType);
   }
 }

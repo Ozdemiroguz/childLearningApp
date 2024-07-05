@@ -52,7 +52,6 @@ class PhoneInputPage extends ConsumerWidget {
 class _PhoneInput extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    FocusNode _focusNode = FocusNode();
     final notifier = ref.watch(registerProvider.notifier);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +87,6 @@ class _PhoneInput extends ConsumerWidget {
         Expanded(
           child: CustomTextField(
             textInputType: TextInputType.number,
-            focusNode: _focusNode,
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.only(
@@ -154,7 +152,7 @@ class _GetCodeButton extends ConsumerWidget {
           ..validate();
 
         if (formState!.validate()) {
-          context.router.push(PhoneVerificationRoute());
+          context.router.replaceAll([const PhoneVerificationRoute()]);
         }
       },
       buttonText: 'Get Code',

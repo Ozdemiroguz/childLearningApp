@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../features/auth/presentation/pages/create_account_page.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/phone_input_page.dart';
 import '../features/auth/presentation/pages/phone_verification_page.dart';
@@ -24,6 +25,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: PhoneInputRoute.page),
         AutoRoute(page: PhoneVerificationRoute.page),
         AutoRoute(page: UserTypeRoute.page),
+        AutoRoute(page: CreateAccountRoute.page),
         //Intro
         AutoRoute(page: IntroRoute.page),
 

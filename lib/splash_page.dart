@@ -36,9 +36,9 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         FlutterNativeSplash.remove();
 
         Future.delayed(const Duration(seconds: 1), () async {
-          if (!await ref.watch(_isTokenExpiredProvider.future)) {
+          if (await ref.watch(_isTokenExpiredProvider.future)) {
             if (context.mounted) {
-              context.replaceRoute(const IntroRoute());
+              context.replaceRoute(const CreateAccountRoute());
             }
           } else {
             if (context.mounted) {
