@@ -203,16 +203,28 @@ class _PrivacyPolicy extends ConsumerWidget {
               builder: (context) {
                 return Center(
                   child: AlertDialog(
-                    title: SingleChildScrollView(
-                        child: const Text("Privacy Policy")),
-                    content: Column(
-                      children: [
-                        const Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend nunc ...",
+                    title: const Text("Privacy Policy"),
+                    content: SizedBox(
+                      width: 300.w,
+                      height: 500.h,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 1000.h,
+                              color: darkGray1,
+                            ),
+                            const Text(
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, eleifend nunc ...",
+                            ),
+                            CustomFilledButton(
+                                onPressed: () {},
+                                buttonText: "Close",
+                                color: blue),
+                          ],
                         ),
-                        CustomFilledButton(
-                            onPressed: () {}, buttonText: "Close", color: blue),
-                      ],
+                      ),
                     ),
                   ),
                 );
