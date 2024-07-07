@@ -32,6 +32,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Success.svg
   SvgGenImage get success => const SvgGenImage('assets/icons/Success.svg');
 
+  /// File path: assets/icons/ToDoDys.postman_collection.json
+  String get toDoDysPostmanCollection =>
+      'assets/icons/ToDoDys.postman_collection.json';
+
   /// File path: assets/icons/Vector.svg
   SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
 
@@ -42,13 +46,14 @@ class $AssetsIconsGen {
   SvgGenImage get threedot => const SvgGenImage('assets/icons/threedot.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [
+  List<dynamic> get values => [
         alert,
         arrowLeft,
         eyeOff,
         eyeOn,
         failure,
         success,
+        toDoDysPostmanCollection,
         vector,
         arrowDown,
         threedot

@@ -132,14 +132,14 @@ final class NetworkServiceImpl implements NetworkService {
         //   return left(Failure.responseError(result.data?["message"] as String? ?? unknownErrorMessage));
         // }
 
-        if (result.data?["status"] != 200) {
-          log(result.requestOptions.data.toString());
-          log(result.data.toString());
-
-          return left(Failure.responseError(result.data?["message"] as String? ?? unknownErrorMessage));
+        if (result.data?["email"] != null) {
+          return right(result);
         }
-
-        return right(result);
+        if (result.data?["token"] != null) {
+          return right(result);
+        }
+        return left(Failure.responseError(
+            result.data?["message"] as String? ?? unknownErrorMessage));
       } else {
         return left(Failure.noConnection(noConnectionMessage));
       }
@@ -151,7 +151,10 @@ final class NetworkServiceImpl implements NetworkService {
       } else {
         return left(
           Failure.responseError(
-            (e.response?.data as Map<String, dynamic>?)?["message"].toString() ?? e.message ?? e.error.toString(),
+            (e.response?.data as Map<String, dynamic>?)?["message"]
+                    .toString() ??
+                e.message ??
+                e.error.toString(),
           ),
         );
       }
@@ -203,7 +206,11 @@ final class NetworkServiceImpl implements NetworkService {
           onError: (error, handler) async {
             try {
               transaction.status = SpanStatus.fromHttpStatusCode(
-                (error.response?.data as Map?)?.extract<int>('code').toNullable() ?? error.response?.statusCode ?? 0,
+                (error.response?.data as Map?)
+                        ?.extract<int>('code')
+                        .toNullable() ??
+                    error.response?.statusCode ??
+                    0,
               );
 
               transaction.setData(
@@ -226,8 +233,8 @@ final class NetworkServiceImpl implements NetworkService {
             }
           },
           onResponse: (e, handler) {
-            transaction.status =
-                SpanStatus.fromHttpStatusCode((e.data as Map?)?.extract<int>('code').getOrElse(() => 0) ?? 0);
+            transaction.status = SpanStatus.fromHttpStatusCode(
+                (e.data as Map?)?.extract<int>('code').getOrElse(() => 0) ?? 0);
 
             transaction.setData(
               "response",

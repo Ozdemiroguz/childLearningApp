@@ -1,14 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/custom/password_text_field.dart';
 
 import '../../../../constants/colors.dart';
+import '../../../../custom/custom_dialog.dart';
 import '../../../../custom/custom_filled_button.dart';
 import '../../../../custom/custom_text_field.dart';
 import '../../../../router/router.dart';
+import '../providers/login_provider.dart';
 
 final _keyProvider = Provider.autoDispose((ref) => GlobalKey<FormState>());
 
@@ -72,6 +75,7 @@ class Logo extends StatelessWidget {
 class _UserNamePhoneMail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(loginProvider.notifier);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -85,8 +89,13 @@ class _UserNamePhoneMail extends ConsumerWidget {
                 ),
           ),
         ),
-        const CustomTextField(
+        CustomTextField(
           hintText: "Your Username",
+          onChanged: notifier.onChangedEmail,
+          onSaved: notifier.onChangedEmail,
+          onFieldSubmitted: notifier.onChangedEmail,
+          validator: (value) =>
+              ref.read(loginProvider).emailFailure.toNullable()?.message,
         ),
       ],
     );
@@ -96,6 +105,7 @@ class _UserNamePhoneMail extends ConsumerWidget {
 class _Password extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(loginProvider.notifier);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -109,8 +119,10 @@ class _Password extends ConsumerWidget {
                 ),
           ),
         ),
-        const PasswordTextField(
-          hintText: "Your Password",
+        PasswordTextField(
+          onChanged: notifier.onChangedPassword,
+          onSaved: notifier.onChangedPassword,
+          onFieldSubmitted: notifier.onChangedPassword,
         ),
       ],
     );
@@ -141,9 +153,19 @@ class _LoginButton extends ConsumerWidget {
         color: blue,
         onPressed: () {
           final formState = ref.read(_keyProvider).currentState;
+          formState?.validate();
+
           if (formState != null && formState.validate()) {
-            formState.save();
-            context.router.replaceAll([const HomeRoute()]);
+            print('Validated');
+            ref.watch(loginProvider.notifier).login();
+
+            ref.read(loginProvider).failure.fold(
+                  () => context.router.replace(const HomeRoute()),
+                  (t) => CustomDialog.failure(
+                    title: 'Hata',
+                    subtitle: t.message,
+                  ).show(context),
+                );
           }
         },
         child: const Text("Confirm"),

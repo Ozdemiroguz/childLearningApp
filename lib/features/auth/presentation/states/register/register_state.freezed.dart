@@ -20,13 +20,20 @@ mixin _$RegisterState {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
   String get pinput => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get confirmPassword => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
   Option<Failure> get failure => throw _privateConstructorUsedError;
   Option<ValueFailure> get phoneNumberFailure =>
       throw _privateConstructorUsedError;
   Option<ValueFailure> get pinputFailure => throw _privateConstructorUsedError;
+  Option<ValueFailure> get emailFailure => throw _privateConstructorUsedError;
   Option<ValueFailure> get passwordFailure =>
+      throw _privateConstructorUsedError;
+  Option<ValueFailure> get confirmPasswordFailure =>
       throw _privateConstructorUsedError;
   ValidationErrorVisibility get validationErrorVisibility =>
       throw _privateConstructorUsedError;
@@ -47,12 +54,18 @@ abstract class $RegisterStateCopyWith<$Res> {
       String phoneNumber,
       String countryCode,
       String pinput,
+      String email,
+      String firstName,
+      String lastName,
       String password,
+      String confirmPassword,
       UserType userType,
       Option<Failure> failure,
       Option<ValueFailure> phoneNumberFailure,
       Option<ValueFailure> pinputFailure,
+      Option<ValueFailure> emailFailure,
       Option<ValueFailure> passwordFailure,
+      Option<ValueFailure> confirmPasswordFailure,
       ValidationErrorVisibility validationErrorVisibility});
 
   $ValidationErrorVisibilityCopyWith<$Res> get validationErrorVisibility;
@@ -75,12 +88,18 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? phoneNumber = null,
     Object? countryCode = null,
     Object? pinput = null,
+    Object? email = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? password = null,
+    Object? confirmPassword = null,
     Object? userType = null,
     Object? failure = null,
     Object? phoneNumberFailure = null,
     Object? pinputFailure = null,
+    Object? emailFailure = null,
     Object? passwordFailure = null,
+    Object? confirmPasswordFailure = null,
     Object? validationErrorVisibility = null,
   }) {
     return _then(_value.copyWith(
@@ -100,9 +119,25 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.pinput
           : pinput // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      confirmPassword: null == confirmPassword
+          ? _value.confirmPassword
+          : confirmPassword // ignore: cast_nullable_to_non_nullable
               as String,
       userType: null == userType
           ? _value.userType
@@ -120,9 +155,17 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
           ? _value.pinputFailure
           : pinputFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
+      emailFailure: null == emailFailure
+          ? _value.emailFailure
+          : emailFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
       passwordFailure: null == passwordFailure
           ? _value.passwordFailure
           : passwordFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
+      confirmPasswordFailure: null == confirmPasswordFailure
+          ? _value.confirmPasswordFailure
+          : confirmPasswordFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
       validationErrorVisibility: null == validationErrorVisibility
           ? _value.validationErrorVisibility
@@ -154,12 +197,18 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
       String phoneNumber,
       String countryCode,
       String pinput,
+      String email,
+      String firstName,
+      String lastName,
       String password,
+      String confirmPassword,
       UserType userType,
       Option<Failure> failure,
       Option<ValueFailure> phoneNumberFailure,
       Option<ValueFailure> pinputFailure,
+      Option<ValueFailure> emailFailure,
       Option<ValueFailure> passwordFailure,
+      Option<ValueFailure> confirmPasswordFailure,
       ValidationErrorVisibility validationErrorVisibility});
 
   @override
@@ -181,12 +230,18 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
     Object? phoneNumber = null,
     Object? countryCode = null,
     Object? pinput = null,
+    Object? email = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? password = null,
+    Object? confirmPassword = null,
     Object? userType = null,
     Object? failure = null,
     Object? phoneNumberFailure = null,
     Object? pinputFailure = null,
+    Object? emailFailure = null,
     Object? passwordFailure = null,
+    Object? confirmPasswordFailure = null,
     Object? validationErrorVisibility = null,
   }) {
     return _then(_$RegisterStateImpl(
@@ -206,9 +261,25 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.pinput
           : pinput // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      confirmPassword: null == confirmPassword
+          ? _value.confirmPassword
+          : confirmPassword // ignore: cast_nullable_to_non_nullable
               as String,
       userType: null == userType
           ? _value.userType
@@ -226,9 +297,17 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
           ? _value.pinputFailure
           : pinputFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
+      emailFailure: null == emailFailure
+          ? _value.emailFailure
+          : emailFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
       passwordFailure: null == passwordFailure
           ? _value.passwordFailure
           : passwordFailure // ignore: cast_nullable_to_non_nullable
+              as Option<ValueFailure>,
+      confirmPasswordFailure: null == confirmPasswordFailure
+          ? _value.confirmPasswordFailure
+          : confirmPasswordFailure // ignore: cast_nullable_to_non_nullable
               as Option<ValueFailure>,
       validationErrorVisibility: null == validationErrorVisibility
           ? _value.validationErrorVisibility
@@ -246,12 +325,18 @@ class _$RegisterStateImpl extends _RegisterState {
       required this.phoneNumber,
       required this.countryCode,
       required this.pinput,
+      required this.email,
+      required this.firstName,
+      required this.lastName,
       required this.password,
+      required this.confirmPassword,
       required this.userType,
       required this.failure,
       required this.phoneNumberFailure,
       required this.pinputFailure,
+      required this.emailFailure,
       required this.passwordFailure,
+      required this.confirmPasswordFailure,
       required this.validationErrorVisibility})
       : super._();
 
@@ -264,7 +349,15 @@ class _$RegisterStateImpl extends _RegisterState {
   @override
   final String pinput;
   @override
+  final String email;
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
   final String password;
+  @override
+  final String confirmPassword;
   @override
   final UserType userType;
   @override
@@ -274,13 +367,17 @@ class _$RegisterStateImpl extends _RegisterState {
   @override
   final Option<ValueFailure> pinputFailure;
   @override
+  final Option<ValueFailure> emailFailure;
+  @override
   final Option<ValueFailure> passwordFailure;
+  @override
+  final Option<ValueFailure> confirmPasswordFailure;
   @override
   final ValidationErrorVisibility validationErrorVisibility;
 
   @override
   String toString() {
-    return 'RegisterState(isLoading: $isLoading, phoneNumber: $phoneNumber, countryCode: $countryCode, pinput: $pinput, password: $password, userType: $userType, failure: $failure, phoneNumberFailure: $phoneNumberFailure, pinputFailure: $pinputFailure, passwordFailure: $passwordFailure, validationErrorVisibility: $validationErrorVisibility)';
+    return 'RegisterState(isLoading: $isLoading, phoneNumber: $phoneNumber, countryCode: $countryCode, pinput: $pinput, email: $email, firstName: $firstName, lastName: $lastName, password: $password, confirmPassword: $confirmPassword, userType: $userType, failure: $failure, phoneNumberFailure: $phoneNumberFailure, pinputFailure: $pinputFailure, emailFailure: $emailFailure, passwordFailure: $passwordFailure, confirmPasswordFailure: $confirmPasswordFailure, validationErrorVisibility: $validationErrorVisibility)';
   }
 
   @override
@@ -295,8 +392,15 @@ class _$RegisterStateImpl extends _RegisterState {
             (identical(other.countryCode, countryCode) ||
                 other.countryCode == countryCode) &&
             (identical(other.pinput, pinput) || other.pinput == pinput) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.confirmPassword, confirmPassword) ||
+                other.confirmPassword == confirmPassword) &&
             (identical(other.userType, userType) ||
                 other.userType == userType) &&
             (identical(other.failure, failure) || other.failure == failure) &&
@@ -304,8 +408,12 @@ class _$RegisterStateImpl extends _RegisterState {
                 other.phoneNumberFailure == phoneNumberFailure) &&
             (identical(other.pinputFailure, pinputFailure) ||
                 other.pinputFailure == pinputFailure) &&
+            (identical(other.emailFailure, emailFailure) ||
+                other.emailFailure == emailFailure) &&
             (identical(other.passwordFailure, passwordFailure) ||
                 other.passwordFailure == passwordFailure) &&
+            (identical(other.confirmPasswordFailure, confirmPasswordFailure) ||
+                other.confirmPasswordFailure == confirmPasswordFailure) &&
             (identical(other.validationErrorVisibility,
                     validationErrorVisibility) ||
                 other.validationErrorVisibility == validationErrorVisibility));
@@ -318,12 +426,18 @@ class _$RegisterStateImpl extends _RegisterState {
       phoneNumber,
       countryCode,
       pinput,
+      email,
+      firstName,
+      lastName,
       password,
+      confirmPassword,
       userType,
       failure,
       phoneNumberFailure,
       pinputFailure,
+      emailFailure,
       passwordFailure,
+      confirmPasswordFailure,
       validationErrorVisibility);
 
   @JsonKey(ignore: true)
@@ -339,12 +453,18 @@ abstract class _RegisterState extends RegisterState {
           required final String phoneNumber,
           required final String countryCode,
           required final String pinput,
+          required final String email,
+          required final String firstName,
+          required final String lastName,
           required final String password,
+          required final String confirmPassword,
           required final UserType userType,
           required final Option<Failure> failure,
           required final Option<ValueFailure> phoneNumberFailure,
           required final Option<ValueFailure> pinputFailure,
+          required final Option<ValueFailure> emailFailure,
           required final Option<ValueFailure> passwordFailure,
+          required final Option<ValueFailure> confirmPasswordFailure,
           required final ValidationErrorVisibility validationErrorVisibility}) =
       _$RegisterStateImpl;
   _RegisterState._() : super._();
@@ -358,7 +478,15 @@ abstract class _RegisterState extends RegisterState {
   @override
   String get pinput;
   @override
+  String get email;
+  @override
+  String get firstName;
+  @override
+  String get lastName;
+  @override
   String get password;
+  @override
+  String get confirmPassword;
   @override
   UserType get userType;
   @override
@@ -368,7 +496,11 @@ abstract class _RegisterState extends RegisterState {
   @override
   Option<ValueFailure> get pinputFailure;
   @override
+  Option<ValueFailure> get emailFailure;
+  @override
   Option<ValueFailure> get passwordFailure;
+  @override
+  Option<ValueFailure> get confirmPasswordFailure;
   @override
   ValidationErrorVisibility get validationErrorVisibility;
   @override
