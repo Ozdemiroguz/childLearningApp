@@ -1,12 +1,19 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crossword/crossword.dart';
+import 'package:tododyst/features/crossword/presentation/pages/crossword_page.dart';
 
 import '../features/auth/presentation/pages/create_account_page.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/phone_input_page.dart';
 import '../features/auth/presentation/pages/phone_verification_page.dart';
 import '../features/auth/presentation/pages/user_type_page.dart';
+import '../features/clock_game/presentation/pages/clock_level_page.dart';
+import '../features/crossword/domain/models/crossword.dart';
+import '../features/crossword/presentation/pages/chapters_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
+import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
+import '../features/intro/presnetation/pages/intro_slider_page.dart';
 import '../splash_page.dart';
 
 part "router.gr.dart";
@@ -28,6 +35,15 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: CreateAccountRoute.page),
         //Intro
         AutoRoute(page: IntroRoute.page),
+        AutoRoute(page: IndroSliderRoute.page),
+        AutoRoute(page: AnalysingResultRoute.page),
+
+        //crossword
+        AutoRoute(page: ChaptersRoute.page),
+        AutoRoute(page: CrosswordRoute.page),
+
+        //Clock
+        AutoRoute(page: ClockLevelRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),

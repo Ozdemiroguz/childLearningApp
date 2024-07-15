@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasyLocalization(
       supportedLocales: supportedLocales,
-      fallbackLocale: trLocale,
+      fallbackLocale: enLocale,
+      startLocale: enLocale,
       path: languagePath,
       child: ScreenUtilInit(
         designSize: designSize,
@@ -51,6 +54,7 @@ class __MaterialAppState extends ConsumerState<_MaterialApp> {
   @override
   void didChangeDependencies() {
     Intl.defaultLocale = context.locale.languageCode;
+    print("Current locale: ${context.locale.languageCode}");
     super.didChangeDependencies();
   }
 
@@ -62,7 +66,8 @@ class __MaterialAppState extends ConsumerState<_MaterialApp> {
       routeInformationParser: _appRouter.defaultRouteParser(),
       routerDelegate: AutoRouterDelegate(
         _appRouter,
-        navigatorObservers: () => [AutoRouteObserver(), SentryNavigatorObserver()],
+        navigatorObservers: () =>
+            [AutoRouteObserver(), SentryNavigatorObserver()],
       ),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -71,7 +76,8 @@ class __MaterialAppState extends ConsumerState<_MaterialApp> {
       title: appName,
       theme: theme,
       builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling, boldText: false),
+        data: MediaQuery.of(context)
+            .copyWith(textScaler: TextScaler.noScaling, boldText: false),
         child: child!,
       ),
     );

@@ -9,11 +9,18 @@ import '../core/models/value_failure/value_failure.dart';
 //TODO: MİN PASSWORD MUST HAVE 8 OF LENGTH
 const minPasswordLength = 8;
 
-Option<ValueFailure> validateEmailAddress(String input,
-    {bool isRequired = true, String? customMessage}) {
+Option<ValueFailure> validateEmailAddress(
+  String input, {
+  bool isRequired = true,
+  String? customMessage,
+}) {
   if (input.isEmpty && isRequired) {
+    print('input.isEmpty:${emptyEmailFailureMessage}');
     return some(
-        ValueFailure.invalidInput(customMessage ?? emptyEmailFailureMessage));
+      ValueFailure.invalidInput(
+        customMessage ?? emptyEmailFailureMessage,
+      ),
+    );
   }
 
   if (isRequired
@@ -28,7 +35,8 @@ Option<ValueFailure> validateEmailAddress(String input,
 Option<ValueFailure> validateEmptiness(String input, {String? customMessage}) {
   if (input.isEmpty) {
     return some(
-        ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage));
+      ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage),
+    );
   }
 
   return none();
@@ -42,12 +50,14 @@ Option<ValueFailure> validateEmptinessMaxCharacter(
 }) {
   if (input.isEmpty) {
     return some(
-        ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage));
+      ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage),
+    );
   }
 
   if (input.length > maxCharacter) {
     return some(
-        ValueFailure.invalidInput(maxMessage ?? emptyInputFailureMessage));
+      ValueFailure.invalidInput(maxMessage ?? emptyInputFailureMessage),
+    );
   }
 
   return none();
@@ -56,7 +66,8 @@ Option<ValueFailure> validateEmptinessMaxCharacter(
 Option<ValueFailure> validatePhone(String input, {String? customMessage}) {
   if (input.isEmpty) {
     return some(
-        ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage));
+      ValueFailure.invalidInput(customMessage ?? emptyInputFailureMessage),
+    );
   }
 
   if (input.length == 14) {
@@ -69,7 +80,8 @@ Option<ValueFailure> validatePhone(String input, {String? customMessage}) {
 Option<ValueFailure> validateDescriptionStatus(String input) {
   if (input.isEmpty) {
     return some(
-        ValueFailure.invalidInput(emptyDescriptionStatusFailureMessage));
+      ValueFailure.invalidInput(emptyDescriptionStatusFailureMessage),
+    );
   }
 
   return none();
@@ -98,8 +110,10 @@ Option<ValueFailure> validatePassword(String? input, {bool isLogin = false}) {
 }
 
 Option<ValueFailure> validateNewPassword(
-    String? input, String passwordConfirmation,
-    [int minPasswordLength = 6]) {
+  String? input,
+  String passwordConfirmation, [
+  int minPasswordLength = 6,
+]) {
   if (input == '' || input == null)
     return some(ValueFailure.invalidInput(emptyPasswordFailureMessage));
 
@@ -114,7 +128,8 @@ Option<ValueFailure> validateNewPassword(
   }
   if (!specialCharacterRegExp.hasMatch(input)) {
     return some(
-        ValueFailure.invalidInput(passwordSpecialCharacterFailureMessage));
+      ValueFailure.invalidInput(passwordSpecialCharacterFailureMessage),
+    );
   }
 
   // if (input.length >= minPasswordLength && passwordConfirmation.length >= minPasswordLength) {
@@ -143,7 +158,8 @@ Option<ValueFailure> validateNewPasswordEmptyMessage(
   }
   if (!specialCharacterRegExp.hasMatch(input)) {
     return some(
-        ValueFailure.invalidInput(passwordSpecialCharacterFailureMessage));
+      ValueFailure.invalidInput(passwordSpecialCharacterFailureMessage),
+    );
   }
 
   // if (input.length >= minPasswordLength && passwordConfirmation.length >= minPasswordLength) {
@@ -153,10 +169,16 @@ Option<ValueFailure> validateNewPasswordEmptyMessage(
 }
 
 Option<ValueFailure> validateConfirmPassword(
-    String? input, String password, String? customMessage) {
+  String? input,
+  String password,
+  String? customMessage,
+) {
   if (input != password)
-    return some(ValueFailure.invalidInput(
-        customMessage ?? passwordNotMatchFailureMessage));
+    return some(
+      ValueFailure.invalidInput(
+        customMessage ?? passwordNotMatchFailureMessage,
+      ),
+    );
 
   return none();
 }

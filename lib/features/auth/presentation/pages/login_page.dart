@@ -26,8 +26,8 @@ class LoginPage extends ConsumerWidget {
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: SingleChildScrollView(
           padding: EdgeInsets.only(
-            left: 16.w,
-            right: 16.w,
+            left: 35.w,
+            right: 35.w,
             top: 185.h,
             bottom: 40.h,
           ),
@@ -120,6 +120,9 @@ class _Password extends ConsumerWidget {
           ),
         ),
         PasswordTextField(
+          hintText: "Your Password",
+          validator: (value) =>
+              ref.read(loginProvider).passwordFailure.toNullable()?.message,
           onChanged: notifier.onChangedPassword,
           onSaved: notifier.onChangedPassword,
           onFieldSubmitted: notifier.onChangedPassword,
@@ -151,13 +154,13 @@ class _LoginButton extends ConsumerWidget {
     return SizedBox(
       child: CustomFilledButton(
         color: blue,
-        onPressed: () {
+        onPressed: () async {
           final formState = ref.read(_keyProvider).currentState;
           formState?.validate();
 
           if (formState != null && formState.validate()) {
             print('Validated');
-            ref.watch(loginProvider.notifier).login();
+            await ref.watch(loginProvider.notifier).login();
 
             ref.read(loginProvider).failure.fold(
                   () => context.router.replace(const HomeRoute()),

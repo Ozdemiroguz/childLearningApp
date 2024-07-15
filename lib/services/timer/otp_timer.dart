@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final class TimerNotifier extends ChangeNotifier {
-  TimerNotifier();
+  TimerNotifier() {
+    _time = 0; // _time değişkenini başlatın
+  }
 
   late int _time;
 

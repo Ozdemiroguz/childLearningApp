@@ -20,6 +20,10 @@ import 'package:shared_preferences/shared_preferences.dart' as _i6;
 import '../../features/auth/data/repositories/auth_repository_impl.dart'
     as _i22;
 import '../../features/auth/domain/repositories/auth_repository.dart' as _i21;
+import '../../features/crossword/data/repositories/crossword_repository_impl.dart'
+    as _i24;
+import '../../features/crossword/domain/repositories/crosword_repository.dart'
+    as _i23;
 import '../../router/router.dart' as _i7;
 import '../../services/jwt/jwt_service.dart' as _i17;
 import '../../services/jwt/jwt_service_impl.dart' as _i18;
@@ -33,7 +37,7 @@ import '../../services/network/network_service.dart' as _i19;
 import '../../services/network/network_service_impl.dart' as _i20;
 import '../models/usecases/base_64_encode.dart' as _i16;
 import '../models/usecases/usecase.dart' as _i14;
-import 'register_module.dart' as _i23;
+import 'register_module.dart' as _i25;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -77,11 +81,14 @@ extension GetItInjectableX on _i1.GetIt {
           networkService: gh<_i19.NetworkService>(),
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
         ));
+    gh.lazySingleton<_i23.CrosswordRepository>(() =>
+        _i24.CrosswordRepositoryImpl(
+            networkService: gh<_i19.NetworkService>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i23.RegisterModule {
+class _$RegisterModule extends _i25.RegisterModule {
   @override
   _i7.AppRouter get appRouter => _i7.AppRouter();
 

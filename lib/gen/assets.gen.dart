@@ -32,42 +32,107 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Success.svg
   SvgGenImage get success => const SvgGenImage('assets/icons/Success.svg');
 
-  /// File path: assets/icons/ToDoDys.postman_collection.json
-  String get toDoDysPostmanCollection =>
-      'assets/icons/ToDoDys.postman_collection.json';
-
   /// File path: assets/icons/Vector.svg
   SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
 
   /// File path: assets/icons/arrow_down.svg
   SvgGenImage get arrowDown => const SvgGenImage('assets/icons/arrow_down.svg');
 
+  /// File path: assets/icons/bomb.svg
+  SvgGenImage get bomb => const SvgGenImage('assets/icons/bomb.svg');
+
+  /// File path: assets/icons/filledarrowright.svg
+  SvgGenImage get filledarrowright =>
+      const SvgGenImage('assets/icons/filledarrowright.svg');
+
+  /// File path: assets/icons/hint.svg
+  SvgGenImage get hint => const SvgGenImage('assets/icons/hint.svg');
+
   /// File path: assets/icons/threedot.svg
   SvgGenImage get threedot => const SvgGenImage('assets/icons/threedot.svg');
 
+  /// File path: assets/icons/video.svg
+  SvgGenImage get video => const SvgGenImage('assets/icons/video.svg');
+
   /// List of all assets
-  List<dynamic> get values => [
+  List<SvgGenImage> get values => [
         alert,
         arrowLeft,
         eyeOff,
         eyeOn,
         failure,
         success,
-        toDoDysPostmanCollection,
         vector,
         arrowDown,
-        threedot
+        bomb,
+        filledarrowright,
+        hint,
+        threedot,
+        video
       ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Vector36.png
+  AssetGenImage get vector36 =>
+      const AssetGenImage('assets/images/Vector36.png');
+
+  /// File path: assets/images/animals.png
+  AssetGenImage get animals => const AssetGenImage('assets/images/animals.png');
+
+  /// File path: assets/images/animalsparty.png
+  AssetGenImage get animalsparty =>
+      const AssetGenImage('assets/images/animalsparty.png');
+
+  /// File path: assets/images/bomb.png
+  AssetGenImage get bomb => const AssetGenImage('assets/images/bomb.png');
+
   /// File path: assets/images/carpi.png
   AssetGenImage get carpi => const AssetGenImage('assets/images/carpi.png');
 
   /// File path: assets/images/check.png
   AssetGenImage get check => const AssetGenImage('assets/images/check.png');
+
+  /// File path: assets/images/clockback.png
+  AssetGenImage get clockback =>
+      const AssetGenImage('assets/images/clockback.png');
+
+  /// File path: assets/images/colors.png
+  AssetGenImage get colors => const AssetGenImage('assets/images/colors.png');
+
+  /// File path: assets/images/colorsback.png
+  AssetGenImage get colorsback =>
+      const AssetGenImage('assets/images/colorsback.png');
+
+  /// File path: assets/images/croswordchapback.png
+  AssetGenImage get croswordchapback =>
+      const AssetGenImage('assets/images/croswordchapback.png');
+
+  /// File path: assets/images/hint.png
+  AssetGenImage get hintPng => const AssetGenImage('assets/images/hint.png');
+
+  /// File path: assets/images/hint.svg
+  SvgGenImage get hintSvg => const SvgGenImage('assets/images/hint.svg');
+
+  /// File path: assets/images/prep1.png
+  AssetGenImage get prep1 => const AssetGenImage('assets/images/prep1.png');
+
+  /// File path: assets/images/prep2.png
+  AssetGenImage get prep2 => const AssetGenImage('assets/images/prep2.png');
+
+  /// File path: assets/images/prep3.png
+  AssetGenImage get prep3 => const AssetGenImage('assets/images/prep3.png');
+
+  /// File path: assets/images/prep4.png
+  AssetGenImage get prep4 => const AssetGenImage('assets/images/prep4.png');
+
+  /// File path: assets/images/prep5.png
+  AssetGenImage get prep5 => const AssetGenImage('assets/images/prep5.png');
+
+  /// File path: assets/images/timer.png
+  AssetGenImage get timer => const AssetGenImage('assets/images/timer.png');
 
   /// File path: assets/images/tododysLogo.png
   AssetGenImage get tododysLogo =>
@@ -77,8 +142,33 @@ class $AssetsImagesGen {
   AssetGenImage get tododysTLogo =>
       const AssetGenImage('assets/images/tododysT_logo.png');
 
+  /// File path: assets/images/video.png
+  AssetGenImage get video => const AssetGenImage('assets/images/video.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [carpi, check, tododysLogo, tododysTLogo];
+  List<dynamic> get values => [
+        vector36,
+        animals,
+        animalsparty,
+        bomb,
+        carpi,
+        check,
+        clockback,
+        colors,
+        colorsback,
+        croswordchapback,
+        hintPng,
+        hintSvg,
+        prep1,
+        prep2,
+        prep3,
+        prep4,
+        prep5,
+        timer,
+        tododysLogo,
+        tododysTLogo,
+        video
+      ];
 }
 
 class $AssetsLangGen {

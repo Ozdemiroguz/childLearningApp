@@ -2,8 +2,10 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tododyst/core/injections/locator.config.dart';
+import 'package:tododyst/features/crossword/data/repositories/crossword_repository_impl.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
+import '../../features/crossword/domain/repositories/crosword_repository.dart';
 import '../../router/router.dart';
 import '../../services/locale/locale_resources_service.dart';
 
@@ -19,3 +21,6 @@ final localeResourcesServiceProvider =
 
 final authRepositoryProvider =
     Provider.autoDispose((ref) => getIt<AuthRepository>());
+
+final crosswordRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<CrosswordRepository>());

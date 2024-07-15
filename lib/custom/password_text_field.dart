@@ -101,9 +101,9 @@ class PasswordTextField extends HookWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0.r, vertical: 12.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.0.r, vertical: 12.h),
       child: image.svg(
-        height: 26.r,
+        height: 26.h,
         width: 24.r,
         fit: BoxFit.scaleDown,
         colorFilter: ColorFilter.mode(

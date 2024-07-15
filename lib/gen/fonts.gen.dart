@@ -10,6 +10,9 @@
 class FontFamily {
   FontFamily._();
 
+  /// Font family: Righteous
+  static const String righteous = 'Righteous';
+
   /// Font family: SansitaOne
   static const String sansitaOne = 'SansitaOne';
 }

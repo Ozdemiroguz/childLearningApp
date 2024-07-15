@@ -16,6 +16,7 @@ const red = Color(0xffFF0000);
 const black = Color(0xff000000);
 
 //tododyt colors
+const turquoise = Color(0xff89D0E0);
 const lightBlue0 = Color(0xffC5D8F5);
 const lightBlue1 = Color(0xff8cb2ed);
 const blue = Color(0xff679DF5);
@@ -27,7 +28,23 @@ const orange = Color(0xffFC9459);
 const lightGray = Color(0xfff1f1f1);
 const darkGray = Color(0xff8E8E8E);
 const darkGray1 = Color(0xff3C3C3C);
+const darkGray2 = Color(0xff2c393f);
 
 const lightGreen = Color(0xffABC5D4);
 const green = Color(0xffAFDA67);
 const darkGreen = Color(0xff89B73D);
+const purple = Color(0xff8A5B9F);
+const brown = Color(0xffA67C5B);
+
+const List<Color> crosswordColors = [
+  red,
+  blue,
+  orange,
+  turquoise,
+  green,
+  purple,
+  brown,
+  darkGray,
+  darkBlue,
+  lightBlue0,
+];

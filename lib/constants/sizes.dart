@@ -1,3 +1,3 @@
 import 'dart:ui';
 
-const designSize = Size(360, 800);
+const designSize = Size(429, 879);

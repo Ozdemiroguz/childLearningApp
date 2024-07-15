@@ -28,9 +28,10 @@ class _LoginNotifier extends AutoDisposeNotifier<LoginState> {
   Future<void> login() async {
     state = state.copyWith(isLoading: true);
     final result = await ref.read(authRepositoryProvider).login(
-          username: "test6@gmail.com",
-          password: "123456",
+          username: state.email,
+          password: state.password,
         );
+    print("result: $result");
 
     state = state.copyWith(failure: result, isLoading: false);
   }

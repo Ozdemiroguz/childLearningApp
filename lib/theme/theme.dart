@@ -47,8 +47,8 @@ final theme = ThemeData(
 
 final _filledButtomThemeData = FilledButtonThemeData(
   style: ButtonStyle(
-    maximumSize: WidgetStatePropertyAll(Size.fromHeight(46.r)),
-    minimumSize: WidgetStatePropertyAll(Size.fromHeight(46.r)),
+    maximumSize: WidgetStatePropertyAll(Size.fromHeight(47.r)),
+    minimumSize: WidgetStatePropertyAll(Size.fromHeight(47.r)),
     backgroundColor: WidgetStateProperty.resolveWith<Color>(
       (states) {
         if (states.contains(WidgetState.disabled)) {
@@ -108,9 +108,9 @@ const _cupertinoThemeData = CupertinoThemeData(
 
 final _inputDecorationTheme = InputDecorationTheme(
   constraints: BoxConstraints(
-    minHeight: 48.h,
+    minHeight: 50.h,
     maxHeight: 177.h,
-    maxWidth: 328.w,
+    maxWidth: 400.w,
     minWidth: 42.w,
   ),
   filled: true,

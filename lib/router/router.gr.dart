@@ -15,16 +15,47 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AnalysingResultRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AnalysingResultPage(),
+      );
+    },
+    ChaptersRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChaptersPage(),
+      );
+    },
+    ClockLevelRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClockLevelPage(),
+      );
+    },
     CreateAccountRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateAccountPage(),
       );
     },
+    CrosswordRoute.name: (routeData) {
+      final args = routeData.argsAs<CrosswordRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CrosswordPage(crossword: args.crossword),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: HomePage(),
+      );
+    },
+    IndroSliderRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const IndroSliderPage(),
       );
     },
     IntroRoute.name: (routeData) {
@@ -72,6 +103,48 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [AnalysingResultPage]
+class AnalysingResultRoute extends PageRouteInfo<void> {
+  const AnalysingResultRoute({List<PageRouteInfo>? children})
+      : super(
+          AnalysingResultRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AnalysingResultRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChaptersPage]
+class ChaptersRoute extends PageRouteInfo<void> {
+  const ChaptersRoute({List<PageRouteInfo>? children})
+      : super(
+          ChaptersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChaptersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ClockLevelPage]
+class ClockLevelRoute extends PageRouteInfo<void> {
+  const ClockLevelRoute({List<PageRouteInfo>? children})
+      : super(
+          ClockLevelRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ClockLevelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [CreateAccountPage]
 class CreateAccountRoute extends PageRouteInfo<void> {
   const CreateAccountRoute({List<PageRouteInfo>? children})
@@ -86,6 +159,35 @@ class CreateAccountRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CrosswordPage]
+class CrosswordRoute extends PageRouteInfo<CrosswordRouteArgs> {
+  CrosswordRoute({
+    required CrosswordGame crossword,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CrosswordRoute.name,
+          args: CrosswordRouteArgs(crossword: crossword),
+          initialChildren: children,
+        );
+
+  static const String name = 'CrosswordRoute';
+
+  static const PageInfo<CrosswordRouteArgs> page =
+      PageInfo<CrosswordRouteArgs>(name);
+}
+
+class CrosswordRouteArgs {
+  const CrosswordRouteArgs({required this.crossword});
+
+  final CrosswordGame crossword;
+
+  @override
+  String toString() {
+    return 'CrosswordRouteArgs{crossword: $crossword}';
+  }
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -95,6 +197,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [IndroSliderPage]
+class IndroSliderRoute extends PageRouteInfo<void> {
+  const IndroSliderRoute({List<PageRouteInfo>? children})
+      : super(
+          IndroSliderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'IndroSliderRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
