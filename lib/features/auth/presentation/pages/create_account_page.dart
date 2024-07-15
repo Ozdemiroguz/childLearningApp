@@ -1,7 +1,5 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/custom/custom_dialog.dart';
@@ -271,9 +269,10 @@ class _PrivacyPolicy extends ConsumerWidget {
                                 ),
                               ),
                               CustomFilledButton(
-                                  onPressed: () {},
-                                  buttonText: "Confirm",
-                                  color: blue),
+                                onPressed: () {},
+                                buttonText: "Confirm",
+                                color: blue,
+                              ),
                             ],
                           ),
                         ),
@@ -301,7 +300,7 @@ class _PrivacyPolicy extends ConsumerWidget {
 class ConfirmButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(registerProvider);
+    ref.watch(registerProvider);
     final notifier = ref.watch(registerProvider.notifier);
 
     return CustomFilledButton(

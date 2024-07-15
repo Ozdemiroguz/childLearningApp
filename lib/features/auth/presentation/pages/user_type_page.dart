@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/core/models/user_models/user_type.dart';
 import 'package:tododyst/custom/custom_filled_button.dart';
-import 'package:tododyst/features/auth/presentation/pages/create_account_page.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../router/router.dart';
@@ -103,30 +102,32 @@ class _Checkbox extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(registerProvider);
     return Container(
-        padding: EdgeInsets.all(2.w),
-        width: 24.w,
-        height: 24.h,
+      padding: EdgeInsets.all(2.w),
+      width: 24.w,
+      height: 24.h,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: darkGray1,
+          width: 2.w,
+        ),
+        shape: BoxShape.circle,
+      ),
+      child: Container(
+        width: 16.w,
+        height: 16.h,
         decoration: BoxDecoration(
-            border: Border.all(
-              color: darkGray1,
-              width: 2.w,
-            ),
-            shape: BoxShape.circle),
-        child: Container(
-          width: 16.w,
-          height: 16.h,
-          decoration: BoxDecoration(
-            color: state.userType == userType ? darkGray1 : Colors.transparent,
-            shape: BoxShape.circle,
-          ),
-        ));
+          color: state.userType == userType ? darkGray1 : Colors.transparent,
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
   }
 }
 
 class _NextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(registerProvider);
+    ref.watch(registerProvider);
     return CustomFilledButton(
       color: blue,
       buttonText: "Next",

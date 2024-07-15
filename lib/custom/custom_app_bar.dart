@@ -123,9 +123,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 GestureDetector(
                   onTap: onBackPressed ?? () => context.router.maybePop(),
                   child: SizedBox(
-                      width: 24.w,
-                      height: 24.h,
-                      child: Assets.icons.vector.svg()),
+                    width: 24.w,
+                    height: 24.h,
+                    child: Assets.icons.vector.svg(),
+                  ),
                 ),
           ),
           Assets.images.tododysLogo.image(

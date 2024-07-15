@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -64,16 +63,17 @@ class _ChangeNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        context.router.replaceAll([PhoneInputRoute()]);
+        context.router.replaceAll([const PhoneInputRoute()]);
       },
       child: Text(
         'Change Number',
         style: Theme.of(context).textTheme.displayLarge?.copyWith(
-            fontSize: 18.sp,
-            fontFamily: "",
-            color: blue,
-            decoration: TextDecoration.underline,
-            decorationColor: blue),
+              fontSize: 18.sp,
+              fontFamily: "",
+              color: blue,
+              decoration: TextDecoration.underline,
+              decorationColor: blue,
+            ),
       ),
     );
   }
@@ -119,10 +119,11 @@ class _Pinput extends ConsumerWidget {
       // ),
       defaultPinTheme: PinTheme(
         textStyle: Theme.of(context).textTheme.displayLarge?.copyWith(
-            fontWeight: FontWeight.w600,
-            fontSize: 22.sp,
-            color: darkGray1,
-            fontFamily: "Popins"),
+              fontWeight: FontWeight.w600,
+              fontSize: 22.sp,
+              color: darkGray1,
+              fontFamily: "Popins",
+            ),
         width: 50.w,
         height: 50.h,
         decoration: BoxDecoration(
@@ -143,9 +144,9 @@ class _ConfirmButton extends ConsumerWidget {
         formState!.validate();
 
         if (formState.validate()) {
-          print('Validated');
+          // print('Validated');
           formState.save();
-          context.router.replace(UserTypeRoute());
+          context.router.replace(const UserTypeRoute());
         }
       },
       buttonText: 'Confirm',

@@ -31,7 +31,6 @@ class _LoginNotifier extends AutoDisposeNotifier<LoginState> {
           username: state.email,
           password: state.password,
         );
-    print("result: $result");
 
     state = state.copyWith(failure: result, isLoading: false);
   }

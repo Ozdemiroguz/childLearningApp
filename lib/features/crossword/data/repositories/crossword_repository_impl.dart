@@ -19,38 +19,48 @@ final class CrosswordRepositoryImpl implements CrosswordRepository {
     //dummy implementation with delayed response
     final Future<Either<Failure, WordData>> crosswordFuture =
         Future.delayed(const Duration(seconds: 2), () {
-      return Right(sectionId % 2 == 0
-          ? WordData(board: [
-              ["W", "H", "I", "T", "E", "P"],
-              ["R", "E", "D", "S", "Y", "U"],
-              ["B", "S", "C", "Y", "K", "R"],
-              ["B", "L", "A", "C", "K", "P"],
-              ["A", "F", "U", "U", "A", "L"],
-              ["K", "D", "A", "E", "A", "E"],
-            ], words: [
-              "WHITE",
-              "RED",
-              "BLACK",
-              "BLUE",
-              "PURPLE",
-            ])
-          : WordData(board: [
-              ['R', 'A', 'B', 'B', 'I', 'T', 'C'],
-              ['M', 'S', 'L', 'I', 'O', 'N', 'O'],
-              ['B', 'O', 'M', 'T', 'P', 'K', 'W'],
-              ['I', 'A', 'N', 'Y', 'B', 'U', 'A'],
-              ['R', 'C', 'F', 'K', 'C', 'A', 'T'],
-              ['D', 'K', 'B', 'A', 'E', 'Q', 'J'],
-              ['F', 'I', 'S', 'H', 'U', 'Y', 'L']
-            ], words: [
-              "RABBIT",
-              "MONKEY",
-              "LION",
-              "BIRD",
-              "FISH",
-              "CAT",
-              "COW",
-            ]));
+      // ignore: use_is_even_rather_than_modulo
+      return Right(
+        // ignore: use_is_even_rather_than_modulo
+        sectionId % 2 == 0
+            ? WordData(
+                board: [
+                  ["W", "H", "I", "T", "E", "P"],
+                  ["R", "E", "D", "S", "Y", "U"],
+                  ["B", "S", "C", "Y", "K", "R"],
+                  ["B", "L", "A", "C", "K", "P"],
+                  ["A", "F", "U", "U", "A", "L"],
+                  ["K", "D", "A", "E", "A", "E"],
+                ],
+                words: [
+                  "WHITE",
+                  "RED",
+                  "BLACK",
+                  "BLUE",
+                  "PURPLE",
+                ],
+              )
+            : WordData(
+                board: [
+                  ['R', 'A', 'B', 'B', 'I', 'T', 'C'],
+                  ['M', 'S', 'L', 'I', 'O', 'N', 'O'],
+                  ['B', 'O', 'M', 'T', 'P', 'K', 'W'],
+                  ['I', 'A', 'N', 'Y', 'B', 'U', 'A'],
+                  ['R', 'C', 'F', 'K', 'C', 'A', 'T'],
+                  ['D', 'K', 'B', 'A', 'E', 'Q', 'J'],
+                  ['F', 'I', 'S', 'H', 'U', 'Y', 'L'],
+                ],
+                words: [
+                  "RABBIT",
+                  "MONKEY",
+                  "LION",
+                  "BIRD",
+                  "FISH",
+                  "CAT",
+                  "COW",
+                ],
+              ),
+      );
     });
 
     final result = await crosswordFuture;

@@ -5,7 +5,11 @@ import '../../../../core/models/failure/failure.dart';
 abstract interface class AuthRepository {
   Future<bool> isTokenExpired();
   Future<Option<Failure>> login(
-      {required String username, required String password});
+      // ignore: require_trailing_commas
+      {
+    required String username,
+    required String password,
+  });
   Future<Option<Failure>> register({
     required String firstName,
     required String lastName,

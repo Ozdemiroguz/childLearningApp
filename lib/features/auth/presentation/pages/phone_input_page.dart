@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intl/date_symbol_data_custom.dart';
 import 'package:tododyst/constants/colors.dart';
 import 'package:tododyst/features/auth/presentation/providers/register_provider.dart';
 import 'package:tododyst/router/router.dart';

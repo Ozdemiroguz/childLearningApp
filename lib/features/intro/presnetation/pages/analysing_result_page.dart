@@ -21,8 +21,10 @@ class AnalysingResultPage extends ConsumerWidget {
             ),
             Text("Analyzing results", style: TextStyle(fontSize: 32.sp)),
             SizedBox(height: 12.h),
-            Text("Please wait...",
-                style: TextStyle(fontSize: 20.sp, color: lightBlue1)),
+            Text(
+              "Please wait...",
+              style: TextStyle(fontSize: 20.sp, color: lightBlue1),
+            ),
           ],
         ),
       ),

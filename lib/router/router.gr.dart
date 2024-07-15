@@ -15,6 +15,19 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ActivitesLevelRoute.name: (routeData) {
+      final args = routeData.argsAs<ActivitesLevelRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ActivitesLevelPage(activityName: args.activityName),
+      );
+    },
+    ActivitiesChapterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ActivitiesChapterPage(),
+      );
+    },
     AnalysingResultRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -64,10 +77,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: IntroPage(),
       );
     },
+    LanguageActivityRoute.name: (routeData) {
+      final args = routeData.argsAs<LanguageActivityRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: LanguageActivityPage(level: args.level),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(),
+      );
+    },
+    MathActivityRoute.name: (routeData) {
+      final args = routeData.argsAs<MathActivityRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MathActivityPage(level: args.level),
       );
     },
     PhoneInputRoute.name: (routeData) {
@@ -100,6 +127,49 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ActivitesLevelPage]
+class ActivitesLevelRoute extends PageRouteInfo<ActivitesLevelRouteArgs> {
+  ActivitesLevelRoute({
+    required String activityName,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ActivitesLevelRoute.name,
+          args: ActivitesLevelRouteArgs(activityName: activityName),
+          initialChildren: children,
+        );
+
+  static const String name = 'ActivitesLevelRoute';
+
+  static const PageInfo<ActivitesLevelRouteArgs> page =
+      PageInfo<ActivitesLevelRouteArgs>(name);
+}
+
+class ActivitesLevelRouteArgs {
+  const ActivitesLevelRouteArgs({required this.activityName});
+
+  final String activityName;
+
+  @override
+  String toString() {
+    return 'ActivitesLevelRouteArgs{activityName: $activityName}';
+  }
+}
+
+/// generated route for
+/// [ActivitiesChapterPage]
+class ActivitiesChapterRoute extends PageRouteInfo<void> {
+  const ActivitiesChapterRoute({List<PageRouteInfo>? children})
+      : super(
+          ActivitiesChapterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ActivitiesChapterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -230,6 +300,35 @@ class IntroRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [LanguageActivityPage]
+class LanguageActivityRoute extends PageRouteInfo<LanguageActivityRouteArgs> {
+  LanguageActivityRoute({
+    required int level,
+    List<PageRouteInfo>? children,
+  }) : super(
+          LanguageActivityRoute.name,
+          args: LanguageActivityRouteArgs(level: level),
+          initialChildren: children,
+        );
+
+  static const String name = 'LanguageActivityRoute';
+
+  static const PageInfo<LanguageActivityRouteArgs> page =
+      PageInfo<LanguageActivityRouteArgs>(name);
+}
+
+class LanguageActivityRouteArgs {
+  const LanguageActivityRouteArgs({required this.level});
+
+  final int level;
+
+  @override
+  String toString() {
+    return 'LanguageActivityRouteArgs{level: $level}';
+  }
+}
+
+/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -241,6 +340,35 @@ class LoginRoute extends PageRouteInfo<void> {
   static const String name = 'LoginRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MathActivityPage]
+class MathActivityRoute extends PageRouteInfo<MathActivityRouteArgs> {
+  MathActivityRoute({
+    required int level,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MathActivityRoute.name,
+          args: MathActivityRouteArgs(level: level),
+          initialChildren: children,
+        );
+
+  static const String name = 'MathActivityRoute';
+
+  static const PageInfo<MathActivityRouteArgs> page =
+      PageInfo<MathActivityRouteArgs>(name);
+}
+
+class MathActivityRouteArgs {
+  const MathActivityRouteArgs({required this.level});
+
+  final int level;
+
+  @override
+  String toString() {
+    return 'MathActivityRouteArgs{level: $level}';
+  }
 }
 
 /// generated route for

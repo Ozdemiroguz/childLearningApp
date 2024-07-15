@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:crossword/crossword.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +8,6 @@ import 'package:tododyst/gen/assets.gen.dart';
 import 'package:tododyst/router/router.dart';
 import 'package:tododyst/services/timer/otp_timer.dart';
 
-import '../../../../constants/colors.dart';
 import '../../../../constants/colors.dart';
 import '../../domain/models/crossword.dart';
 import '../providers/crossword_provider.dart';
@@ -59,7 +55,7 @@ class _CrosswordPageState extends ConsumerState<CrosswordPage> {
                     child: Container(
                       width: 44.w,
                       height: 44.h,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
@@ -96,7 +92,7 @@ class _CrosswordPageState extends ConsumerState<CrosswordPage> {
                 ),
                 if (state.sectionCompleted)
                   Positioned.fill(
-                    child: Container(
+                    child: ColoredBox(
                       color: Colors.black.withOpacity(0.5),
                       child: Center(
                         child: Column(
@@ -121,7 +117,7 @@ class _CrosswordPageState extends ConsumerState<CrosswordPage> {
                               child: Container(
                                 width: 44.w,
                                 height: 44.h,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: white,
                                 ),
@@ -209,44 +205,45 @@ class _WordContainer extends ConsumerWidget {
     final List<String> words = state.wordData.words;
 
     return Container(
-        decoration: BoxDecoration(
-          color: white,
-          borderRadius: BorderRadius.circular(10.w),
-        ),
-        width: double.infinity,
-        height: 90.h,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  childAspectRatio: 2,
-                  mainAxisSpacing: 5.h,
-                  crossAxisSpacing: 3.w,
-                ),
-                itemCount: words.length,
-                itemBuilder: (context, index) {
-                  return Text(
-                    textAlign: TextAlign.center,
-                    words[index],
-                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                          color: black,
-                          decorationThickness: 2,
-                          fontFamily: "Righteous",
-                          fontSize: 18.sp,
-                          decoration: state.wordsToFind.contains(words[index])
-                              ? TextDecoration.lineThrough
-                              : TextDecoration.none,
-                        ),
-                  );
-                },
+      decoration: BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.circular(10.w),
+      ),
+      width: double.infinity,
+      height: 90.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: GridView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                childAspectRatio: 2,
+                mainAxisSpacing: 5.h,
+                crossAxisSpacing: 3.w,
               ),
-            )
-          ],
-        ));
+              itemCount: words.length,
+              itemBuilder: (context, index) {
+                return Text(
+                  textAlign: TextAlign.center,
+                  words[index],
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                        color: black,
+                        decorationThickness: 2,
+                        fontFamily: "Righteous",
+                        fontSize: 18.sp,
+                        decoration: state.wordsToFind.contains(words[index])
+                            ? TextDecoration.lineThrough
+                            : TextDecoration.none,
+                      ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -278,11 +275,11 @@ class _GameBoard extends ConsumerWidget {
               letters: state.wordData.board,
               spacing: const Offset(50, 50),
               onLineDrawn: (List<String> words) {
-                print(words);
+                // print(words);
                 ref
                     .read(crosswordProvider.notifier)
                     .onChangedWordsToFind(words);
-                print(state.sectionCompleted);
+                // print(state.sectionCompleted);
               },
               // onLineUpdate: (String word) {
               //   setState(() {
@@ -290,7 +287,10 @@ class _GameBoard extends ConsumerWidget {
               //   });
               // },
               textStyle: const TextStyle(
-                  color: black, fontSize: 36, fontFamily: "Righteous"),
+                color: black,
+                fontSize: 36,
+                fontFamily: "Righteous",
+              ),
 
               lineDecoration: LineDecoration(
                 lineGradientColors: [
@@ -298,8 +298,11 @@ class _GameBoard extends ConsumerWidget {
                 ],
                 incorrectGradientColors: [Colors.pink],
                 strokeWidth: 46,
-                lineTextStyle: TextStyle(
-                    color: black, fontSize: 36, fontFamily: "Righteous"),
+                lineTextStyle: const TextStyle(
+                  color: black,
+                  fontSize: 36,
+                  fontFamily: "Righteous",
+                ),
               ),
               addIncorrectWord: false,
               hints: state.wordData.words,

@@ -59,7 +59,7 @@ final class AuthRepositoryImpl implements AuthRepository {
           final token = data['token'] as String?;
 
           if (token == null || token.isEmpty) {
-            print("Token mevcut değil veya boş");
+            //print("Token mevcut değil veya boş");
             return some(Failure.unknownError(unknownErrorMessage));
           }
 
@@ -71,7 +71,7 @@ final class AuthRepositoryImpl implements AuthRepository {
 
             return none();
           } catch (e) {
-            print("Hata: $e");
+            //  print("Hata: $e");
             return some(Failure.unknownError(unknownErrorMessage));
           }
         },

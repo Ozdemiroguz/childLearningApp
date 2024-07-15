@@ -1,7 +1,6 @@
 //register state ile register provider
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:tododyst/core/models/user_models/user/user.dart';
 import 'package:tododyst/utils/validators.dart';
 
 import '../../../../core/injections/locator.dart';
@@ -44,16 +43,17 @@ class _RegisterNotifier extends AutoDisposeNotifier<RegisterState> {
 
   void onChangedPhoneNumber(String? phoneNumber) {
     state = state.copyWith(
-        phoneNumber: phoneNumber ?? "",
-        phoneNumberFailure: validatePhone(phoneNumber ?? ""));
+      phoneNumber: phoneNumber ?? "",
+      phoneNumberFailure: validatePhone(phoneNumber ?? ""),
+    );
   }
 
   void onChangedPinput(String pinput) {
-    print("pinput: $pinput");
+    //print("pinput: $pinput");
     state =
         state.copyWith(password: pinput, pinputFailure: validatePinput(pinput));
-    print("state.PinputFailure: ${state.pinputFailure} ");
-    print("state.PinputFailure: ${state.pinputFailure.toNullable()?.message} ");
+    // print("state.PinputFailure: ${state.pinputFailure} ");
+    // print("state.PinputFailure: ${state.pinputFailure.toNullable()?.message} ");
   }
 
   void onChangedFirstName(String firstName) {
@@ -77,9 +77,13 @@ class _RegisterNotifier extends AutoDisposeNotifier<RegisterState> {
 
   void onChangedConfirmPassword(String confirmPassword) {
     state = state.copyWith(
-        confirmPassword: confirmPassword,
-        confirmPasswordFailure: validateConfirmPassword(
-            state.password, state.confirmPassword, "passwords do not match"));
+      confirmPassword: confirmPassword,
+      confirmPasswordFailure: validateConfirmPassword(
+        state.password,
+        state.confirmPassword,
+        "passwords do not match",
+      ),
+    );
   }
 
   void onChangedType(UserType userType) {

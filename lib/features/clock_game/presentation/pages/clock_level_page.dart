@@ -9,31 +9,33 @@ class ClockLevelPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-        body: Stack(
-      children: [
-        Positioned.fill(
-          child: Container(
-              decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/clockback.png"),
-              fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/clockback.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          )),
-        ),
-        Positioned.fill(
-          child: Container(
-            color: Colors.black.withOpacity(0.25),
           ),
-        ),
-        GridView.builder(
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.25),
+            ),
+          ),
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+            ),
             itemBuilder: (
               context,
               index,
             ) {
               return Container(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20),
@@ -47,8 +49,10 @@ class ClockLevelPage extends ConsumerWidget {
                   ),
                 ),
               );
-            }),
-      ],
-    ));
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

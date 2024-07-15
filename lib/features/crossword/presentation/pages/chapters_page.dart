@@ -8,7 +8,6 @@ import 'package:tododyst/router/router.dart';
 
 import '../../../../constants/colors.dart';
 import '../../domain/models/crossword.dart';
-import '../providers/crossword_provider.dart';
 
 final sectionIdProvider = StateProvider<int>((ref) => 0);
 
@@ -77,6 +76,7 @@ class _Chapters extends ConsumerWidget {
               context.router.replace(
                 CrosswordRoute(
                   crossword: CrosswordGame(
+                    // ignore: use_is_even_rather_than_modulo
                     type: index % 2 == 0
                         ? CrosswordGameType.animals
                         : CrosswordGameType.colors,
@@ -91,6 +91,7 @@ class _Chapters extends ConsumerWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: Image.asset(
+                        // ignore: use_is_even_rather_than_modulo
                         index % 2 == 0
                             ? "assets/images/animals.png"
                             : "assets/images/colors.png",

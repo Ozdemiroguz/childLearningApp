@@ -1,6 +1,5 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tododyst/core/models/user_models/user/user.dart';
 import 'package:tododyst/core/models/user_models/user_type.dart';
 
 import '../../../../../core/models/failure/failure.dart';

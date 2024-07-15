@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +52,7 @@ class __MaterialAppState extends ConsumerState<_MaterialApp> {
   @override
   void didChangeDependencies() {
     Intl.defaultLocale = context.locale.languageCode;
-    print("Current locale: ${context.locale.languageCode}");
+    //print("Current locale: ${context.locale.languageCode}");
     super.didChangeDependencies();
   }
 

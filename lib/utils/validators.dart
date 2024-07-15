@@ -15,7 +15,7 @@ Option<ValueFailure> validateEmailAddress(
   String? customMessage,
 }) {
   if (input.isEmpty && isRequired) {
-    print('input.isEmpty:${emptyEmailFailureMessage}');
+    // print('input.isEmpty:${emptyEmailFailureMessage}');
     return some(
       ValueFailure.invalidInput(
         customMessage ?? emptyEmailFailureMessage,
@@ -96,11 +96,13 @@ Option<ValueFailure> validateDescription(String input) {
 }
 
 Option<ValueFailure> validatePassword(String? input, {bool isLogin = false}) {
-  if (input == '' || input == null)
+  if (input == '' || input == null) {
     return some(ValueFailure.invalidInput(emptyPasswordFailureMessage));
+  }
 
-  if (input.length < minPasswordLength)
+  if (input.length < minPasswordLength) {
     return some(ValueFailure.invalidInput(shortPasswordFailureMessage));
+  }
 
   if (!passwordRegExp.hasMatch(input) && !isLogin) {
     return some(ValueFailure.invalidInput(invalidPasswordFailureMessage));
@@ -114,11 +116,13 @@ Option<ValueFailure> validateNewPassword(
   String passwordConfirmation, [
   int minPasswordLength = 6,
 ]) {
-  if (input == '' || input == null)
+  if (input == '' || input == null) {
     return some(ValueFailure.invalidInput(emptyPasswordFailureMessage));
+  }
 
-  if (input.length < minPasswordLength)
+  if (input.length < minPasswordLength) {
     return some(ValueFailure.invalidInput(shortPasswordFailureMessage));
+  }
 
   if (!lowercaseRegExp.hasMatch(input)) {
     return some(ValueFailure.invalidInput(passwordLowerCaseFailureMessage));
@@ -144,11 +148,13 @@ Option<ValueFailure> validateNewPasswordEmptyMessage(
   String emptyMessage, [
   int minPasswordLength = 6,
 ]) {
-  if (input == '' || input == null)
+  if (input == '' || input == null) {
     return some(ValueFailure.invalidInput(emptyMessage));
+  }
 
-  if (input.length < minPasswordLength)
+  if (input.length < minPasswordLength) {
     return some(ValueFailure.invalidInput(shortPasswordFailureMessage));
+  }
 
   if (!lowercaseRegExp.hasMatch(input)) {
     return some(ValueFailure.invalidInput(passwordLowerCaseFailureMessage));
@@ -173,12 +179,13 @@ Option<ValueFailure> validateConfirmPassword(
   String password,
   String? customMessage,
 ) {
-  if (input != password)
+  if (input != password) {
     return some(
       ValueFailure.invalidInput(
         customMessage ?? passwordNotMatchFailureMessage,
       ),
     );
+  }
 
   return none();
 }

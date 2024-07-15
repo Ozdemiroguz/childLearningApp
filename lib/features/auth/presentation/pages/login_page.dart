@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/custom/password_text_field.dart';
@@ -132,22 +131,6 @@ class _Password extends ConsumerWidget {
   }
 }
 
-class _ForgotPassword extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: GestureDetector(
-        onTap: () {},
-        child: Text(
-          "Şifreni mi unuttun?",
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(),
-        ),
-      ),
-    );
-  }
-}
-
 class _LoginButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -159,7 +142,6 @@ class _LoginButton extends ConsumerWidget {
           formState?.validate();
 
           if (formState != null && formState.validate()) {
-            print('Validated');
             await ref.watch(loginProvider.notifier).login();
 
             ref.read(loginProvider).failure.fold(

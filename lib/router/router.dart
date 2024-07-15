@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crossword/crossword.dart';
+import 'package:tododyst/features/activities/presentation/pages/math_activity_page.dart';
 import 'package:tododyst/features/crossword/presentation/pages/crossword_page.dart';
 
+import '../features/activities/presentation/pages/activites_level_page.dart';
+import '../features/activities/presentation/pages/activities_chapter_page.dart';
+import '../features/activities/presentation/pages/language_activity_page.dart';
 import '../features/auth/presentation/pages/create_account_page.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/phone_input_page.dart';
@@ -44,6 +47,12 @@ class AppRouter extends _$AppRouter {
 
         //Clock
         AutoRoute(page: ClockLevelRoute.page),
+
+        //Activities
+        AutoRoute(page: ActivitiesChapterRoute.page),
+        AutoRoute(page: ActivitesLevelRoute.page),
+        AutoRoute(page: LanguageActivityRoute.page),
+        AutoRoute(page: MathActivityRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),

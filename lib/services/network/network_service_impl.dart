@@ -138,8 +138,11 @@ final class NetworkServiceImpl implements NetworkService {
         if (result.data?["token"] != null) {
           return right(result);
         }
-        return left(Failure.responseError(
-            result.data?["message"] as String? ?? unknownErrorMessage));
+        return left(
+          Failure.responseError(
+            result.data?["message"] as String? ?? unknownErrorMessage,
+          ),
+        );
       } else {
         return left(Failure.noConnection(noConnectionMessage));
       }
@@ -234,7 +237,8 @@ final class NetworkServiceImpl implements NetworkService {
           },
           onResponse: (e, handler) {
             transaction.status = SpanStatus.fromHttpStatusCode(
-                (e.data as Map?)?.extract<int>('code').getOrElse(() => 0) ?? 0);
+              (e.data as Map?)?.extract<int>('code').getOrElse(() => 0) ?? 0,
+            );
 
             transaction.setData(
               "response",
