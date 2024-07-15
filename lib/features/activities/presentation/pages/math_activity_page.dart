@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tododyst/features/activities/presentation/widgets/question_bar.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../gen/assets.gen.dart';
@@ -16,37 +17,18 @@ class MathActivityPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Center(
-        child: Stack(
+        child: Column(
           children: [
-            Positioned.fill(
-              child: Assets.images.croswordchapback.image(
-                fit: BoxFit.cover,
-              ),
+            SizedBox(height: 90.h),
+            const QuestionBar(
+              decimalValue: 55,
             ),
-            //blur
-            Positioned.fill(
-              child: Container(
-                color: darkGray2.withOpacity(0.5),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 60.w),
-                child: Column(
-                  children: [
-                    SizedBox(height: 100.h),
-                    Text(
-                      "Math",
-                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                            fontSize: 40.sp,
-                            fontFamily: "Righteous",
-                            color: white,
-                          ),
-                    ),
-                    SizedBox(height: 20.h),
-                  ],
-                ),
-              ),
+            SizedBox(height: 20.h),
+            Text(
+              "Math Activity Level $level",
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontSize: 22.sp,
+                  ),
             ),
           ],
         ),

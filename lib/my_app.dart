@@ -52,7 +52,6 @@ class __MaterialAppState extends ConsumerState<_MaterialApp> {
   @override
   void didChangeDependencies() {
     Intl.defaultLocale = context.locale.languageCode;
-    //print("Current locale: ${context.locale.languageCode}");
     super.didChangeDependencies();
   }
 

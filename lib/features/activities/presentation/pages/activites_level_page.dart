@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../../router/router.dart';
 
 @RoutePage()
 class ActivitesLevelPage extends ConsumerWidget {
@@ -45,7 +46,9 @@ class ActivitesLevelPage extends ConsumerWidget {
                           ),
                     ),
                     SizedBox(height: 20.h),
-                    _ActivityLevel(),
+                    _ActivityLevel(
+                      activityName: activityName,
+                    ),
                   ],
                 ),
               ),
@@ -58,6 +61,10 @@ class ActivitesLevelPage extends ConsumerWidget {
 }
 
 class _ActivityLevel extends ConsumerWidget {
+  final String activityName;
+
+  const _ActivityLevel({required this.activityName});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Expanded(
@@ -70,7 +77,19 @@ class _ActivityLevel extends ConsumerWidget {
         ),
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              activityName == "Math Skills - Activities"
+                  ? context.router.push(
+                      MathActivityRoute(
+                        level: index + 1,
+                      ),
+                    )
+                  : context.router.push(
+                      LanguageActivityRoute(
+                        level: index + 1,
+                      ),
+                    );
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: lightGray.withOpacity(0.5),
