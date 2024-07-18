@@ -1,30 +1,35 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'language_activity_state.freezed.dart';
+part 'math_activity_state.freezed.dart';
 
 @freezed
-class LanguageActivityState with _$LanguageActivityState {
-  factory LanguageActivityState({
+class MathActivityState with _$MathActivityState {
+  factory MathActivityState({
     required bool isLoading,
-    required List<String> answers,
+    required List<int> answers,
+    required List<String> questions,
     required List<String> options,
     required int currentQuestion,
     required int? selectedOption,
     required bool isCorrect,
     required bool isAnswered,
     required int random,
-  }) = _LanguageActivityState;
+    required Color color,
+  }) = _MathActivityState;
 
-  factory LanguageActivityState.initial() => LanguageActivityState(
+  factory MathActivityState.initial() => MathActivityState(
         isLoading: false,
         answers: [],
         options: [],
+        questions: [],
         currentQuestion: 0,
         selectedOption: null,
         isCorrect: false,
         isAnswered: false,
         random: 0,
+        color: Colors.transparent,
       );
 
-  const LanguageActivityState._();
+  const MathActivityState._();
 }

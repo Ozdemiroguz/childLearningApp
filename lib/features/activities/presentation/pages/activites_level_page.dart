@@ -79,12 +79,12 @@ class _ActivityLevel extends ConsumerWidget {
           return GestureDetector(
             onTap: () {
               activityName == "Math Skills - Activities"
-                  ? context.router.push(
+                  ? context.router.replace(
                       MathActivityRoute(
                         level: index + 1,
                       ),
                     )
-                  : context.router.push(
+                  : context.router.replace(
                       LanguageActivityRoute(
                         level: index + 1,
                       ),

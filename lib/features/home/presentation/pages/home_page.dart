@@ -8,6 +8,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(homeProvider);
+    
     return Scaffold(
       body: Center(
         child: Column(

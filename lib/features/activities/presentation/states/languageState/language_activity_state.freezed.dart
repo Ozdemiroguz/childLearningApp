@@ -24,6 +24,7 @@ mixin _$LanguageActivityState {
   bool get isCorrect => throw _privateConstructorUsedError;
   bool get isAnswered => throw _privateConstructorUsedError;
   int get random => throw _privateConstructorUsedError;
+  Color get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LanguageActivityStateCopyWith<LanguageActivityState> get copyWith =>
@@ -44,7 +45,8 @@ abstract class $LanguageActivityStateCopyWith<$Res> {
       int? selectedOption,
       bool isCorrect,
       bool isAnswered,
-      int random});
+      int random,
+      Color color});
 }
 
 /// @nodoc
@@ -69,6 +71,7 @@ class _$LanguageActivityStateCopyWithImpl<$Res,
     Object? isCorrect = null,
     Object? isAnswered = null,
     Object? random = null,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -103,6 +106,10 @@ class _$LanguageActivityStateCopyWithImpl<$Res,
           ? _value.random
           : random // ignore: cast_nullable_to_non_nullable
               as int,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
     ) as $Val);
   }
 }
@@ -124,7 +131,8 @@ abstract class _$$LanguageActivityStateImplCopyWith<$Res>
       int? selectedOption,
       bool isCorrect,
       bool isAnswered,
-      int random});
+      int random,
+      Color color});
 }
 
 /// @nodoc
@@ -147,6 +155,7 @@ class __$$LanguageActivityStateImplCopyWithImpl<$Res>
     Object? isCorrect = null,
     Object? isAnswered = null,
     Object? random = null,
+    Object? color = null,
   }) {
     return _then(_$LanguageActivityStateImpl(
       isLoading: null == isLoading
@@ -181,6 +190,10 @@ class __$$LanguageActivityStateImplCopyWithImpl<$Res>
           ? _value.random
           : random // ignore: cast_nullable_to_non_nullable
               as int,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
     ));
   }
 }
@@ -196,7 +209,8 @@ class _$LanguageActivityStateImpl extends _LanguageActivityState {
       required this.selectedOption,
       required this.isCorrect,
       required this.isAnswered,
-      required this.random})
+      required this.random,
+      required this.color})
       : _answers = answers,
         _options = options,
         super._();
@@ -229,10 +243,12 @@ class _$LanguageActivityStateImpl extends _LanguageActivityState {
   final bool isAnswered;
   @override
   final int random;
+  @override
+  final Color color;
 
   @override
   String toString() {
-    return 'LanguageActivityState(isLoading: $isLoading, answers: $answers, options: $options, currentQuestion: $currentQuestion, selectedOption: $selectedOption, isCorrect: $isCorrect, isAnswered: $isAnswered, random: $random)';
+    return 'LanguageActivityState(isLoading: $isLoading, answers: $answers, options: $options, currentQuestion: $currentQuestion, selectedOption: $selectedOption, isCorrect: $isCorrect, isAnswered: $isAnswered, random: $random, color: $color)';
   }
 
   @override
@@ -252,7 +268,8 @@ class _$LanguageActivityStateImpl extends _LanguageActivityState {
                 other.isCorrect == isCorrect) &&
             (identical(other.isAnswered, isAnswered) ||
                 other.isAnswered == isAnswered) &&
-            (identical(other.random, random) || other.random == random));
+            (identical(other.random, random) || other.random == random) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
@@ -265,7 +282,8 @@ class _$LanguageActivityStateImpl extends _LanguageActivityState {
       selectedOption,
       isCorrect,
       isAnswered,
-      random);
+      random,
+      color);
 
   @JsonKey(ignore: true)
   @override
@@ -284,7 +302,8 @@ abstract class _LanguageActivityState extends LanguageActivityState {
       required final int? selectedOption,
       required final bool isCorrect,
       required final bool isAnswered,
-      required final int random}) = _$LanguageActivityStateImpl;
+      required final int random,
+      required final Color color}) = _$LanguageActivityStateImpl;
   _LanguageActivityState._() : super._();
 
   @override
@@ -303,6 +322,8 @@ abstract class _LanguageActivityState extends LanguageActivityState {
   bool get isAnswered;
   @override
   int get random;
+  @override
+  Color get color;
   @override
   @JsonKey(ignore: true)
   _$$LanguageActivityStateImplCopyWith<_$LanguageActivityStateImpl>

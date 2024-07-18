@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/core/extensions/context_extensions.dart';
+import 'package:tododyst/custom/custom_filled_button.dart';
 import 'package:tododyst/features/activities/presentation/providers/language_provider.dart';
+import 'package:tododyst/features/activities/presentation/providers/math_provider.dart';
+import 'package:tododyst/router/router.dart';
 
 import '../../../../constants/colors.dart';
 
@@ -16,7 +19,7 @@ class LanguageActivityPage extends ConsumerWidget {
   const LanguageActivityPage({required this.level});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(languageProvider);
+    final state = ref.watch(languageProvider);
     return Scaffold(
       body: Center(
         child: ref.watch(languageProvider).isLoading
@@ -26,8 +29,12 @@ class LanguageActivityPage extends ConsumerWidget {
                   SizedBox(height: 90.h),
                   SizedBox(
                     width: context.screenWidth,
-                    child: const QuestionBar(
-                      decimalValue: 55,
+                    child: QuestionBar(
+                      decimalValue: state.answers.length == 0
+                          ? 0
+                          : ((state.currentQuestion / state.answers.length) *
+                                  100)
+                              .toInt(),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -37,10 +44,12 @@ class LanguageActivityPage extends ConsumerWidget {
                           fontSize: 22.sp,
                         ),
                   ),
-                  SizedBox(height: 65.h),
+                  SizedBox(height: 50.h),
                   _QuestionPart(),
                   SizedBox(height: 50.h),
                   _Options(),
+                  SizedBox(height: 20.h),
+                  _NextButton(),
                 ],
               ),
       ),
@@ -52,31 +61,35 @@ class _QuestionPart extends ConsumerWidget {
   //1 ile 5 arasında rastgele bir sayı üretir
 
   Widget build(BuildContext context, WidgetRef ref) {
-    final int random = ref.read(languageProvider).random;
+    final state = ref.watch(languageProvider);
+    final int random = state.random;
+    final String question = state.answers.length == 0
+        ? "Loading..."
+        : state.answers[state.currentQuestion];
 
     return //switch case ile random sayıya göre farklı sorular üretilir
         random == 1
-            ? const RotatedBox(
+            ? RotatedBox(
                 quarterTurns: 1,
-                child: Text("Reading", style: TextStyle(fontSize: 44)),
+                child: Text(question, style: TextStyle(fontSize: 44)),
               )
             : random == 2
-                ? const RotatedBox(
+                ? RotatedBox(
                     quarterTurns: 2,
-                    child: Text("Reading", style: TextStyle(fontSize: 44)),
+                    child: Text(question, style: TextStyle(fontSize: 44)),
                   )
                 : random == 3
                     ? RotatedBox(
                         quarterTurns: 3,
                         child: Text(
-                          "Reading",
+                          question,
                           style: TextStyle(
                             fontSize: 44.sp,
                           ),
                         ),
                       )
                     : Text(
-                        "Reading",
+                        question,
                         style: TextStyle(
                           fontSize: 44.sp,
                           decoration: TextDecoration.lineThrough,
@@ -157,11 +170,37 @@ class _NextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(languageProvider);
-    return ElevatedButton(
-      onPressed: () {
-        if (state.selectedOption != null) {}
-      },
-      child: Text("Next"),
+    return Visibility(
+      visible: state.selectedOption != null,
+      child: SizedBox(
+        width: 305.w,
+        height: 45.h,
+        child: CustomFilledButton(
+          color: state.color,
+          onPressed: () {
+            if (!state.isAnswered && !state.isCorrect) {
+              ref.read(languageProvider.notifier).checkAnswer();
+            } else if (state.isAnswered && !state.isCorrect) {
+              ref.read(languageProvider.notifier).wrongAnswer();
+            } else {
+              if (state.currentQuestion < state.answers.length - 1) {
+                ref.read(languageProvider.notifier).nextQuestion();
+              } else {
+                context.router.replace(ActivitesLevelRoute(
+                  activityName: "Language Skills - Activities",
+                ));
+              }
+            }
+          },
+          child: Text(
+            state.isCorrect
+                ? "Right"
+                : (state.isAnswered && !state.isCorrect)
+                    ? "Wrong"
+                    : "Check",
+          ),
+        ),
+      ),
     );
   }
 }

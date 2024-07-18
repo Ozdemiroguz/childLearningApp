@@ -1,4 +1,4 @@
-//LanguageActivity state ile LanguageActivity provider
+//MathActivity state ile MathActivity provider
 
 import 'dart:math';
 
@@ -7,49 +7,64 @@ import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
 
-import '../states/languageState/language_activity_state.dart';
+import '../states/mathState/math_activity_state.dart';
 
-final languageProvider = NotifierProvider.autoDispose<_LanguageActivityNotifier,
-    LanguageActivityState>(
-  _LanguageActivityNotifier.new,
+final mathProvider =
+    NotifierProvider.autoDispose<_MathActivityNotifier, MathActivityState>(
+  _MathActivityNotifier.new,
 );
 
-class _LanguageActivityNotifier
-    extends AutoDisposeNotifier<LanguageActivityState> {
+class _MathActivityNotifier extends AutoDisposeNotifier<MathActivityState> {
   @override
-  LanguageActivityState build() {
-    Future(() => getLanguageActivityData());
-    return LanguageActivityState.initial();
+  MathActivityState build() {
+    Future(() => getMathActivityData());
+    return MathActivityState.initial();
   }
 
-  Future<void> getLanguageActivityData() async {
+  Future<void> getMathActivityData() async {
     state = state.copyWith(isLoading: true);
     await Future.delayed(const Duration(seconds: 1));
-    state = state.copyWith(
-      isLoading: false,
-      answers: ["Reading", "Speaking", "Writing"],
-      currentQuestion: 0,
-      random: Random().nextInt(5) + 1,
-    );
-
+    state = state.copyWith(isLoading: false, answers: [12, 13, 14]);
+    setQuestion();
     setOptions();
   }
 
   void setOptions() {
-    final String temp = state.answers[state.currentQuestion];
-    final List<String> tempOptions = [];
-    tempOptions.add(temp);
-    tempOptions.add("$temp?");
-    tempOptions.add(removeRandomCharacter(temp));
-    tempOptions.add(removeRandomCharacter(removeRandomCharacter(temp)));
+    final int temp = state.answers[state.currentQuestion];
+    final Set<String> tempOptions = {};
 
-    tempOptions.shuffle();
-    state = state.copyWith(options: tempOptions);
+    final random = Random();
+    tempOptions.add(temp.toString());
+    int coubter = 0;
+
+    while (tempOptions.length < 4) {
+      final randomValue = random.nextInt(temp + 10);
+      tempOptions.add(randomValue.toString());
+    }
+
+    //if the is a duplicate option, remove it and add a new one and check again
+
+    state = state.copyWith(options: tempOptions.toList()..shuffle());
+    print("options: ${state.options}");
+  }
+
+  void setQuestion() {
+    List<String> questions = [];
+
+    final random = Random();
+    for (int i = 0; i < state.answers.length; i++) {
+      int a = 1 + random.nextInt(state.answers[i] - 1);
+      int b = state.answers[i] - a;
+
+      questions.add("$a + $b");
+    }
+
+    state = state.copyWith(questions: questions);
   }
 
   void checkAnswer() {
     if (state.options[state.selectedOption!] ==
-        state.answers[state.currentQuestion]) {
+        state.answers[state.currentQuestion].toString()) {
       state = state.copyWith(isCorrect: true, isAnswered: true);
     } else {
       state = state.copyWith(isCorrect: false, isAnswered: true);
