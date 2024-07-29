@@ -10,6 +10,7 @@ import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/phone_input_page.dart';
 import '../features/auth/presentation/pages/phone_verification_page.dart';
 import '../features/auth/presentation/pages/user_type_page.dart';
+import '../features/clock_game/presentation/pages/clock_game_page.dart';
 import '../features/clock_game/presentation/pages/clock_level_page.dart';
 import '../features/crossword/domain/models/crossword.dart';
 import '../features/crossword/presentation/pages/chapters_page.dart';
@@ -47,6 +48,7 @@ class AppRouter extends _$AppRouter {
 
         //Clock
         AutoRoute(page: ClockLevelRoute.page),
+        AutoRoute(page: ClockGameRoute.page),
 
         //Activities
         AutoRoute(page: ActivitiesChapterRoute.page),

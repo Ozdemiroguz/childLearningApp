@@ -66,12 +66,13 @@ class _QuestionPart extends ConsumerWidget {
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Text(
-          textAlign: TextAlign.center,
-          state.questions.isEmpty ? "" : state.questions[state.currentQuestion],
-          style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                fontSize: 52.sp,
-                color: darkBlue1,
-              )),
+        textAlign: TextAlign.center,
+        state.questions.isEmpty ? "" : state.questions[state.currentQuestion],
+        style: Theme.of(context).textTheme.displayLarge!.copyWith(
+              fontSize: 52.sp,
+              color: darkBlue1,
+            ),
+      ),
     );
   }
 }
@@ -161,9 +162,11 @@ class _NextButton extends ConsumerWidget {
             if (state.currentQuestion < state.answers.length - 1) {
               ref.read(mathProvider.notifier).nextQuestion();
             } else {
-              context.router.replace(ActivitesLevelRoute(
-                activityName: "Math Skills - Activities",
-              ));
+              context.router.replace(
+                ActivitesLevelRoute(
+                  activityName: "Math Skills - Activities",
+                ),
+              );
             }
           }
         },

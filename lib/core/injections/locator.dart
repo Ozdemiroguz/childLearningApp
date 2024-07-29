@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tododyst/core/injections/locator.config.dart';
+import 'package:tododyst/features/clock_game/domain/repository/clock_level_repository.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../features/crossword/domain/repositories/crosword_repository.dart';
@@ -23,3 +24,6 @@ final authRepositoryProvider =
 
 final crosswordRepositoryProvider =
     Provider.autoDispose((ref) => getIt<CrosswordRepository>());
+
+final clockLevelRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<ClockLevelRepository>());

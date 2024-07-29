@@ -40,6 +40,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ChaptersPage(),
       );
     },
+    ClockGameRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClockGamePage(),
+      );
+    },
     ClockLevelRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -196,6 +202,20 @@ class ChaptersRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChaptersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ClockGamePage]
+class ClockGameRoute extends PageRouteInfo<void> {
+  const ClockGameRoute({List<PageRouteInfo>? children})
+      : super(
+          ClockGameRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ClockGameRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

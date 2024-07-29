@@ -36,6 +36,11 @@ const darkGreen = Color(0xff89B73D);
 const purple = Color(0xff8A5B9F);
 const brown = Color(0xffA67C5B);
 
+//clock game
+const clockLevelColor = Color(0xffD4B872);
+const clockTitleBack = Color(0xff8EAAAD);
+const clockTitleColor = Color(0xffFEFBEC);
+
 const List<Color> crosswordColors = [
   red,
   blue,

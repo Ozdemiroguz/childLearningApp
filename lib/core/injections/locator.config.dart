@@ -18,12 +18,16 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 
 import '../../features/auth/data/repositories/auth_repository_impl.dart'
-    as _i20;
-import '../../features/auth/domain/repositories/auth_repository.dart' as _i19;
-import '../../features/crossword/data/repositories/crossword_repository_impl.dart'
     as _i22;
+import '../../features/auth/domain/repositories/auth_repository.dart' as _i21;
+import '../../features/clock_game/data/repository.dart/clock_level_repository_imp.dart'
+    as _i20;
+import '../../features/clock_game/domain/repository/clock_level_repository.dart'
+    as _i19;
+import '../../features/crossword/data/repositories/crossword_repository_impl.dart'
+    as _i24;
 import '../../features/crossword/domain/repositories/crosword_repository.dart'
-    as _i21;
+    as _i23;
 import '../../router/router.dart' as _i7;
 import '../../services/jwt/jwt_service.dart' as _i15;
 import '../../services/jwt/jwt_service_impl.dart' as _i16;
@@ -35,7 +39,7 @@ import '../../services/network/network_service.dart' as _i17;
 import '../../services/network/network_service_impl.dart' as _i18;
 import '../models/usecases/base_64_encode.dart' as _i14;
 import '../models/usecases/usecase.dart' as _i12;
-import 'register_module.dart' as _i23;
+import 'register_module.dart' as _i25;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -73,18 +77,21 @@ extension GetItInjectableX on _i1.GetIt {
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
           networkInfo: gh<_i10.NetworkInfo>(),
         ));
-    gh.lazySingleton<_i19.AuthRepository>(() => _i20.AuthRepositoryImpl(
+    gh.lazySingleton<_i19.ClockLevelRepository>(() =>
+        _i20.ClockLevelRepositoryImp(
+            networkService: gh<_i17.NetworkService>()));
+    gh.lazySingleton<_i21.AuthRepository>(() => _i22.AuthRepositoryImpl(
           networkService: gh<_i17.NetworkService>(),
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
         ));
-    gh.lazySingleton<_i21.CrosswordRepository>(() =>
-        _i22.CrosswordRepositoryImpl(
+    gh.lazySingleton<_i23.CrosswordRepository>(() =>
+        _i24.CrosswordRepositoryImpl(
             networkService: gh<_i17.NetworkService>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i23.RegisterModule {
+class _$RegisterModule extends _i25.RegisterModule {
   @override
   _i7.AppRouter get appRouter => _i7.AppRouter();
 

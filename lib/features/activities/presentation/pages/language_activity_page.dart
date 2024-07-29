@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/core/extensions/context_extensions.dart';
 import 'package:tododyst/custom/custom_filled_button.dart';
 import 'package:tododyst/features/activities/presentation/providers/language_provider.dart';
-import 'package:tododyst/features/activities/presentation/providers/math_provider.dart';
 import 'package:tododyst/router/router.dart';
 
 import '../../../../constants/colors.dart';
@@ -30,7 +29,7 @@ class LanguageActivityPage extends ConsumerWidget {
                   SizedBox(
                     width: context.screenWidth,
                     child: QuestionBar(
-                      decimalValue: state.answers.length == 0
+                      decimalValue: state.answers.isEmpty
                           ? 0
                           : ((state.currentQuestion / state.answers.length) *
                                   100)
@@ -60,10 +59,11 @@ class LanguageActivityPage extends ConsumerWidget {
 class _QuestionPart extends ConsumerWidget {
   //1 ile 5 arasında rastgele bir sayı üretir
 
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(languageProvider);
     final int random = state.random;
-    final String question = state.answers.length == 0
+    final String question = state.answers.isEmpty
         ? "Loading..."
         : state.answers[state.currentQuestion];
 
@@ -71,12 +71,12 @@ class _QuestionPart extends ConsumerWidget {
         random == 1
             ? RotatedBox(
                 quarterTurns: 1,
-                child: Text(question, style: TextStyle(fontSize: 44)),
+                child: Text(question, style: const TextStyle(fontSize: 44)),
               )
             : random == 2
                 ? RotatedBox(
                     quarterTurns: 2,
-                    child: Text(question, style: TextStyle(fontSize: 44)),
+                    child: Text(question, style: const TextStyle(fontSize: 44)),
                   )
                 : random == 3
                     ? RotatedBox(

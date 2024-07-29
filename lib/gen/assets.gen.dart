@@ -41,6 +41,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bomb.svg
   SvgGenImage get bomb => const SvgGenImage('assets/icons/bomb.svg');
 
+  /// File path: assets/icons/down.svg
+  SvgGenImage get down => const SvgGenImage('assets/icons/down.svg');
+
   /// File path: assets/icons/filledarrowright.svg
   SvgGenImage get filledarrowright =>
       const SvgGenImage('assets/icons/filledarrowright.svg');
@@ -65,6 +68,7 @@ class $AssetsIconsGen {
         vector,
         arrowDown,
         bomb,
+        down,
         filledarrowright,
         hint,
         threedot,
@@ -74,6 +78,10 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/Mask group.png
+  AssetGenImage get maskGroup =>
+      const AssetGenImage('assets/images/Mask group.png');
 
   /// File path: assets/images/Vector36.png
   AssetGenImage get vector36 =>
@@ -95,9 +103,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/check.png
   AssetGenImage get check => const AssetGenImage('assets/images/check.png');
 
+  /// File path: assets/images/clock.png
+  AssetGenImage get clock => const AssetGenImage('assets/images/clock.png');
+
   /// File path: assets/images/clockback.png
   AssetGenImage get clockback =>
       const AssetGenImage('assets/images/clockback.png');
+
+  /// File path: assets/images/clockgameback.png
+  AssetGenImage get clockgameback =>
+      const AssetGenImage('assets/images/clockgameback.png');
 
   /// File path: assets/images/colors.png
   AssetGenImage get colors => const AssetGenImage('assets/images/colors.png');
@@ -115,6 +130,18 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/hint.svg
   SvgGenImage get hintSvg => const SvgGenImage('assets/images/hint.svg');
+
+  /// File path: assets/images/lock.png
+  AssetGenImage get lock => const AssetGenImage('assets/images/lock.png');
+
+  /// File path: assets/images/morning.png
+  AssetGenImage get morning => const AssetGenImage('assets/images/morning.png');
+
+  /// File path: assets/images/night.png
+  AssetGenImage get night => const AssetGenImage('assets/images/night.png');
+
+  /// File path: assets/images/noon.png
+  AssetGenImage get noon => const AssetGenImage('assets/images/noon.png');
 
   /// File path: assets/images/prep1.png
   AssetGenImage get prep1 => const AssetGenImage('assets/images/prep1.png');
@@ -147,18 +174,25 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        maskGroup,
         vector36,
         animals,
         animalsparty,
         bomb,
         carpi,
         check,
+        clock,
         clockback,
+        clockgameback,
         colors,
         colorsback,
         croswordchapback,
         hintPng,
         hintSvg,
+        lock,
+        morning,
+        night,
+        noon,
         prep1,
         prep2,
         prep3,
