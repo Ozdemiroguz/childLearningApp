@@ -6,6 +6,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/features/clock_game/domain/repository/models/clock_question.dart';
 
+import '../../domain/repository/models/answer_button.dart';
 import '../../domain/repository/models/day_time_zone.dart';
 import '../states/game_state/clock_game_state.dart';
 
@@ -26,9 +27,7 @@ class _HomeNotifier extends AutoDisposeNotifier<ClockGameState> {
 
     final Set<ClockQuestion> clockQuestions = {};
 
-    int counter = 0;
-
-    while (clockQuestions.length < 10) {
+    while (clockQuestions.length < 3) {
       final int hour = //0-24 arasında rastgele saat
           Random().nextInt(23) + 1;
 
@@ -42,27 +41,105 @@ class _HomeNotifier extends AutoDisposeNotifier<ClockGameState> {
       );
 
       clockQuestions.add(question);
-      counter++;
-
-      if (counter > 11) {
-        break;
-      }
     }
 
     state = state.copyWith(
       isLoading: false,
       questions: clockQuestions.toList(),
+      currentDayTimeZone: clockQuestions.first.dayTimeZone,
     );
   }
 
-  void SetInitialTime() {
+  void increaseHour() {
     state = state.copyWith(
-      currentDayTimeZone: null,
+      hour: (state.hour + 1) % 24,
+      isHourIncreased: true,
+    );
+    canAnswer();
+  }
+
+  void reduceHour() {
+    state = state.copyWith(
+      hour: (state.hour - 1) % 24,
+      isHourReduced: true,
+    );
+    canAnswer();
+  }
+
+  void increaseMinute() {
+    state = state.copyWith(
+      minute: (state.minute + 1) % 60,
+      isMinuteIncreased: true,
+    );
+    canAnswer();
+  }
+
+  void reduceMinute() {
+    state = state.copyWith(
+      minute: (state.minute - 1) % 60,
+      isMinuteReduced: true,
+    );
+    canAnswer();
+  }
+
+  void selectTimeZone(DayTimeZone dayTimeZone) {
+    state = state.copyWith(currentDayTimeZone: dayTimeZone);
+    canAnswer();
+  }
+
+  void setInitialTime() {
+    state = state.copyWith(
       isHourIncreased: false,
       isMinuteIncreased: false,
       isHourReduced: false,
       isMinuteReduced: false,
+      isAnswered: false,
+      isAnswerCorrect: false,
+      answerButtonStates: AnswerButtonStates.initial,
     );
+  }
+
+  void canAnswer() {
+    if (state.isAnswered && state.isAnswerCorrect) {
+      state = state.copyWith(answerButtonStates: AnswerButtonStates.correct);
+      return;
+    }
+    if (state.isAnswered && !state.isAnswerCorrect) {
+      state = state.copyWith(answerButtonStates: AnswerButtonStates.wrong);
+      return;
+    }
+    if (state.isHourIncreased ||
+        state.isHourReduced ||
+        state.isMinuteIncreased ||
+        state.isMinuteReduced) {
+      state = state.copyWith(answerButtonStates: AnswerButtonStates.canAnswer);
+      return;
+    }
+  }
+
+  void checkAnswer() {
+    if (state.hour == state.questions[state.currentQuestionIndex].hour &&
+        state.minute == state.questions[state.currentQuestionIndex].minute) {
+      if (state.currentQuestionIndex == state.questions.length - 1) {
+        state =
+            state.copyWith(answerButtonStates: AnswerButtonStates.completed);
+        return;
+      }
+      state = state.copyWith(isAnswerCorrect: true, isAnswered: true);
+    } else {
+      state = state.copyWith(isAnswerCorrect: false, isAnswered: true);
+    }
+
+    canAnswer();
+  }
+
+  void increaseLevel() {
+    state =
+        state.copyWith(currentQuestionIndex: state.currentQuestionIndex + 1);
+    state = state.copyWith(
+        currentDayTimeZone:
+            state.questions[state.currentQuestionIndex].dayTimeZone);
+    setInitialTime();
   }
 }
 

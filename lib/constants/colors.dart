@@ -40,6 +40,8 @@ const brown = Color(0xffA67C5B);
 const clockLevelColor = Color(0xffD4B872);
 const clockTitleBack = Color(0xff8EAAAD);
 const clockTitleColor = Color(0xffFEFBEC);
+const clockButtonColor = Color(0xff94ae89);
+const clockButtonColor2 = Color(0xffC8DEBF);
 
 const List<Color> crosswordColors = [
   red,

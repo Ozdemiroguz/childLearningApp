@@ -21,11 +21,15 @@ mixin _$ClockGameState {
   bool get isMinuteIncreased => throw _privateConstructorUsedError;
   bool get isHourReduced => throw _privateConstructorUsedError;
   bool get isMinuteReduced => throw _privateConstructorUsedError;
+  bool get isAnswered => throw _privateConstructorUsedError;
+  bool get isAnswerCorrect => throw _privateConstructorUsedError;
   int get hour => throw _privateConstructorUsedError;
   int get minute => throw _privateConstructorUsedError;
   List<ClockQuestion> get questions => throw _privateConstructorUsedError;
   int get currentQuestionIndex => throw _privateConstructorUsedError;
-  DayTimeZone? get currentDayTimeZone => throw _privateConstructorUsedError;
+  DayTimeZone get currentDayTimeZone => throw _privateConstructorUsedError;
+  AnswerButtonStates get answerButtonStates =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ClockGameStateCopyWith<ClockGameState> get copyWith =>
@@ -44,11 +48,14 @@ abstract class $ClockGameStateCopyWith<$Res> {
       bool isMinuteIncreased,
       bool isHourReduced,
       bool isMinuteReduced,
+      bool isAnswered,
+      bool isAnswerCorrect,
       int hour,
       int minute,
       List<ClockQuestion> questions,
       int currentQuestionIndex,
-      DayTimeZone? currentDayTimeZone});
+      DayTimeZone currentDayTimeZone,
+      AnswerButtonStates answerButtonStates});
 }
 
 /// @nodoc
@@ -69,11 +76,14 @@ class _$ClockGameStateCopyWithImpl<$Res, $Val extends ClockGameState>
     Object? isMinuteIncreased = null,
     Object? isHourReduced = null,
     Object? isMinuteReduced = null,
+    Object? isAnswered = null,
+    Object? isAnswerCorrect = null,
     Object? hour = null,
     Object? minute = null,
     Object? questions = null,
     Object? currentQuestionIndex = null,
-    Object? currentDayTimeZone = freezed,
+    Object? currentDayTimeZone = null,
+    Object? answerButtonStates = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -96,6 +106,14 @@ class _$ClockGameStateCopyWithImpl<$Res, $Val extends ClockGameState>
           ? _value.isMinuteReduced
           : isMinuteReduced // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAnswered: null == isAnswered
+          ? _value.isAnswered
+          : isAnswered // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAnswerCorrect: null == isAnswerCorrect
+          ? _value.isAnswerCorrect
+          : isAnswerCorrect // ignore: cast_nullable_to_non_nullable
+              as bool,
       hour: null == hour
           ? _value.hour
           : hour // ignore: cast_nullable_to_non_nullable
@@ -112,10 +130,14 @@ class _$ClockGameStateCopyWithImpl<$Res, $Val extends ClockGameState>
           ? _value.currentQuestionIndex
           : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      currentDayTimeZone: freezed == currentDayTimeZone
+      currentDayTimeZone: null == currentDayTimeZone
           ? _value.currentDayTimeZone
           : currentDayTimeZone // ignore: cast_nullable_to_non_nullable
-              as DayTimeZone?,
+              as DayTimeZone,
+      answerButtonStates: null == answerButtonStates
+          ? _value.answerButtonStates
+          : answerButtonStates // ignore: cast_nullable_to_non_nullable
+              as AnswerButtonStates,
     ) as $Val);
   }
 }
@@ -134,11 +156,14 @@ abstract class _$$ClockGameStateImplCopyWith<$Res>
       bool isMinuteIncreased,
       bool isHourReduced,
       bool isMinuteReduced,
+      bool isAnswered,
+      bool isAnswerCorrect,
       int hour,
       int minute,
       List<ClockQuestion> questions,
       int currentQuestionIndex,
-      DayTimeZone? currentDayTimeZone});
+      DayTimeZone currentDayTimeZone,
+      AnswerButtonStates answerButtonStates});
 }
 
 /// @nodoc
@@ -157,11 +182,14 @@ class __$$ClockGameStateImplCopyWithImpl<$Res>
     Object? isMinuteIncreased = null,
     Object? isHourReduced = null,
     Object? isMinuteReduced = null,
+    Object? isAnswered = null,
+    Object? isAnswerCorrect = null,
     Object? hour = null,
     Object? minute = null,
     Object? questions = null,
     Object? currentQuestionIndex = null,
-    Object? currentDayTimeZone = freezed,
+    Object? currentDayTimeZone = null,
+    Object? answerButtonStates = null,
   }) {
     return _then(_$ClockGameStateImpl(
       isLoading: null == isLoading
@@ -184,6 +212,14 @@ class __$$ClockGameStateImplCopyWithImpl<$Res>
           ? _value.isMinuteReduced
           : isMinuteReduced // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAnswered: null == isAnswered
+          ? _value.isAnswered
+          : isAnswered // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAnswerCorrect: null == isAnswerCorrect
+          ? _value.isAnswerCorrect
+          : isAnswerCorrect // ignore: cast_nullable_to_non_nullable
+              as bool,
       hour: null == hour
           ? _value.hour
           : hour // ignore: cast_nullable_to_non_nullable
@@ -200,10 +236,14 @@ class __$$ClockGameStateImplCopyWithImpl<$Res>
           ? _value.currentQuestionIndex
           : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      currentDayTimeZone: freezed == currentDayTimeZone
+      currentDayTimeZone: null == currentDayTimeZone
           ? _value.currentDayTimeZone
           : currentDayTimeZone // ignore: cast_nullable_to_non_nullable
-              as DayTimeZone?,
+              as DayTimeZone,
+      answerButtonStates: null == answerButtonStates
+          ? _value.answerButtonStates
+          : answerButtonStates // ignore: cast_nullable_to_non_nullable
+              as AnswerButtonStates,
     ));
   }
 }
@@ -217,11 +257,14 @@ class _$ClockGameStateImpl extends _ClockGameState {
       required this.isMinuteIncreased,
       required this.isHourReduced,
       required this.isMinuteReduced,
+      required this.isAnswered,
+      required this.isAnswerCorrect,
       required this.hour,
       required this.minute,
       required final List<ClockQuestion> questions,
       required this.currentQuestionIndex,
-      required this.currentDayTimeZone})
+      required this.currentDayTimeZone,
+      required this.answerButtonStates})
       : _questions = questions,
         super._();
 
@@ -235,6 +278,10 @@ class _$ClockGameStateImpl extends _ClockGameState {
   final bool isHourReduced;
   @override
   final bool isMinuteReduced;
+  @override
+  final bool isAnswered;
+  @override
+  final bool isAnswerCorrect;
   @override
   final int hour;
   @override
@@ -250,11 +297,13 @@ class _$ClockGameStateImpl extends _ClockGameState {
   @override
   final int currentQuestionIndex;
   @override
-  final DayTimeZone? currentDayTimeZone;
+  final DayTimeZone currentDayTimeZone;
+  @override
+  final AnswerButtonStates answerButtonStates;
 
   @override
   String toString() {
-    return 'ClockGameState(isLoading: $isLoading, isHourIncreased: $isHourIncreased, isMinuteIncreased: $isMinuteIncreased, isHourReduced: $isHourReduced, isMinuteReduced: $isMinuteReduced, hour: $hour, minute: $minute, questions: $questions, currentQuestionIndex: $currentQuestionIndex, currentDayTimeZone: $currentDayTimeZone)';
+    return 'ClockGameState(isLoading: $isLoading, isHourIncreased: $isHourIncreased, isMinuteIncreased: $isMinuteIncreased, isHourReduced: $isHourReduced, isMinuteReduced: $isMinuteReduced, isAnswered: $isAnswered, isAnswerCorrect: $isAnswerCorrect, hour: $hour, minute: $minute, questions: $questions, currentQuestionIndex: $currentQuestionIndex, currentDayTimeZone: $currentDayTimeZone, answerButtonStates: $answerButtonStates)';
   }
 
   @override
@@ -272,6 +321,10 @@ class _$ClockGameStateImpl extends _ClockGameState {
                 other.isHourReduced == isHourReduced) &&
             (identical(other.isMinuteReduced, isMinuteReduced) ||
                 other.isMinuteReduced == isMinuteReduced) &&
+            (identical(other.isAnswered, isAnswered) ||
+                other.isAnswered == isAnswered) &&
+            (identical(other.isAnswerCorrect, isAnswerCorrect) ||
+                other.isAnswerCorrect == isAnswerCorrect) &&
             (identical(other.hour, hour) || other.hour == hour) &&
             (identical(other.minute, minute) || other.minute == minute) &&
             const DeepCollectionEquality()
@@ -279,7 +332,9 @@ class _$ClockGameStateImpl extends _ClockGameState {
             (identical(other.currentQuestionIndex, currentQuestionIndex) ||
                 other.currentQuestionIndex == currentQuestionIndex) &&
             (identical(other.currentDayTimeZone, currentDayTimeZone) ||
-                other.currentDayTimeZone == currentDayTimeZone));
+                other.currentDayTimeZone == currentDayTimeZone) &&
+            (identical(other.answerButtonStates, answerButtonStates) ||
+                other.answerButtonStates == answerButtonStates));
   }
 
   @override
@@ -290,11 +345,14 @@ class _$ClockGameStateImpl extends _ClockGameState {
       isMinuteIncreased,
       isHourReduced,
       isMinuteReduced,
+      isAnswered,
+      isAnswerCorrect,
       hour,
       minute,
       const DeepCollectionEquality().hash(_questions),
       currentQuestionIndex,
-      currentDayTimeZone);
+      currentDayTimeZone,
+      answerButtonStates);
 
   @JsonKey(ignore: true)
   @override
@@ -306,16 +364,20 @@ class _$ClockGameStateImpl extends _ClockGameState {
 
 abstract class _ClockGameState extends ClockGameState {
   factory _ClockGameState(
-      {required final bool isLoading,
-      required final bool isHourIncreased,
-      required final bool isMinuteIncreased,
-      required final bool isHourReduced,
-      required final bool isMinuteReduced,
-      required final int hour,
-      required final int minute,
-      required final List<ClockQuestion> questions,
-      required final int currentQuestionIndex,
-      required final DayTimeZone? currentDayTimeZone}) = _$ClockGameStateImpl;
+          {required final bool isLoading,
+          required final bool isHourIncreased,
+          required final bool isMinuteIncreased,
+          required final bool isHourReduced,
+          required final bool isMinuteReduced,
+          required final bool isAnswered,
+          required final bool isAnswerCorrect,
+          required final int hour,
+          required final int minute,
+          required final List<ClockQuestion> questions,
+          required final int currentQuestionIndex,
+          required final DayTimeZone currentDayTimeZone,
+          required final AnswerButtonStates answerButtonStates}) =
+      _$ClockGameStateImpl;
   _ClockGameState._() : super._();
 
   @override
@@ -329,6 +391,10 @@ abstract class _ClockGameState extends ClockGameState {
   @override
   bool get isMinuteReduced;
   @override
+  bool get isAnswered;
+  @override
+  bool get isAnswerCorrect;
+  @override
   int get hour;
   @override
   int get minute;
@@ -337,7 +403,9 @@ abstract class _ClockGameState extends ClockGameState {
   @override
   int get currentQuestionIndex;
   @override
-  DayTimeZone? get currentDayTimeZone;
+  DayTimeZone get currentDayTimeZone;
+  @override
+  AnswerButtonStates get answerButtonStates;
   @override
   @JsonKey(ignore: true)
   _$$ClockGameStateImplCopyWith<_$ClockGameStateImpl> get copyWith =>

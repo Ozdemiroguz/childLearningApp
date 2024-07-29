@@ -82,7 +82,9 @@ class _Levels extends ConsumerWidget {
           return GestureDetector(
             onTap: () {
               if (clockLevel.level > index) {
-                context.router.push(ClockGameRoute());
+                context.router.push(ClockGameRoute(
+                  level: index + 1,
+                ));
               }
             },
             child: Stack(

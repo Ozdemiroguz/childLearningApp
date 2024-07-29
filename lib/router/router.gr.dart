@@ -41,9 +41,10 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClockGameRoute.name: (routeData) {
+      final args = routeData.argsAs<ClockGameRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ClockGamePage(),
+        child: ClockGamePage(level: args.level),
       );
     },
     ClockLevelRoute.name: (routeData) {
@@ -208,16 +209,31 @@ class ChaptersRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClockGamePage]
-class ClockGameRoute extends PageRouteInfo<void> {
-  const ClockGameRoute({List<PageRouteInfo>? children})
-      : super(
+class ClockGameRoute extends PageRouteInfo<ClockGameRouteArgs> {
+  ClockGameRoute({
+    required int level,
+    List<PageRouteInfo>? children,
+  }) : super(
           ClockGameRoute.name,
+          args: ClockGameRouteArgs(level: level),
           initialChildren: children,
         );
 
   static const String name = 'ClockGameRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ClockGameRouteArgs> page =
+      PageInfo<ClockGameRouteArgs>(name);
+}
+
+class ClockGameRouteArgs {
+  const ClockGameRouteArgs({required this.level});
+
+  final int level;
+
+  @override
+  String toString() {
+    return 'ClockGameRouteArgs{level: $level}';
+  }
 }
 
 /// generated route for
