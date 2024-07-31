@@ -186,9 +186,11 @@ class _NextButton extends ConsumerWidget {
               if (state.currentQuestion < state.answers.length - 1) {
                 ref.read(languageProvider.notifier).nextQuestion();
               } else {
-                context.router.replace(ActivitesLevelRoute(
-                  activityName: "Language Skills - Activities",
-                ));
+                context.router.replace(
+                  ActivitesLevelRoute(
+                    activityName: "Language Skills - Activities",
+                  ),
+                );
               }
             }
           },

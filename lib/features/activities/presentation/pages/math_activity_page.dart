@@ -6,7 +6,6 @@ import 'package:tododyst/features/activities/presentation/widgets/question_bar.d
 
 import '../../../../constants/colors.dart';
 import '../../../../custom/custom_filled_button.dart';
-import '../../../../gen/assets.gen.dart';
 import '../../../../router/router.dart';
 import '../providers/math_provider.dart';
 

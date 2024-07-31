@@ -11,7 +11,6 @@ import '../../../../constants/colors.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../router/router.dart';
 import '../../domain/repository/models/day_time_zone.dart';
-import '../providers/clock_level_provider.dart';
 
 @RoutePage()
 class ClockGamePage extends ConsumerWidget {
@@ -174,17 +173,18 @@ class _TimeZone extends ConsumerWidget {
             ),
             if (state.currentDayTimeZone == DayTimeZone.morning)
               Positioned.fill(
-                  child: Container(
-                margin: EdgeInsets.only(
-                  bottom: 8.h,
-                  right: 5.w,
-                  left: 3.w,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    bottom: 8.h,
+                    right: 5.w,
+                    left: 3.w,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xff3A3A3A).withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  color: const Color(0xff3A3A3A).withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              )),
+              ),
           ],
         ),
         SizedBox(
@@ -208,17 +208,18 @@ class _TimeZone extends ConsumerWidget {
             ),
             if (state.currentDayTimeZone == DayTimeZone.afternoon)
               Positioned.fill(
-                  child: Container(
-                margin: EdgeInsets.only(
-                  bottom: 8.h,
-                  right: 5.w,
-                  left: 3.w,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    bottom: 8.h,
+                    right: 5.w,
+                    left: 3.w,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xff3A3A3A).withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  color: const Color(0xff3A3A3A).withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              )),
+              ),
           ],
         ),
         SizedBox(width: 10.w),
@@ -240,17 +241,18 @@ class _TimeZone extends ConsumerWidget {
             ),
             if (state.currentDayTimeZone == DayTimeZone.night)
               Positioned.fill(
-                  child: Container(
-                margin: EdgeInsets.only(
-                  bottom: 8.h,
-                  right: 5.w,
-                  left: 3.w,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    bottom: 8.h,
+                    right: 5.w,
+                    left: 3.w,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xff3A3A3A).withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  color: const Color(0xff3A3A3A).withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              )),
+              ),
           ],
         ),
       ],
@@ -261,7 +263,7 @@ class _TimeZone extends ConsumerWidget {
 class _ClockAnswerPart extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(clockGameProvider);
+    ref.watch(clockGameProvider);
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 47.w,
@@ -280,10 +282,11 @@ class _ClockAnswerPart extends ConsumerWidget {
             ),
           ],
           border: Border(
-              bottom: BorderSide(color: const Color(0xffDFDBC9), width: 4.w),
-              right: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
-              top: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
-              left: BorderSide(color: const Color(0xffDFDBC9), width: 1.w)),
+            bottom: BorderSide(color: const Color(0xffDFDBC9), width: 4.w),
+            right: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+            top: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+            left: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+          ),
           color: clockTitleColor,
           borderRadius: BorderRadius.circular(50.r),
         ),
@@ -413,10 +416,11 @@ class ReduceAndIncreaseChip extends ConsumerWidget {
           color: color,
           borderRadius: BorderRadius.circular(10.r),
           border: Border(
-              right: BorderSide(color: borderColor, width: 2.r),
-              left: BorderSide(color: borderColor, width: 2.r),
-              top: BorderSide(color: borderColor, width: 3.r),
-              bottom: BorderSide(color: borderColor, width: 4.r)),
+            right: BorderSide(color: borderColor, width: 2.r),
+            left: BorderSide(color: borderColor, width: 2.r),
+            top: BorderSide(color: borderColor, width: 3.r),
+            bottom: BorderSide(color: borderColor, width: 4.r),
+          ),
         ),
         child: icon,
       ),
@@ -442,20 +446,22 @@ class _ClockText extends ConsumerWidget {
           ),
         ],
         border: Border(
-            bottom: BorderSide(color: const Color(0xffDFDBC9), width: 4.w),
-            right: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
-            top: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
-            left: BorderSide(color: const Color(0xffDFDBC9), width: 1.w)),
+          bottom: BorderSide(color: const Color(0xffDFDBC9), width: 4.w),
+          right: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+          top: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+          left: BorderSide(color: const Color(0xffDFDBC9), width: 1.w),
+        ),
         color: clockTitleColor,
         borderRadius: BorderRadius.circular(35.r),
       ),
       child: Text(
-          "${state.hour > 9 ? state.hour : "0${state.hour}"} : ${state.minute > 9 ? state.minute : "0${state.minute}"}",
-          style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                fontSize: 50.sp,
-                fontFamily: "Righteous",
-                color: black,
-              )),
+        "${state.hour > 9 ? state.hour : "0${state.hour}"} : ${state.minute > 9 ? state.minute : "0${state.minute}"}",
+        style: Theme.of(context).textTheme.displayLarge!.copyWith(
+              fontSize: 50.sp,
+              fontFamily: "Righteous",
+              color: black,
+            ),
+      ),
     );
   }
 }
@@ -472,35 +478,36 @@ class _AnswerButton extends ConsumerWidget {
       onTap: () {
         if (state.answerButtonStates.name == "canAnswer") {
           notifier.checkAnswer();
-          print("Answered");
         }
         if (state.answerButtonStates.name == "completed") {
-          context.router.replaceAll([ClockLevelRoute()]);
+          context.router.replaceAll([const ClockLevelRoute()]);
         }
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 5.h),
         decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: black.withOpacity(0.25),
-                blurRadius: 4.r,
-                offset: const Offset(0, 4),
-              ),
-            ],
-            color: state.answerButtonStates.name == "initial"
-                ? clockTitleColor
-                : state.answerButtonStates.name == "canAnswer"
-                    ? black
-                    : state.answerButtonStates.name == "correct"
-                        ? clockButtonColor2
-                        : const Color(0xffFFCD92),
-            borderRadius: BorderRadius.circular(35.r),
-            border: Border(
-                bottom: BorderSide(color: clockButtonColor, width: 4.w),
-                right: BorderSide(color: clockButtonColor, width: 1.w),
-                top: BorderSide(color: clockButtonColor, width: 1.w),
-                left: BorderSide(color: clockButtonColor, width: 1.w))),
+          boxShadow: [
+            BoxShadow(
+              color: black.withOpacity(0.25),
+              blurRadius: 4.r,
+              offset: const Offset(0, 4),
+            ),
+          ],
+          color: state.answerButtonStates.name == "initial"
+              ? clockTitleColor
+              : state.answerButtonStates.name == "canAnswer"
+                  ? black
+                  : state.answerButtonStates.name == "correct"
+                      ? clockButtonColor2
+                      : const Color(0xffFFCD92),
+          borderRadius: BorderRadius.circular(35.r),
+          border: Border(
+            bottom: BorderSide(color: clockButtonColor, width: 4.w),
+            right: BorderSide(color: clockButtonColor, width: 1.w),
+            top: BorderSide(color: clockButtonColor, width: 1.w),
+            left: BorderSide(color: clockButtonColor, width: 1.w),
+          ),
+        ),
         child: Text(
           textAlign: TextAlign.center,
           state.answerButtonStates.name == "completed"
@@ -537,24 +544,28 @@ class _BottomPart extends ConsumerWidget {
             onTap: () {
               ref.read(clockGameProvider.notifier).increaseLevel();
             },
-            child: Text("Continue",
-                style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                      fontSize: 23.sp,
-                      color: white,
-                      fontFamily: "Righteous",
-                    )),
+            child: Text(
+              "Continue",
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    fontSize: 23.sp,
+                    color: white,
+                    fontFamily: "Righteous",
+                  ),
+            ),
           ),
         if (state.answerButtonStates.name == "wrong")
           GestureDetector(
             onTap: () {
               ref.read(clockGameProvider.notifier).setInitialTime();
             },
-            child: Text("Try Again",
-                style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                      fontSize: 23.sp,
-                      color: white,
-                      fontFamily: "Righteous",
-                    )),
+            child: Text(
+              "Try Again",
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    fontSize: 23.sp,
+                    color: white,
+                    fontFamily: "Righteous",
+                  ),
+            ),
           ),
         if (state.answerButtonStates.name == "correct")
           Padding(
@@ -563,12 +574,14 @@ class _BottomPart extends ConsumerWidget {
               onTap: () {
                 ref.read(clockGameProvider.notifier).setInitialTime();
               },
-              child: Text("Retry",
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                        fontSize: 23.sp,
-                        color: white,
-                        fontFamily: "Righteous",
-                      )),
+              child: Text(
+                "Retry",
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      fontSize: 23.sp,
+                      color: white,
+                      fontFamily: "Righteous",
+                    ),
+              ),
             ),
           ),
       ],

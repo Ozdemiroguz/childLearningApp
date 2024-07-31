@@ -38,11 +38,11 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         Future.delayed(const Duration(seconds: 1), () async {
           if (await ref.watch(_isTokenExpiredProvider.future)) {
             if (context.mounted) {
-              context.replaceRoute(const ClockLevelRoute());
+              context.replaceRoute(const ChooseModuleRoute());
             }
           } else {
             if (context.mounted) {
-              return context.replaceRoute(const LoginRoute());
+              return context.replaceRoute(const ChooseModuleRoute());
             }
           }
         });

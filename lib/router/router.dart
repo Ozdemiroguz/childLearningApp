@@ -14,6 +14,7 @@ import '../features/clock_game/presentation/pages/clock_game_page.dart';
 import '../features/clock_game/presentation/pages/clock_level_page.dart';
 import '../features/crossword/domain/models/crossword.dart';
 import '../features/crossword/presentation/pages/chapters_page.dart';
+import '../features/daily_goals/presentation/pages/choose_module_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
 import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
@@ -55,6 +56,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ActivitesLevelRoute.page),
         AutoRoute(page: LanguageActivityRoute.page),
         AutoRoute(page: MathActivityRoute.page),
+
+        //Daily Goals
+        AutoRoute(page: ChooseModuleRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),

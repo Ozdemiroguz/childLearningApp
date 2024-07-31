@@ -6,11 +6,12 @@ class BackgroundImage extends StatelessWidget {
   final Color color;
   final Widget child;
 
-  const BackgroundImage(
-      {required this.imagePath,
-      required this.opacity,
-      required this.child,
-      required this.color});
+  const BackgroundImage({
+    required this.imagePath,
+    required this.opacity,
+    required this.child,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {

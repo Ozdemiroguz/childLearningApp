@@ -34,7 +34,10 @@ class ClockLevelPage extends ConsumerWidget {
                     SizedBox(height: 100.h),
                     Padding(
                       padding: EdgeInsets.only(
-                          right: 50.w, left: 50.w, bottom: 40.h),
+                        right: 50.w,
+                        left: 50.w,
+                        bottom: 40.h,
+                      ),
                       child: Text(
                         textAlign: TextAlign.center,
                         "TIME EXCERCISES",
@@ -46,7 +49,7 @@ class ClockLevelPage extends ConsumerWidget {
                                 ),
                       ),
                     ),
-                    _Levels()
+                    _Levels(),
                   ],
                 ),
               ),
@@ -82,9 +85,11 @@ class _Levels extends ConsumerWidget {
           return GestureDetector(
             onTap: () {
               if (clockLevel.level > index) {
-                context.router.push(ClockGameRoute(
-                  level: index + 1,
-                ));
+                context.router.push(
+                  ClockGameRoute(
+                    level: index + 1,
+                  ),
+                );
               }
             },
             child: Stack(
@@ -95,10 +100,11 @@ class _Levels extends ConsumerWidget {
                     color: clockLevelColor,
                     borderRadius: BorderRadius.circular(20),
                     border: Border(
-                        bottom: BorderSide(color: white, width: 1.w),
-                        right: BorderSide(color: white, width: 3.w),
-                        top: BorderSide(color: white, width: 1.w),
-                        left: BorderSide(color: white, width: 3.w)),
+                      bottom: BorderSide(color: white, width: 1.w),
+                      right: BorderSide(color: white, width: 3.w),
+                      top: BorderSide(color: white, width: 1.w),
+                      left: BorderSide(color: white, width: 3.w),
+                    ),
                   ),
                   child: Center(
                     child: Text(
@@ -122,7 +128,7 @@ class _Levels extends ConsumerWidget {
                           top: BorderSide(color: white, width: 1.w),
                           left: BorderSide(color: white, width: 3.w),
                         ),
-                        color: Color(0xff8B8985).withOpacity(0.6),
+                        color: const Color(0xff8B8985).withOpacity(0.6),
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),

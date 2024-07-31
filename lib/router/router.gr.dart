@@ -40,6 +40,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ChaptersPage(),
       );
     },
+    ChooseModuleRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChooseModulePage(),
+      );
+    },
+    ChooseSkillsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChooseSkillsPage(),
+      );
+    },
     ClockGameRoute.name: (routeData) {
       final args = routeData.argsAs<ClockGameRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -203,6 +215,34 @@ class ChaptersRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChaptersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChooseModulePage]
+class ChooseModuleRoute extends PageRouteInfo<void> {
+  const ChooseModuleRoute({List<PageRouteInfo>? children})
+      : super(
+          ChooseModuleRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChooseModuleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChooseSkillsPage]
+class ChooseSkillsRoute extends PageRouteInfo<void> {
+  const ChooseSkillsRoute({List<PageRouteInfo>? children})
+      : super(
+          ChooseSkillsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChooseSkillsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

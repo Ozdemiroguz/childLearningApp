@@ -3,7 +3,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
 
@@ -35,7 +34,6 @@ class _MathActivityNotifier extends AutoDisposeNotifier<MathActivityState> {
 
     final random = Random();
     tempOptions.add(temp.toString());
-    int coubter = 0;
 
     while (tempOptions.length < 4) {
       final randomValue = random.nextInt(temp + 10);
@@ -45,16 +43,15 @@ class _MathActivityNotifier extends AutoDisposeNotifier<MathActivityState> {
     //if the is a duplicate option, remove it and add a new one and check again
 
     state = state.copyWith(options: tempOptions.toList()..shuffle());
-    print("options: ${state.options}");
   }
 
   void setQuestion() {
-    List<String> questions = [];
+    final List<String> questions = [];
 
     final random = Random();
     for (int i = 0; i < state.answers.length; i++) {
-      int a = 1 + random.nextInt(state.answers[i] - 1);
-      int b = state.answers[i] - a;
+      final int a = 1 + random.nextInt(state.answers[i] - 1);
+      final int b = state.answers[i] - a;
 
       questions.add("$a + $b");
     }
@@ -70,12 +67,14 @@ class _MathActivityNotifier extends AutoDisposeNotifier<MathActivityState> {
       state = state.copyWith(isCorrect: false, isAnswered: true);
     }
     setColor();
-    print("isCorrect: ${state.isCorrect}");
   }
 
   void wrongAnswer() {
     state = state.copyWith(
-        isCorrect: false, isAnswered: false, selectedOption: null);
+      isCorrect: false,
+      isAnswered: false,
+      selectedOption: null,
+    );
     setColor();
   }
 

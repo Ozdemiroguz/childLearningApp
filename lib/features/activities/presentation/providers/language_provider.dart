@@ -3,7 +3,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
 
@@ -55,12 +54,14 @@ class _LanguageActivityNotifier
       state = state.copyWith(isCorrect: false, isAnswered: true);
     }
     setColor();
-    print("isCorrect: ${state.isCorrect}");
   }
 
   void wrongAnswer() {
     state = state.copyWith(
-        isCorrect: false, isAnswered: false, selectedOption: null);
+      isCorrect: false,
+      isAnswered: false,
+      selectedOption: null,
+    );
     setColor();
   }
 

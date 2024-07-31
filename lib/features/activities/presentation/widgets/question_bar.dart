@@ -44,7 +44,7 @@ class QuestionBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(flex: 100 - decimalValue, child: SizedBox()),
+                  Expanded(flex: 100 - decimalValue, child: const SizedBox()),
                 ],
               ),
             ),

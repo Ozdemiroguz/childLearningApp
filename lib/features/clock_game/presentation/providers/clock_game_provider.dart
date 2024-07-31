@@ -2,7 +2,6 @@
 
 import 'dart:math';
 
-import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/features/clock_game/domain/repository/models/clock_question.dart';
 
@@ -137,8 +136,9 @@ class _HomeNotifier extends AutoDisposeNotifier<ClockGameState> {
     state =
         state.copyWith(currentQuestionIndex: state.currentQuestionIndex + 1);
     state = state.copyWith(
-        currentDayTimeZone:
-            state.questions[state.currentQuestionIndex].dayTimeZone);
+      currentDayTimeZone:
+          state.questions[state.currentQuestionIndex].dayTimeZone,
+    );
     setInitialTime();
   }
 }
