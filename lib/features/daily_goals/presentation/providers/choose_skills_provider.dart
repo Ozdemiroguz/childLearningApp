@@ -28,6 +28,24 @@ class _HomeNotifier extends AutoDisposeNotifier<ChooseSkillsState> {
 
     result.fold(
         (l) => state = state.copyWith(isLoading: false, failure: some(l)),
-        (r) => state = state.copyWith(isLoading: false, skillss: r));
+        (r) => state = state.copyWith(isLoading: false, skills: r));
+  }
+
+  void changeSelectedSkill(int index) {
+    final Set<int> selectedSkillIndexes = Set.from(state.selectedSkillIndexes);
+
+    if (selectedSkillIndexes.contains(index)) {
+      selectedSkillIndexes.remove(index);
+    } else {
+      selectedSkillIndexes.add(index);
+    }
+
+    state = state.copyWith(selectedSkillIndexes: selectedSkillIndexes);
+  }
+
+  void selectedError() {
+    state = state.copyWith(
+      selectedError: true,
+    );
   }
 }

@@ -52,6 +52,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ChooseSkillsPage(),
       );
     },
+    ChoseTimeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChoseTimePage(),
+      );
+    },
     ClockGameRoute.name: (routeData) {
       final args = routeData.argsAs<ClockGameRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -76,6 +82,18 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CrosswordPage(crossword: args.crossword),
+      );
+    },
+    DailyGoalsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DailyGoalsPage(),
+      );
+    },
+    FinishDgRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: FinishDgPage(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -248,6 +266,20 @@ class ChooseSkillsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ChoseTimePage]
+class ChoseTimeRoute extends PageRouteInfo<void> {
+  const ChoseTimeRoute({List<PageRouteInfo>? children})
+      : super(
+          ChoseTimeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChoseTimeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ClockGamePage]
 class ClockGameRoute extends PageRouteInfo<ClockGameRouteArgs> {
   ClockGameRoute({
@@ -331,6 +363,34 @@ class CrosswordRouteArgs {
   String toString() {
     return 'CrosswordRouteArgs{crossword: $crossword}';
   }
+}
+
+/// generated route for
+/// [DailyGoalsPage]
+class DailyGoalsRoute extends PageRouteInfo<void> {
+  const DailyGoalsRoute({List<PageRouteInfo>? children})
+      : super(
+          DailyGoalsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DailyGoalsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FinishDgPage]
+class FinishDgRoute extends PageRouteInfo<void> {
+  const FinishDgRoute({List<PageRouteInfo>? children})
+      : super(
+          FinishDgRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FinishDgRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

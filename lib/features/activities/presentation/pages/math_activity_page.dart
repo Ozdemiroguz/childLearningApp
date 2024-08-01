@@ -28,6 +28,7 @@ class MathActivityPage extends ConsumerWidget {
                 children: [
                   SizedBox(height: 90.h),
                   QuestionBar(
+                    isAppBar: true,
                     decimalValue: state.answers.isEmpty
                         ? 0
                         : ((state.currentQuestion / state.answers.length) * 100)

@@ -22,7 +22,12 @@ final class DailyGoalsRepositoryImpl implements DailyGoalsRepository {
       return Future.delayed(
           const Duration(milliseconds: 500),
           () => right(
-              ['Self Care Skils', 'Mathematic Skills', 'Language Skills']));
+                module == 'Self Care Skils'
+                    ? ['Brushing Teeth', 'Washing Hands', 'Taking a Bath']
+                    : module == 'Mathematic Skills'
+                        ? ['Counting', 'Addition', 'Subtraction']
+                        : ['Reading', 'Writing', 'Speaking'],
+              ));
     } catch (e) {
       log(e.toString());
       return Future.value(left(Failure.unknownError(tr('unknown_error'))));

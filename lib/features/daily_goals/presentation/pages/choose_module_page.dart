@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tododyst/features/daily_goals/presentation/pages/choose_skills_page.dart';
 import 'package:tododyst/features/daily_goals/presentation/providers/choose_module_provider.dart';
+import 'package:tododyst/router/router.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../gen/assets.gen.dart';
@@ -107,7 +109,13 @@ class _ChooseModule extends ConsumerWidget {
                   padding: EdgeInsets.symmetric(vertical: 1.h),
                   child: GestureDetector(
                     onTap: () {
-                      print("Module: ${state.modules[index]}");
+                      ref
+                          .read(chooseModuleProvider.notifier)
+                          .changeSelectedModule(index);
+
+                      context.router.push(
+                        const ChooseSkillsRoute(),
+                      );
                     },
                     child: _Module(
                       module: state.modules[index],

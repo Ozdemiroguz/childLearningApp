@@ -518,7 +518,7 @@ class _AnswerButton extends ConsumerWidget {
                       ? "Wrong"
                       : state.answerButtonStates.name == "canAnswer"
                           ? "Done"
-                          : "done",
+                          : "Done",
           style: Theme.of(context).textTheme.displayLarge!.copyWith(
                 fontSize: 30.sp,
                 color: state.answerButtonStates.name == "canAnswer"

@@ -97,6 +97,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/bomb.png
   AssetGenImage get bomb => const AssetGenImage('assets/images/bomb.png');
 
+  /// File path: assets/images/careskill.png
+  AssetGenImage get careskill =>
+      const AssetGenImage('assets/images/careskill.png');
+
   /// File path: assets/images/carpi.png
   AssetGenImage get carpi => const AssetGenImage('assets/images/carpi.png');
 
@@ -131,8 +135,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/hint.svg
   SvgGenImage get hintSvg => const SvgGenImage('assets/images/hint.svg');
 
+  /// File path: assets/images/language.png
+  AssetGenImage get language =>
+      const AssetGenImage('assets/images/language.png');
+
   /// File path: assets/images/lock.png
   AssetGenImage get lock => const AssetGenImage('assets/images/lock.png');
+
+  /// File path: assets/images/mathskill.png
+  AssetGenImage get mathskill =>
+      const AssetGenImage('assets/images/mathskill.png');
 
   /// File path: assets/images/morning.png
   AssetGenImage get morning => const AssetGenImage('assets/images/morning.png');
@@ -142,6 +154,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/noon.png
   AssetGenImage get noon => const AssetGenImage('assets/images/noon.png');
+
+  /// File path: assets/images/png-transparent-goal.png
+  AssetGenImage get pngTransparentGoal =>
+      const AssetGenImage('assets/images/png-transparent-goal.png');
 
   /// File path: assets/images/prep1.png
   AssetGenImage get prep1 => const AssetGenImage('assets/images/prep1.png');
@@ -179,6 +195,7 @@ class $AssetsImagesGen {
         animals,
         animalsparty,
         bomb,
+        careskill,
         carpi,
         check,
         clock,
@@ -189,10 +206,13 @@ class $AssetsImagesGen {
         croswordchapback,
         hintPng,
         hintSvg,
+        language,
         lock,
+        mathskill,
         morning,
         night,
         noon,
+        pngTransparentGoal,
         prep1,
         prep2,
         prep3,

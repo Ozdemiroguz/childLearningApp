@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ChooseSkillsState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get selectedError => throw _privateConstructorUsedError;
   String get module => throw _privateConstructorUsedError;
   List<String> get skills => throw _privateConstructorUsedError;
+  Set<int> get selectedSkillIndexes => throw _privateConstructorUsedError;
   String get selectedSkills => throw _privateConstructorUsedError;
   Option<Failure> get failure => throw _privateConstructorUsedError;
 
@@ -35,8 +37,10 @@ abstract class $ChooseSkillsStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool selectedError,
       String module,
       List<String> skills,
+      Set<int> selectedSkillIndexes,
       String selectedSkills,
       Option<Failure> failure});
 }
@@ -55,8 +59,10 @@ class _$ChooseSkillsStateCopyWithImpl<$Res, $Val extends ChooseSkillsState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? selectedError = null,
     Object? module = null,
     Object? skills = null,
+    Object? selectedSkillIndexes = null,
     Object? selectedSkills = null,
     Object? failure = null,
   }) {
@@ -64,6 +70,10 @@ class _$ChooseSkillsStateCopyWithImpl<$Res, $Val extends ChooseSkillsState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedError: null == selectedError
+          ? _value.selectedError
+          : selectedError // ignore: cast_nullable_to_non_nullable
               as bool,
       module: null == module
           ? _value.module
@@ -73,6 +83,10 @@ class _$ChooseSkillsStateCopyWithImpl<$Res, $Val extends ChooseSkillsState>
           ? _value.skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedSkillIndexes: null == selectedSkillIndexes
+          ? _value.selectedSkillIndexes
+          : selectedSkillIndexes // ignore: cast_nullable_to_non_nullable
+              as Set<int>,
       selectedSkills: null == selectedSkills
           ? _value.selectedSkills
           : selectedSkills // ignore: cast_nullable_to_non_nullable
@@ -95,8 +109,10 @@ abstract class _$$ChooseSkillsStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
+      bool selectedError,
       String module,
       List<String> skills,
+      Set<int> selectedSkillIndexes,
       String selectedSkills,
       Option<Failure> failure});
 }
@@ -113,8 +129,10 @@ class __$$ChooseSkillsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? selectedError = null,
     Object? module = null,
     Object? skills = null,
+    Object? selectedSkillIndexes = null,
     Object? selectedSkills = null,
     Object? failure = null,
   }) {
@@ -122,6 +140,10 @@ class __$$ChooseSkillsStateImplCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedError: null == selectedError
+          ? _value.selectedError
+          : selectedError // ignore: cast_nullable_to_non_nullable
               as bool,
       module: null == module
           ? _value.module
@@ -131,6 +153,10 @@ class __$$ChooseSkillsStateImplCopyWithImpl<$Res>
           ? _value._skills
           : skills // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectedSkillIndexes: null == selectedSkillIndexes
+          ? _value._selectedSkillIndexes
+          : selectedSkillIndexes // ignore: cast_nullable_to_non_nullable
+              as Set<int>,
       selectedSkills: null == selectedSkills
           ? _value.selectedSkills
           : selectedSkills // ignore: cast_nullable_to_non_nullable
@@ -148,15 +174,20 @@ class __$$ChooseSkillsStateImplCopyWithImpl<$Res>
 class _$ChooseSkillsStateImpl extends _ChooseSkillsState {
   _$ChooseSkillsStateImpl(
       {required this.isLoading,
+      required this.selectedError,
       required this.module,
       required final List<String> skills,
+      required final Set<int> selectedSkillIndexes,
       required this.selectedSkills,
       required this.failure})
       : _skills = skills,
+        _selectedSkillIndexes = selectedSkillIndexes,
         super._();
 
   @override
   final bool isLoading;
+  @override
+  final bool selectedError;
   @override
   final String module;
   final List<String> _skills;
@@ -167,6 +198,15 @@ class _$ChooseSkillsStateImpl extends _ChooseSkillsState {
     return EqualUnmodifiableListView(_skills);
   }
 
+  final Set<int> _selectedSkillIndexes;
+  @override
+  Set<int> get selectedSkillIndexes {
+    if (_selectedSkillIndexes is EqualUnmodifiableSetView)
+      return _selectedSkillIndexes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_selectedSkillIndexes);
+  }
+
   @override
   final String selectedSkills;
   @override
@@ -174,7 +214,7 @@ class _$ChooseSkillsStateImpl extends _ChooseSkillsState {
 
   @override
   String toString() {
-    return 'ChooseSkillsState(isLoading: $isLoading, module: $module, skills: $skills, selectedSkills: $selectedSkills, failure: $failure)';
+    return 'ChooseSkillsState(isLoading: $isLoading, selectedError: $selectedError, module: $module, skills: $skills, selectedSkillIndexes: $selectedSkillIndexes, selectedSkills: $selectedSkills, failure: $failure)';
   }
 
   @override
@@ -184,16 +224,27 @@ class _$ChooseSkillsStateImpl extends _ChooseSkillsState {
             other is _$ChooseSkillsStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.selectedError, selectedError) ||
+                other.selectedError == selectedError) &&
             (identical(other.module, module) || other.module == module) &&
             const DeepCollectionEquality().equals(other._skills, _skills) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedSkillIndexes, _selectedSkillIndexes) &&
             (identical(other.selectedSkills, selectedSkills) ||
                 other.selectedSkills == selectedSkills) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, module,
-      const DeepCollectionEquality().hash(_skills), selectedSkills, failure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      selectedError,
+      module,
+      const DeepCollectionEquality().hash(_skills),
+      const DeepCollectionEquality().hash(_selectedSkillIndexes),
+      selectedSkills,
+      failure);
 
   @JsonKey(ignore: true)
   @override
@@ -206,8 +257,10 @@ class _$ChooseSkillsStateImpl extends _ChooseSkillsState {
 abstract class _ChooseSkillsState extends ChooseSkillsState {
   factory _ChooseSkillsState(
       {required final bool isLoading,
+      required final bool selectedError,
       required final String module,
       required final List<String> skills,
+      required final Set<int> selectedSkillIndexes,
       required final String selectedSkills,
       required final Option<Failure> failure}) = _$ChooseSkillsStateImpl;
   _ChooseSkillsState._() : super._();
@@ -215,9 +268,13 @@ abstract class _ChooseSkillsState extends ChooseSkillsState {
   @override
   bool get isLoading;
   @override
+  bool get selectedError;
+  @override
   String get module;
   @override
   List<String> get skills;
+  @override
+  Set<int> get selectedSkillIndexes;
   @override
   String get selectedSkills;
   @override

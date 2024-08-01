@@ -29,6 +29,7 @@ class LanguageActivityPage extends ConsumerWidget {
                   SizedBox(
                     width: context.screenWidth,
                     child: QuestionBar(
+                      isAppBar: true,
                       decimalValue: state.answers.isEmpty
                           ? 0
                           : ((state.currentQuestion / state.answers.length) *

@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/models/failure/failure.dart';
+import '../../../../../core/models/failure/failure.dart';
 
 part 'choose_module_state.freezed.dart';
 

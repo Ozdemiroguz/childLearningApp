@@ -2,7 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tododyst/custom/custom_filled_button.dart';
+import 'package:tododyst/features/daily_goals/presentation/providers/choose_module_provider.dart';
 import 'package:tododyst/features/daily_goals/presentation/providers/choose_skills_provider.dart';
+import 'package:tododyst/router/router.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../gen/assets.gen.dart';
@@ -24,6 +27,9 @@ class ChooseSkillsPage extends ConsumerWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 90.h),
+                    _ChooseSkills(),
+                    SizedBox(height: 20.h),
+                    _NextButton(),
                   ],
                 ),
               ),
@@ -62,7 +68,7 @@ class _ChooseSkills extends ConsumerWidget {
                   ),
                   Text(
                     textAlign: TextAlign.center,
-                    "Choose Module",
+                    ref.read(chooseModuleProvider).selectedModule,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: white,
                         ),
@@ -78,26 +84,32 @@ class _ChooseSkills extends ConsumerWidget {
                   ),
                 ],
               )),
-          if (state.skillss.isEmpty)
+          if (state.skills.isEmpty)
             const _Module(
-              module: "These is no modules.",
+              index: -1,
             )
           else
-            Column(
-                children: List.generate(
-              state.skillss.length,
-              (index) => Padding(
-                padding: EdgeInsets.symmetric(vertical: 1.h),
-                child: GestureDetector(
-                  onTap: () {
-                    print("Module: ${state.skillss[index]}");
-                  },
-                  child: _Module(
-                    module: state.skillss[index],
-                  ),
+            SizedBox(height: 21.h),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+                "Please select ${ref.read(chooseModuleProvider).selectedModule} skills",
+                style: Theme.of(context).textTheme.displaySmall),
+          ),
+          SizedBox(height: 13.h),
+          Column(
+              children: List.generate(
+            state.skills.length,
+            (index) => Padding(
+              padding: EdgeInsets.symmetric(vertical: 7.h),
+              child: GestureDetector(
+                onTap: () {},
+                child: _Module(
+                  index: index,
                 ),
               ),
-            )),
+            ),
+          )),
         ],
       ),
     );
@@ -105,10 +117,10 @@ class _ChooseSkills extends ConsumerWidget {
 }
 
 class _Module extends ConsumerWidget {
-  final String module;
+  final int index;
 
   const _Module({
-    required this.module,
+    required this.index,
   });
 
   @override
@@ -116,22 +128,59 @@ class _Module extends ConsumerWidget {
     final state = ref.watch(chooseSkillsProvider);
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: 16.h,
+        vertical: 14.h,
+        horizontal: 20.w,
       ),
       width: double.infinity,
       decoration: BoxDecoration(
+        border: Border.all(
+          color: state.selectedError ? red : lightBlue0,
+          width: 2.w,
+        ),
         color: lightBlue0,
         borderRadius: BorderRadius.all(
           Radius.circular(20.r),
         ),
       ),
-      child: Text(
-        textAlign: TextAlign.center,
-        module,
-        style: Theme.of(context).textTheme.displayMedium!.copyWith(
-              color: darkBlue1,
-            ),
+      child: Row(
+        children: [
+          Text(
+              textAlign: TextAlign.center,
+              index == -1 ? "No skills found" : state.skills[index],
+              style: Theme.of(context).textTheme.displaySmall),
+          Spacer(),
+          Checkbox(
+            checkColor: darkBlue1,
+            activeColor: darkBlue1,
+            value: state.selectedSkillIndexes.contains(index),
+            onChanged: (value) {
+              if (value != null) {
+                ref
+                    .read(chooseSkillsProvider.notifier)
+                    .changeSelectedSkill(index);
+              }
+            },
+          ),
+        ],
       ),
     );
+  }
+}
+
+class _NextButton extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(chooseSkillsProvider);
+    return SizedBox(
+        width: 200.w,
+        child: CustomFilledButton(
+            onPressed: () {
+              if (state.selectedSkillIndexes.isEmpty) {
+                ref.read(chooseSkillsProvider.notifier).selectedError();
+              } else {
+                context.router.push(ChoseTimeRoute());
+              }
+            },
+            buttonText: "Next"));
   }
 }

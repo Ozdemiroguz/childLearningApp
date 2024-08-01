@@ -3,8 +3,8 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/core/injections/locator.dart';
-import 'package:tododyst/features/daily_goals/presentation/states/choose_module_state.dart';
-import 'package:tododyst/features/home/presentation/states/home_state.dart';
+
+import '../states/choose_module/choose_module_state.dart';
 
 final chooseModuleProvider =
     NotifierProvider.autoDispose<_HomeNotifier, ChooseModuleState>(
@@ -29,5 +29,9 @@ class _HomeNotifier extends AutoDisposeNotifier<ChooseModuleState> {
 
   void changeIsModuleOpen() {
     state = state.copyWith(isModuleOpen: !state.isModuleOpen);
+  }
+
+  void changeSelectedModule(int index) {
+    state = state.copyWith(selectedModule: state.modules[index]);
   }
 }

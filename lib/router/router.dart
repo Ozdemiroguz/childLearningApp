@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:tododyst/features/activities/presentation/pages/math_activity_page.dart';
 import 'package:tododyst/features/crossword/presentation/pages/crossword_page.dart';
+import 'package:tododyst/features/daily_goals/presentation/pages/chose_time_page.dart';
 
 import '../features/activities/presentation/pages/activites_level_page.dart';
 import '../features/activities/presentation/pages/activities_chapter_page.dart';
@@ -15,6 +16,9 @@ import '../features/clock_game/presentation/pages/clock_level_page.dart';
 import '../features/crossword/domain/models/crossword.dart';
 import '../features/crossword/presentation/pages/chapters_page.dart';
 import '../features/daily_goals/presentation/pages/choose_module_page.dart';
+import '../features/daily_goals/presentation/pages/choose_skills_page.dart';
+import '../features/daily_goals/presentation/pages/daily_goals_page.dart';
+import '../features/daily_goals/presentation/pages/finish_dg_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
 import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
@@ -59,6 +63,10 @@ class AppRouter extends _$AppRouter {
 
         //Daily Goals
         AutoRoute(page: ChooseModuleRoute.page),
+        AutoRoute(page: ChooseSkillsRoute.page),
+        AutoRoute(page: ChoseTimeRoute.page),
+        AutoRoute(page: FinishDgRoute.page),
+        AutoRoute(page: DailyGoalsRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),
