@@ -62,7 +62,7 @@ class _ChooseSkills extends ConsumerWidget {
               ),
               child: Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     width: 40.w,
                   ),
@@ -73,7 +73,7 @@ class _ChooseSkills extends ConsumerWidget {
                           color: white,
                         ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Assets.icons.arrowDown.svg(
                     color: white,
                     width: 20.w,
@@ -83,7 +83,7 @@ class _ChooseSkills extends ConsumerWidget {
                     width: 20.w,
                   ),
                 ],
-              )),
+              ),),
           if (state.skills.isEmpty)
             const _Module(
               index: -1,
@@ -94,7 +94,7 @@ class _ChooseSkills extends ConsumerWidget {
             alignment: Alignment.centerLeft,
             child: Text(
                 "Please select ${ref.read(chooseModuleProvider).selectedModule} skills",
-                style: Theme.of(context).textTheme.displaySmall),
+                style: Theme.of(context).textTheme.displaySmall,),
           ),
           SizedBox(height: 13.h),
           Column(
@@ -109,7 +109,7 @@ class _ChooseSkills extends ConsumerWidget {
                 ),
               ),
             ),
-          )),
+          ),),
         ],
       ),
     );
@@ -147,8 +147,8 @@ class _Module extends ConsumerWidget {
           Text(
               textAlign: TextAlign.center,
               index == -1 ? "No skills found" : state.skills[index],
-              style: Theme.of(context).textTheme.displaySmall),
-          Spacer(),
+              style: Theme.of(context).textTheme.displaySmall,),
+          const Spacer(),
           Checkbox(
             checkColor: darkBlue1,
             activeColor: darkBlue1,
@@ -178,9 +178,9 @@ class _NextButton extends ConsumerWidget {
               if (state.selectedSkillIndexes.isEmpty) {
                 ref.read(chooseSkillsProvider.notifier).selectedError();
               } else {
-                context.router.push(ChoseTimeRoute());
+                context.router.push(const ChoseTimeRoute());
               }
             },
-            buttonText: "Next"));
+            buttonText: "Next",),);
   }
 }

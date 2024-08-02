@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
@@ -25,7 +24,7 @@ class DailyGoalsPage extends ConsumerWidget {
             SizedBox(height: 20.h),
             _SkillPart(),
             SizedBox(height: 20.h),
-            _SkillPart()
+            _SkillPart(),
           ],
         ),
       ),
@@ -72,7 +71,7 @@ class _SkillPart extends StatelessWidget {
             bottom: 12.h,
           ),
           decoration: BoxDecoration(
-            color: Color(0xfff1f1f1),
+            color: const Color(0xfff1f1f1),
             borderRadius: BorderRadius.circular(20.r),
           ),
           height: 177.h,
@@ -83,7 +82,7 @@ class _SkillPart extends StatelessWidget {
                 child: Row(
                   children: [
                     Assets.images.careskill.image(),
-                    Spacer(),
+                    const Spacer(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,11 +96,11 @@ class _SkillPart extends StatelessWidget {
                                 fontSize: 20.sp,
                               ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Text("5 tasks",
-                            style: Theme.of(context).textTheme.displaySmall),
+                            style: Theme.of(context).textTheme.displaySmall,),
                         Text("%75",
-                            style: Theme.of(context).textTheme.displaySmall),
+                            style: Theme.of(context).textTheme.displaySmall,),
                         SizedBox(height: 10.h),
                       ],
                     ),
@@ -118,17 +117,16 @@ class _SkillPart extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 10.w,
               mainAxisSpacing: 10.h,
-              childAspectRatio: 1,
             ),
             itemBuilder: (BuildContext context, int index) => Container(
                   decoration: BoxDecoration(
-                    color: Color(0xfff1f1f1),
+                    color: const Color(0xfff1f1f1),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                 ),
             itemCount: 4,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics())
+            physics: const NeverScrollableScrollPhysics(),),
       ],
     );
   }

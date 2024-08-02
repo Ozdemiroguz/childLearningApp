@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/core/injections/locator.dart';
 import 'package:tododyst/features/daily_goals/presentation/states/choose_skills/choose_skills_state.dart';
 
-import '../states/choose_module/choose_module_state.dart';
 import 'choose_module_provider.dart';
 
 final chooseSkillsProvider =
@@ -28,7 +27,7 @@ class _HomeNotifier extends AutoDisposeNotifier<ChooseSkillsState> {
 
     result.fold(
         (l) => state = state.copyWith(isLoading: false, failure: some(l)),
-        (r) => state = state.copyWith(isLoading: false, skills: r));
+        (r) => state = state.copyWith(isLoading: false, skills: r),);
   }
 
   void changeSelectedSkill(int index) {

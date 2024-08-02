@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+// ignore: unused_import
 import 'package:tododyst/features/clock_game/domain/repository/clock_level_repository.dart';
 import 'package:tododyst/features/daily_goals/domain/repository.dart/daily_goals_repository.dart';
 
@@ -27,7 +28,7 @@ final class DailyGoalsRepositoryImpl implements DailyGoalsRepository {
                     : module == 'Mathematic Skills'
                         ? ['Counting', 'Addition', 'Subtraction']
                         : ['Reading', 'Writing', 'Speaking'],
-              ));
+              ),);
     } catch (e) {
       log(e.toString());
       return Future.value(left(Failure.unknownError(tr('unknown_error'))));
@@ -42,7 +43,7 @@ final class DailyGoalsRepositoryImpl implements DailyGoalsRepository {
       return Future.delayed(
           const Duration(milliseconds: 500),
           () => right(
-              ['Self Care Skils', 'Mathematic Skills', 'Language Skills']));
+              ['Self Care Skils', 'Mathematic Skills', 'Language Skills'],),);
     } catch (e) {
       log(e.toString());
       return Future.value(left(Failure.unknownError(tr('unknown_error'))));

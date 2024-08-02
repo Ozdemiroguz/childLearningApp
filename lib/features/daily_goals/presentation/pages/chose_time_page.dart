@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:pinput/pinput.dart';
 import 'package:tododyst/constants/colors.dart';
 import 'package:tododyst/features/daily_goals/presentation/providers/daily_time_provider.dart';
 import 'package:tododyst/gen/assets.gen.dart';

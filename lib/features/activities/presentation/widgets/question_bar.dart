@@ -46,7 +46,7 @@ class QuestionBar extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20.r),
                             bottomLeft: Radius.circular(20.r),
-                          )),
+                          ),),
                     ),
                   ),
                   Expanded(flex: 100 - decimalValue, child: const SizedBox()),

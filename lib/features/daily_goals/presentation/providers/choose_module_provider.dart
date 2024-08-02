@@ -24,7 +24,7 @@ class _HomeNotifier extends AutoDisposeNotifier<ChooseModuleState> {
 
     result.fold(
         (l) => state = state.copyWith(isLoading: false, failure: some(l)),
-        (r) => state = state.copyWith(isLoading: false, modules: r));
+        (r) => state = state.copyWith(isLoading: false, modules: r),);
   }
 
   void changeIsModuleOpen() {
