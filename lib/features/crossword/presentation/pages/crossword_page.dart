@@ -274,13 +274,11 @@ class _GameBoard extends ConsumerWidget {
               key: crosswordState,
               letters: state.wordData.board,
               spacing: const Offset(50, 50),
-              onLineDrawn: (List<String> words) {
-                // print(words);
-                ref
-                    .read(crosswordProvider.notifier)
-                    .onChangedWordsToFind(words);
-                // print(state.sectionCompleted);
+
+              onLineUpdate: (word, p1, p2) {
+                ref.read(crosswordProvider.notifier).onChangedWordsToFind(p1);
               },
+
               // onLineUpdate: (String word) {
               //   setState(() {
               //     this.word = word;
