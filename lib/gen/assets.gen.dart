@@ -35,6 +35,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Vector.svg
   SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
 
+  /// File path: assets/icons/add.svg
+  SvgGenImage get add => const SvgGenImage('assets/icons/add.svg');
+
   /// File path: assets/icons/arrow_down.svg
   SvgGenImage get arrowDown => const SvgGenImage('assets/icons/arrow_down.svg');
 
@@ -51,6 +54,18 @@ class $AssetsIconsGen {
   /// File path: assets/icons/hint.svg
   SvgGenImage get hint => const SvgGenImage('assets/icons/hint.svg');
 
+  /// File path: assets/icons/solar_pen-broken.svg
+  SvgGenImage get solarPenBroken =>
+      const SvgGenImage('assets/icons/solar_pen-broken.svg');
+
+  /// File path: assets/icons/tabler_mood-kid-filled.png
+  AssetGenImage get tablerMoodKidFilledPng =>
+      const AssetGenImage('assets/icons/tabler_mood-kid-filled.png');
+
+  /// File path: assets/icons/tabler_mood-kid-filled.svg
+  SvgGenImage get tablerMoodKidFilledSvg =>
+      const SvgGenImage('assets/icons/tabler_mood-kid-filled.svg');
+
   /// File path: assets/icons/threedot.svg
   SvgGenImage get threedot => const SvgGenImage('assets/icons/threedot.svg');
 
@@ -58,7 +73,7 @@ class $AssetsIconsGen {
   SvgGenImage get video => const SvgGenImage('assets/icons/video.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [
+  List<dynamic> get values => [
         alert,
         arrowLeft,
         eyeOff,
@@ -66,11 +81,15 @@ class $AssetsIconsGen {
         failure,
         success,
         vector,
+        add,
         arrowDown,
         bomb,
         down,
         filledarrowright,
         hint,
+        solarPenBroken,
+        tablerMoodKidFilledPng,
+        tablerMoodKidFilledSvg,
         threedot,
         video
       ];
@@ -79,13 +98,27 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/LanguageImg.png
+  AssetGenImage get languageImg =>
+      const AssetGenImage('assets/images/LanguageImg.png');
+
   /// File path: assets/images/Mask group.png
   AssetGenImage get maskGroup =>
       const AssetGenImage('assets/images/Mask group.png');
 
+  /// File path: assets/images/Notifications.png
+  AssetGenImage get notifications =>
+      const AssetGenImage('assets/images/Notifications.png');
+
+  /// File path: assets/images/Turkey.png
+  AssetGenImage get turkey => const AssetGenImage('assets/images/Turkey.png');
+
   /// File path: assets/images/Vector36.png
   AssetGenImage get vector36 =>
       const AssetGenImage('assets/images/Vector36.png');
+
+  /// File path: assets/images/abaout.png
+  AssetGenImage get abaout => const AssetGenImage('assets/images/abaout.png');
 
   /// File path: assets/images/animals.png
   AssetGenImage get animals => const AssetGenImage('assets/images/animals.png');
@@ -106,6 +139,14 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/check.png
   AssetGenImage get check => const AssetGenImage('assets/images/check.png');
+
+  /// File path: assets/images/checkcirclewithstar.png
+  AssetGenImage get checkcirclewithstar =>
+      const AssetGenImage('assets/images/checkcirclewithstar.png');
+
+  /// File path: assets/images/childImg.png
+  AssetGenImage get childImg =>
+      const AssetGenImage('assets/images/childImg.png');
 
   /// File path: assets/images/clock.png
   AssetGenImage get clock => const AssetGenImage('assets/images/clock.png');
@@ -128,6 +169,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/croswordchapback.png
   AssetGenImage get croswordchapback =>
       const AssetGenImage('assets/images/croswordchapback.png');
+
+  /// File path: assets/images/dutch.png
+  AssetGenImage get dutch => const AssetGenImage('assets/images/dutch.png');
+
+  /// File path: assets/images/england.png
+  AssetGenImage get england => const AssetGenImage('assets/images/england.png');
+
+  /// File path: assets/images/german.png
+  AssetGenImage get german => const AssetGenImage('assets/images/german.png');
+
+  /// File path: assets/images/gift.png
+  AssetGenImage get gift => const AssetGenImage('assets/images/gift.png');
 
   /// File path: assets/images/hint.png
   AssetGenImage get hintPng => const AssetGenImage('assets/images/hint.png');
@@ -174,6 +227,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/prep5.png
   AssetGenImage get prep5 => const AssetGenImage('assets/images/prep5.png');
 
+  /// File path: assets/images/profileImg.png
+  AssetGenImage get profileImg =>
+      const AssetGenImage('assets/images/profileImg.png');
+
+  /// File path: assets/images/support.png
+  AssetGenImage get support => const AssetGenImage('assets/images/support.png');
+
   /// File path: assets/images/timer.png
   AssetGenImage get timer => const AssetGenImage('assets/images/timer.png');
 
@@ -190,20 +250,30 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        languageImg,
         maskGroup,
+        notifications,
+        turkey,
         vector36,
+        abaout,
         animals,
         animalsparty,
         bomb,
         careskill,
         carpi,
         check,
+        checkcirclewithstar,
+        childImg,
         clock,
         clockback,
         clockgameback,
         colors,
         colorsback,
         croswordchapback,
+        dutch,
+        england,
+        german,
+        gift,
         hintPng,
         hintSvg,
         language,
@@ -218,6 +288,8 @@ class $AssetsImagesGen {
         prep3,
         prep4,
         prep5,
+        profileImg,
+        support,
         timer,
         tododysLogo,
         tododysTLogo,

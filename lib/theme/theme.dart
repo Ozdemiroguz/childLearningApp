@@ -13,7 +13,7 @@ import '../gen/assets.gen.dart';
 
 final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: darkBlue1),
-  scaffoldBackgroundColor: white,
+  scaffoldBackgroundColor: bgColor,
   // outlinedButtonTheme: _outLinedButtonThemeData,
   filledButtonTheme: _filledButtomThemeData,
   // datePickerTheme: _datePickerThemeData,

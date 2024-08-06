@@ -1,0 +1,23 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_72_2924)">
+<path d="M24.0417 12.3333H16.3333V20.0417C16.3333 20.4505 16.1709 20.8427 15.8818 21.1318C15.5927 21.4209 15.2005 21.5833 14.7917 21.5833C14.3828 21.5833 13.9907 21.4209 13.7015 21.1318C13.4124 20.8427 13.25 20.4505 13.25 20.0417V12.3333H5.54167C5.13279 12.3333 4.74066 12.1709 4.45154 11.8818C4.16243 11.5927 4 11.2005 4 10.7917C4 10.3828 4.16243 9.99066 4.45154 9.70154C4.74066 9.41243 5.13279 9.25 5.54167 9.25H13.25V1.54167C13.25 1.13279 13.4124 0.740662 13.7015 0.451543C13.9907 0.162425 14.3828 0 14.7917 0C15.2005 0 15.5927 0.162425 15.8818 0.451543C16.1709 0.740662 16.3333 1.13279 16.3333 1.54167V9.25H24.0417C24.4505 9.25 24.8427 9.41243 25.1318 9.70154C25.4209 9.99066 25.5833 10.3828 25.5833 10.7917C25.5833 11.2005 25.4209 11.5927 25.1318 11.8818C24.8427 12.1709 24.4505 12.3333 24.0417 12.3333Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_dd_72_2924" x="0" y="0" width="29.583" height="29.583" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.262745 0 0 0 0 0.686275 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_72_2924"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_72_2924" result="effect2_dropShadow_72_2924"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_72_2924" result="shape"/>
+</filter>
+</defs>
+</svg>

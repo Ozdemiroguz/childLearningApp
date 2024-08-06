@@ -23,6 +23,14 @@ import '../features/home/presentation/pages/home_page.dart';
 import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
 import '../features/intro/presnetation/pages/intro_slider_page.dart';
+import '../features/profile/presentation/pages/account_edit_page.dart';
+import '../features/profile/presentation/pages/account_page.dart';
+import '../features/profile/presentation/pages/childprofile_edit_page.dart';
+import '../features/profile/presentation/pages/childprofile_page.dart';
+import '../features/profile/presentation/pages/language_page.dart';
+import '../features/profile/presentation/pages/main_profile_page.dart';
+import '../features/profile/presentation/pages/notifications_page.dart';
+import '../features/profile/presentation/pages/use_code_page.dart';
 import '../splash_page.dart';
 
 part "router.gr.dart";
@@ -67,6 +75,16 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ChoseTimeRoute.page),
         AutoRoute(page: FinishDgRoute.page),
         AutoRoute(page: DailyGoalsRoute.page),
+
+        //Profile
+        AutoRoute(page: MainProfileRoute.page),
+        AutoRoute(page: AccountRoute.page),
+        AutoRoute(page: AccountEditRoute.page),
+        AutoRoute(page: ChildprofileRoute.page),
+        AutoRoute(page: ChildprofileEditRoute.page),
+        AutoRoute(page: LanguageRoute.page),
+        AutoRoute(page: NotificationsRoute.page),
+        AutoRoute(page: UseCodeRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),

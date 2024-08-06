@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AccountEditRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AccountEditPage(),
+      );
+    },
+    AccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AccountPage(),
+      );
+    },
     ActivitesLevelRoute.name: (routeData) {
       final args = routeData.argsAs<ActivitesLevelRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -38,6 +50,18 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ChaptersPage(),
+      );
+    },
+    ChildprofileEditRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChildprofileEditPage(),
+      );
+    },
+    ChildprofileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChildprofilePage(),
       );
     },
     ChooseModuleRoute.name: (routeData) {
@@ -121,10 +145,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: LanguageActivityPage(level: args.level),
       );
     },
+    LanguageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: LanguagePage(),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(),
+      );
+    },
+    MainProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MainProfilePage(),
       );
     },
     MathActivityRoute.name: (routeData) {
@@ -132,6 +168,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: MathActivityPage(level: args.level),
+      );
+    },
+    NotificationsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: NotificationsPage(),
       );
     },
     PhoneInputRoute.name: (routeData) {
@@ -157,6 +199,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    UseCodeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UseCodePage(),
+      );
+    },
     UserTypeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -164,6 +212,34 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AccountEditPage]
+class AccountEditRoute extends PageRouteInfo<void> {
+  const AccountEditRoute({List<PageRouteInfo>? children})
+      : super(
+          AccountEditRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AccountEditRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AccountPage]
+class AccountRoute extends PageRouteInfo<void> {
+  const AccountRoute({List<PageRouteInfo>? children})
+      : super(
+          AccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -233,6 +309,34 @@ class ChaptersRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChaptersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChildprofileEditPage]
+class ChildprofileEditRoute extends PageRouteInfo<void> {
+  const ChildprofileEditRoute({List<PageRouteInfo>? children})
+      : super(
+          ChildprofileEditRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChildprofileEditRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChildprofilePage]
+class ChildprofileRoute extends PageRouteInfo<void> {
+  const ChildprofileRoute({List<PageRouteInfo>? children})
+      : super(
+          ChildprofileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChildprofileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -465,6 +569,20 @@ class LanguageActivityRouteArgs {
 }
 
 /// generated route for
+/// [LanguagePage]
+class LanguageRoute extends PageRouteInfo<void> {
+  const LanguageRoute({List<PageRouteInfo>? children})
+      : super(
+          LanguageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LanguageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -474,6 +592,20 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MainProfilePage]
+class MainProfileRoute extends PageRouteInfo<void> {
+  const MainProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          MainProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MainProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -505,6 +637,20 @@ class MathActivityRouteArgs {
   String toString() {
     return 'MathActivityRouteArgs{level: $level}';
   }
+}
+
+/// generated route for
+/// [NotificationsPage]
+class NotificationsRoute extends PageRouteInfo<void> {
+  const NotificationsRoute({List<PageRouteInfo>? children})
+      : super(
+          NotificationsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotificationsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -570,6 +716,20 @@ class SplashRouteArgs {
   String toString() {
     return 'SplashRouteArgs{resetToken: $resetToken, userId: $userId}';
   }
+}
+
+/// generated route for
+/// [UseCodePage]
+class UseCodeRoute extends PageRouteInfo<void> {
+  const UseCodeRoute({List<PageRouteInfo>? children})
+      : super(
+          UseCodeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UseCodeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
