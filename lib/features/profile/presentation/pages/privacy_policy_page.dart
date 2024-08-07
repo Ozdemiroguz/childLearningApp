@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
 import 'package:tododyst/features/profile/presentation/widdgets/back_button.dart';
-import 'package:tododyst/gen/assets.gen.dart';
+
+import '../../../../gen/assets.gen.dart';
 
 @RoutePage()
-class AboutPage extends ConsumerWidget {
+class PrivacyPolicyPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -19,7 +20,7 @@ class AboutPage extends ConsumerWidget {
               SizedBox(height: 100.h),
               ProfileBackButton(),
               SizedBox(height: 80.h),
-              _AboutPart(),
+              _PrivacyPolicyPart(),
             ],
           ),
         ),
@@ -28,7 +29,7 @@ class AboutPage extends ConsumerWidget {
   }
 }
 
-class _AboutPart extends ConsumerWidget {
+class _PrivacyPolicyPart extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -42,14 +43,15 @@ class _AboutPart extends ConsumerWidget {
         children: [
           Row(
             children: [
-              Assets.images.abaout.image(),
+              Assets.images.p.image(),
               SizedBox(width: 10.w),
-              Text("About", style: Theme.of(context).textTheme.displayMedium)
+              Text("Privacy Policy",
+                  style: Theme.of(context).textTheme.displayMedium)
             ],
           ),
           SizedBox(height: 20.h),
           Text(
-            "Tododyst is a platform that helps you to manage your daily tasks and goals. It is designed to help you to be more productive and organized.",
+            " Tododyst is a platform that helps you to manage your dailyTododyst is a platform that helps you to manage your dailyTododyst is a platform that helps you to manage your daily Tododyst is a platform that helps you to manage your daily tasks and goals. It is designed to help you to be more productive and organized.",
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!

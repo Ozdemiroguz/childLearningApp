@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user.dart';
+part of 'user_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,44 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
-
 /// @nodoc
-mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+mixin _$UserState {
+  bool get isLoading => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get surname => throw _privateConstructorUsedError;
   String get age => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  UserType get userType => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  Option<Failure> get failure => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $UserStateCopyWith<UserState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
+abstract class $UserStateCopyWith<$Res> {
+  factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
+      _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
   $Res call(
-      {String id,
+      {bool isLoading,
       String name,
       String surname,
       String age,
-      String email,
-      UserType userType,
-      String imageUrl});
+      String imageUrl,
+      Option<Failure> failure});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
+    implements $UserStateCopyWith<$Res> {
+  _$UserStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -61,19 +55,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? isLoading = null,
     Object? name = null,
     Object? surname = null,
     Object? age = null,
-    Object? email = null,
-    Object? userType = null,
     Object? imageUrl = null,
+    Object? failure = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -86,62 +79,58 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      userType: null == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Option<Failure>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
+abstract class _$$UserStateImplCopyWith<$Res>
+    implements $UserStateCopyWith<$Res> {
+  factory _$$UserStateImplCopyWith(
+          _$UserStateImpl value, $Res Function(_$UserStateImpl) then) =
+      __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String id,
+      {bool isLoading,
       String name,
       String surname,
       String age,
-      String email,
-      UserType userType,
-      String imageUrl});
+      String imageUrl,
+      Option<Failure> failure});
 }
 
 /// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
+class __$$UserStateImplCopyWithImpl<$Res>
+    extends _$UserStateCopyWithImpl<$Res, _$UserStateImpl>
+    implements _$$UserStateImplCopyWith<$Res> {
+  __$$UserStateImplCopyWithImpl(
+      _$UserStateImpl _value, $Res Function(_$UserStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? isLoading = null,
     Object? name = null,
     Object? surname = null,
     Object? age = null,
-    Object? email = null,
-    Object? userType = null,
     Object? imageUrl = null,
+    Object? failure = null,
   }) {
-    return _then(_$UserImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_$UserStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -154,39 +143,32 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      userType: null == userType
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      failure: null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Option<Failure>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$UserImpl implements _User {
-  const _$UserImpl(
-      {required this.id,
+
+class _$UserStateImpl extends _UserState {
+  _$UserStateImpl(
+      {required this.isLoading,
       required this.name,
       required this.surname,
       required this.age,
-      required this.email,
-      required this.userType,
-      required this.imageUrl});
-
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
+      required this.imageUrl,
+      required this.failure})
+      : super._();
 
   @override
-  final String id;
+  final bool isLoading;
   @override
   final String name;
   @override
@@ -194,66 +176,53 @@ class _$UserImpl implements _User {
   @override
   final String age;
   @override
-  final String email;
-  @override
-  final UserType userType;
-  @override
   final String imageUrl;
+  @override
+  final Option<Failure> failure;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, surname: $surname, age: $age, email: $email, userType: $userType, imageUrl: $imageUrl)';
+    return 'UserState(isLoading: $isLoading, name: $name, surname: $surname, age: $age, imageUrl: $imageUrl, failure: $failure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            other is _$UserStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.surname, surname) || other.surname == surname) &&
             (identical(other.age, age) || other.age == age) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.userType, userType) ||
-                other.userType == userType) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, surname, age, email, userType, imageUrl);
+      runtimeType, isLoading, name, surname, age, imageUrl, failure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
-      this,
-    );
-  }
+  _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
+      __$$UserStateImplCopyWithImpl<_$UserStateImpl>(this, _$identity);
 }
 
-abstract class _User implements User {
-  const factory _User(
-      {required final String id,
+abstract class _UserState extends UserState {
+  factory _UserState(
+      {required final bool isLoading,
       required final String name,
       required final String surname,
       required final String age,
-      required final String email,
-      required final UserType userType,
-      required final String imageUrl}) = _$UserImpl;
-
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+      required final String imageUrl,
+      required final Option<Failure> failure}) = _$UserStateImpl;
+  _UserState._() : super._();
 
   @override
-  String get id;
+  bool get isLoading;
   @override
   String get name;
   @override
@@ -261,13 +230,11 @@ abstract class _User implements User {
   @override
   String get age;
   @override
-  String get email;
-  @override
-  UserType get userType;
-  @override
   String get imageUrl;
   @override
+  Option<Failure> get failure;
+  @override
   @JsonKey(ignore: true)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+  _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

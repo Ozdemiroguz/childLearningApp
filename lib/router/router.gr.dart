@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AboutRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AboutPage(),
+      );
+    },
     AccountEditRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -93,6 +99,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClockLevelPage(),
+      );
+    },
+    ContactRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ContactPage(),
       );
     },
     CreateAccountRoute.name: (routeData) {
@@ -188,6 +200,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: PhoneVerificationPage(),
       );
     },
+    PrivacyPolicyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PrivacyPolicyPage(),
+      );
+    },
     SplashRoute.name: (routeData) {
       final args = routeData.argsAs<SplashRouteArgs>(
           orElse: () => const SplashRouteArgs());
@@ -197,6 +215,12 @@ abstract class _$AppRouter extends RootStackRouter {
           resetToken: args.resetToken,
           userId: args.userId,
         ),
+      );
+    },
+    SupportRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SupportPage(),
       );
     },
     UseCodeRoute.name: (routeData) {
@@ -212,6 +236,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AboutPage]
+class AboutRoute extends PageRouteInfo<void> {
+  const AboutRoute({List<PageRouteInfo>? children})
+      : super(
+          AboutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AboutRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -422,6 +460,20 @@ class ClockLevelRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ClockLevelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ContactPage]
+class ContactRoute extends PageRouteInfo<void> {
+  const ContactRoute({List<PageRouteInfo>? children})
+      : super(
+          ContactRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContactRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -682,6 +734,20 @@ class PhoneVerificationRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PrivacyPolicyPage]
+class PrivacyPolicyRoute extends PageRouteInfo<void> {
+  const PrivacyPolicyRoute({List<PageRouteInfo>? children})
+      : super(
+          PrivacyPolicyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PrivacyPolicyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<SplashRouteArgs> {
   SplashRoute({
@@ -716,6 +782,20 @@ class SplashRouteArgs {
   String toString() {
     return 'SplashRouteArgs{resetToken: $resetToken, userId: $userId}';
   }
+}
+
+/// generated route for
+/// [SupportPage]
+class SupportRoute extends PageRouteInfo<void> {
+  const SupportRoute({List<PageRouteInfo>? children})
+      : super(
+          SupportRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SupportRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

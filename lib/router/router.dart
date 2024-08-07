@@ -23,13 +23,17 @@ import '../features/home/presentation/pages/home_page.dart';
 import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
 import '../features/intro/presnetation/pages/intro_slider_page.dart';
+import '../features/profile/presentation/pages/about_page.dart';
 import '../features/profile/presentation/pages/account_edit_page.dart';
 import '../features/profile/presentation/pages/account_page.dart';
 import '../features/profile/presentation/pages/childprofile_edit_page.dart';
 import '../features/profile/presentation/pages/childprofile_page.dart';
+import '../features/profile/presentation/pages/contact_page.dart';
 import '../features/profile/presentation/pages/language_page.dart';
 import '../features/profile/presentation/pages/main_profile_page.dart';
 import '../features/profile/presentation/pages/notifications_page.dart';
+import '../features/profile/presentation/pages/privacy_policy_page.dart';
+import '../features/profile/presentation/pages/support_page.dart';
 import '../features/profile/presentation/pages/use_code_page.dart';
 import '../splash_page.dart';
 
@@ -85,6 +89,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: LanguageRoute.page),
         AutoRoute(page: NotificationsRoute.page),
         AutoRoute(page: UseCodeRoute.page),
+        AutoRoute(page: SupportRoute.page),
+        AutoRoute(page: AboutRoute.page),
+        AutoRoute(page: ContactRoute.page),
+        AutoRoute(page: PrivacyPolicyRoute.page),
 
         //Home
         AutoRoute(page: HomeRoute.page),

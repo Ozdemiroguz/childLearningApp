@@ -117,13 +117,17 @@ class _SupportAndAbout extends ConsumerWidget {
           _RouteButton(
             image: Assets.images.support,
             title: 'Support',
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(const SupportRoute());
+            },
             isRightIcon: false,
           ),
           _RouteButton(
             image: Assets.images.abaout,
             title: 'About',
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(const AboutRoute());
+            },
             isRightIcon: true,
           ),
           SizedBox(height: 30.h),

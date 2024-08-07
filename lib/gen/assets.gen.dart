@@ -166,6 +166,9 @@ class $AssetsImagesGen {
   AssetGenImage get colorsback =>
       const AssetGenImage('assets/images/colorsback.png');
 
+  /// File path: assets/images/contact.png
+  AssetGenImage get contact => const AssetGenImage('assets/images/contact.png');
+
   /// File path: assets/images/croswordchapback.png
   AssetGenImage get croswordchapback =>
       const AssetGenImage('assets/images/croswordchapback.png');
@@ -207,6 +210,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/noon.png
   AssetGenImage get noon => const AssetGenImage('assets/images/noon.png');
+
+  /// File path: assets/images/p.png
+  AssetGenImage get p => const AssetGenImage('assets/images/p.png');
 
   /// File path: assets/images/png-transparent-goal.png
   AssetGenImage get pngTransparentGoal =>
@@ -269,6 +275,7 @@ class $AssetsImagesGen {
         clockgameback,
         colors,
         colorsback,
+        contact,
         croswordchapback,
         dutch,
         england,
@@ -282,6 +289,7 @@ class $AssetsImagesGen {
         morning,
         night,
         noon,
+        p,
         pngTransparentGoal,
         prep1,
         prep2,

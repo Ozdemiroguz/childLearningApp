@@ -2,12 +2,14 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:tododyst/constants/colors.dart';
-import 'package:tododyst/features/profile/presentation/widdgets/back_button.dart';
-import 'package:tododyst/gen/assets.gen.dart';
+import 'package:tododyst/features/profile/presentation/widdgets/profile_button.dart';
+
+import '../../../../constants/colors.dart';
+import '../../../../gen/assets.gen.dart';
+import '../widdgets/back_button.dart';
 
 @RoutePage()
-class AboutPage extends ConsumerWidget {
+class ContactPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -19,7 +21,7 @@ class AboutPage extends ConsumerWidget {
               SizedBox(height: 100.h),
               ProfileBackButton(),
               SizedBox(height: 80.h),
-              _AboutPart(),
+              _ContactPart(),
             ],
           ),
         ),
@@ -28,7 +30,7 @@ class AboutPage extends ConsumerWidget {
   }
 }
 
-class _AboutPart extends ConsumerWidget {
+class _ContactPart extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -55,6 +57,9 @@ class _AboutPart extends ConsumerWidget {
                 .displaySmall!
                 .copyWith(color: darkGray),
           ),
+          Spacer(),
+          ProfileButton(title: "Contact Us", onTap: () {}),
+          SizedBox(height: 10.h),
         ],
       ),
     );

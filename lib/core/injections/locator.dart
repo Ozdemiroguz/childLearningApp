@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:tododyst/core/injections/locator.config.dart';
 import 'package:tododyst/features/clock_game/domain/repository/clock_level_repository.dart';
 import 'package:tododyst/features/daily_goals/domain/repository.dart/daily_goals_repository.dart';
+import 'package:tododyst/features/profile/domain/repository/user_repository.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../features/crossword/domain/repositories/crosword_repository.dart';
@@ -31,3 +32,6 @@ final clockLevelRepositoryProvider =
 
 final dailyGoalsRepositoryProvider =
     Provider.autoDispose((ref) => getIt<DailyGoalsRepository>());
+
+final userRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<UserRepository>());

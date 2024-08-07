@@ -18,20 +18,23 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 
 import '../../features/auth/data/repositories/auth_repository_impl.dart'
-    as _i24;
-import '../../features/auth/domain/repositories/auth_repository.dart' as _i23;
-import '../../features/clock_game/data/repository.dart/clock_level_repository_imp.dart'
-    as _i22;
-import '../../features/clock_game/domain/repository/clock_level_repository.dart'
-    as _i21;
-import '../../features/crossword/data/repositories/crossword_repository_impl.dart'
     as _i26;
+import '../../features/auth/domain/repositories/auth_repository.dart' as _i25;
+import '../../features/clock_game/data/repository.dart/clock_level_repository_imp.dart'
+    as _i24;
+import '../../features/clock_game/domain/repository/clock_level_repository.dart'
+    as _i23;
+import '../../features/crossword/data/repositories/crossword_repository_impl.dart'
+    as _i28;
 import '../../features/crossword/domain/repositories/crosword_repository.dart'
-    as _i25;
+    as _i27;
 import '../../features/daily_goals/data/repository/daily_goals_repository_impl.dart'
-    as _i20;
+    as _i22;
 import '../../features/daily_goals/domain/repository.dart/daily_goals_repository.dart'
-    as _i19;
+    as _i21;
+import '../../features/profile/data/repository/user_repository_impl.dart'
+    as _i20;
+import '../../features/profile/domain/repository/user_repository.dart' as _i19;
 import '../../router/router.dart' as _i7;
 import '../../services/jwt/jwt_service.dart' as _i15;
 import '../../services/jwt/jwt_service_impl.dart' as _i16;
@@ -43,7 +46,7 @@ import '../../services/network/network_service.dart' as _i17;
 import '../../services/network/network_service_impl.dart' as _i18;
 import '../models/usecases/base_64_encode.dart' as _i14;
 import '../models/usecases/usecase.dart' as _i12;
-import 'register_module.dart' as _i27;
+import 'register_module.dart' as _i29;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -81,24 +84,26 @@ extension GetItInjectableX on _i1.GetIt {
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
           networkInfo: gh<_i10.NetworkInfo>(),
         ));
-    gh.lazySingleton<_i19.DailyGoalsRepository>(() =>
-        _i20.DailyGoalsRepositoryImpl(
+    gh.lazySingleton<_i19.UserRepository>(() =>
+        _i20.UserRepositoryImp(networkService: gh<_i17.NetworkService>()));
+    gh.lazySingleton<_i21.DailyGoalsRepository>(() =>
+        _i22.DailyGoalsRepositoryImpl(
             networkService: gh<_i17.NetworkService>()));
-    gh.lazySingleton<_i21.ClockLevelRepository>(() =>
-        _i22.ClockLevelRepositoryImp(
+    gh.lazySingleton<_i23.ClockLevelRepository>(() =>
+        _i24.ClockLevelRepositoryImp(
             networkService: gh<_i17.NetworkService>()));
-    gh.lazySingleton<_i23.AuthRepository>(() => _i24.AuthRepositoryImpl(
+    gh.lazySingleton<_i25.AuthRepository>(() => _i26.AuthRepositoryImpl(
           networkService: gh<_i17.NetworkService>(),
           localeResourcesService: gh<_i3.LocaleResourcesService>(),
         ));
-    gh.lazySingleton<_i25.CrosswordRepository>(() =>
-        _i26.CrosswordRepositoryImpl(
+    gh.lazySingleton<_i27.CrosswordRepository>(() =>
+        _i28.CrosswordRepositoryImpl(
             networkService: gh<_i17.NetworkService>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i27.RegisterModule {
+class _$RegisterModule extends _i29.RegisterModule {
   @override
   _i7.AppRouter get appRouter => _i7.AppRouter();
 
