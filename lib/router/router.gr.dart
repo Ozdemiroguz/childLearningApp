@@ -182,6 +182,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: MathActivityPage(level: args.level),
       );
     },
+    MemoryGameLevelRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MemoryGameLevelPage(),
+      );
+    },
+    MemoryGameRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MemoryGamePage(),
+      );
+    },
     NotificationsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -689,6 +701,34 @@ class MathActivityRouteArgs {
   String toString() {
     return 'MathActivityRouteArgs{level: $level}';
   }
+}
+
+/// generated route for
+/// [MemoryGameLevelPage]
+class MemoryGameLevelRoute extends PageRouteInfo<void> {
+  const MemoryGameLevelRoute({List<PageRouteInfo>? children})
+      : super(
+          MemoryGameLevelRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MemoryGameLevelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MemoryGamePage]
+class MemoryGameRoute extends PageRouteInfo<void> {
+  const MemoryGameRoute({List<PageRouteInfo>? children})
+      : super(
+          MemoryGameRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MemoryGameRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

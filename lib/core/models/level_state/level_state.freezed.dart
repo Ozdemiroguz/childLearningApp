@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'clock_level_state.dart';
+part of 'level_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ClockLevelState {
+mixin _$LevelState {
   bool get isLoading => throw _privateConstructorUsedError;
   int get level => throw _privateConstructorUsedError;
   Option<Failure> get failure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ClockLevelStateCopyWith<ClockLevelState> get copyWith =>
+  $LevelStateCopyWith<LevelState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ClockLevelStateCopyWith<$Res> {
-  factory $ClockLevelStateCopyWith(
-          ClockLevelState value, $Res Function(ClockLevelState) then) =
-      _$ClockLevelStateCopyWithImpl<$Res, ClockLevelState>;
+abstract class $LevelStateCopyWith<$Res> {
+  factory $LevelStateCopyWith(
+          LevelState value, $Res Function(LevelState) then) =
+      _$LevelStateCopyWithImpl<$Res, LevelState>;
   @useResult
   $Res call({bool isLoading, int level, Option<Failure> failure});
 }
 
 /// @nodoc
-class _$ClockLevelStateCopyWithImpl<$Res, $Val extends ClockLevelState>
-    implements $ClockLevelStateCopyWith<$Res> {
-  _$ClockLevelStateCopyWithImpl(this._value, this._then);
+class _$LevelStateCopyWithImpl<$Res, $Val extends LevelState>
+    implements $LevelStateCopyWith<$Res> {
+  _$LevelStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +69,22 @@ class _$ClockLevelStateCopyWithImpl<$Res, $Val extends ClockLevelState>
 }
 
 /// @nodoc
-abstract class _$$ClockLevelStateImplCopyWith<$Res>
-    implements $ClockLevelStateCopyWith<$Res> {
-  factory _$$ClockLevelStateImplCopyWith(_$ClockLevelStateImpl value,
-          $Res Function(_$ClockLevelStateImpl) then) =
-      __$$ClockLevelStateImplCopyWithImpl<$Res>;
+abstract class _$$LevelStateImplCopyWith<$Res>
+    implements $LevelStateCopyWith<$Res> {
+  factory _$$LevelStateImplCopyWith(
+          _$LevelStateImpl value, $Res Function(_$LevelStateImpl) then) =
+      __$$LevelStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, int level, Option<Failure> failure});
 }
 
 /// @nodoc
-class __$$ClockLevelStateImplCopyWithImpl<$Res>
-    extends _$ClockLevelStateCopyWithImpl<$Res, _$ClockLevelStateImpl>
-    implements _$$ClockLevelStateImplCopyWith<$Res> {
-  __$$ClockLevelStateImplCopyWithImpl(
-      _$ClockLevelStateImpl _value, $Res Function(_$ClockLevelStateImpl) _then)
+class __$$LevelStateImplCopyWithImpl<$Res>
+    extends _$LevelStateCopyWithImpl<$Res, _$LevelStateImpl>
+    implements _$$LevelStateImplCopyWith<$Res> {
+  __$$LevelStateImplCopyWithImpl(
+      _$LevelStateImpl _value, $Res Function(_$LevelStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$ClockLevelStateImplCopyWithImpl<$Res>
     Object? level = null,
     Object? failure = null,
   }) {
-    return _then(_$ClockLevelStateImpl(
+    return _then(_$LevelStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$ClockLevelStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ClockLevelStateImpl extends _ClockLevelState {
-  _$ClockLevelStateImpl(
+class _$LevelStateImpl extends _LevelState {
+  _$LevelStateImpl(
       {required this.isLoading, required this.level, required this.failure})
       : super._();
 
@@ -127,14 +127,14 @@ class _$ClockLevelStateImpl extends _ClockLevelState {
 
   @override
   String toString() {
-    return 'ClockLevelState(isLoading: $isLoading, level: $level, failure: $failure)';
+    return 'LevelState(isLoading: $isLoading, level: $level, failure: $failure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ClockLevelStateImpl &&
+            other is _$LevelStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.level, level) || other.level == level) &&
@@ -147,17 +147,16 @@ class _$ClockLevelStateImpl extends _ClockLevelState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ClockLevelStateImplCopyWith<_$ClockLevelStateImpl> get copyWith =>
-      __$$ClockLevelStateImplCopyWithImpl<_$ClockLevelStateImpl>(
-          this, _$identity);
+  _$$LevelStateImplCopyWith<_$LevelStateImpl> get copyWith =>
+      __$$LevelStateImplCopyWithImpl<_$LevelStateImpl>(this, _$identity);
 }
 
-abstract class _ClockLevelState extends ClockLevelState {
-  factory _ClockLevelState(
+abstract class _LevelState extends LevelState {
+  factory _LevelState(
       {required final bool isLoading,
       required final int level,
-      required final Option<Failure> failure}) = _$ClockLevelStateImpl;
-  _ClockLevelState._() : super._();
+      required final Option<Failure> failure}) = _$LevelStateImpl;
+  _LevelState._() : super._();
 
   @override
   bool get isLoading;
@@ -167,6 +166,6 @@ abstract class _ClockLevelState extends ClockLevelState {
   Option<Failure> get failure;
   @override
   @JsonKey(ignore: true)
-  _$$ClockLevelStateImplCopyWith<_$ClockLevelStateImpl> get copyWith =>
+  _$$LevelStateImplCopyWith<_$LevelStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

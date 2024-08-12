@@ -21,12 +21,12 @@ class ChildprofilePage extends StatelessWidget {
               const ProfileImage(size: 110, isChildAccount: true),
               SizedBox(height: 80.h),
               ProfileRouteButtons(
-                  title: "Personal Information",
-                  onTap: () {
-                    print("Personal Information");
-                    context.router.push(const ChildprofileEditRoute());
-                  },
-                  icon: Assets.icons.solarPenBroken),
+                title: "Personal Information",
+                onTap: () {
+                  context.router.push(const ChildprofileEditRoute());
+                },
+                icon: Assets.icons.solarPenBroken,
+              ),
               SizedBox(height: 25.h),
               ProfileRouteButtons(
                 title: "Lorem Ipsum",

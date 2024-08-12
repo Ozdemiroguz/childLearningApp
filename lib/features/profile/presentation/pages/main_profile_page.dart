@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -167,13 +166,13 @@ class _RouteButton extends ConsumerWidget {
                   .labelSmall!
                   .copyWith(fontSize: 19.sp),
             ),
-            Spacer(),
+            const Spacer(),
             if (isRightIcon)
               const Icon(
                 size: 20,
                 Icons.arrow_forward_ios,
                 color: darkGray,
-              )
+              ),
           ],
         ),
       ),

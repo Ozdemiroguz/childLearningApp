@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   auto_route: ^7.8.4
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   collection: ^1.18.0
   country_code_picker: ^3.0.0
   cross_connectivity: ^3.1.0
@@ -20,6 +20,7 @@ dependencies:
   easy_localization: ^3.0.3
   email_validator: ^2.1.17
   equatable: ^2.0.5
+  flip_card: ^0.7.0
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.4

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:tododyst/features/activities/presentation/pages/math_activity_page.dart';
 import 'package:tododyst/features/crossword/presentation/pages/crossword_page.dart';
 import 'package:tododyst/features/daily_goals/presentation/pages/chose_time_page.dart';
+import 'package:tododyst/features/memory_game/presentation/pages/memory_game_page.dart';
 
 import '../features/activities/presentation/pages/activites_level_page.dart';
 import '../features/activities/presentation/pages/activities_chapter_page.dart';
@@ -23,6 +24,7 @@ import '../features/home/presentation/pages/home_page.dart';
 import '../features/intro/presnetation/pages/analysing_result_page.dart';
 import '../features/intro/presnetation/pages/intro_page.dart';
 import '../features/intro/presnetation/pages/intro_slider_page.dart';
+import '../features/memory_game/presentation/pages/memory_game_level_page.dart';
 import '../features/profile/presentation/pages/about_page.dart';
 import '../features/profile/presentation/pages/account_edit_page.dart';
 import '../features/profile/presentation/pages/account_page.dart';
@@ -66,6 +68,10 @@ class AppRouter extends _$AppRouter {
         //Clock
         AutoRoute(page: ClockLevelRoute.page),
         AutoRoute(page: ClockGameRoute.page),
+
+        //Memory Game
+        AutoRoute(page: MemoryGameRoute.page),
+        AutoRoute(page: MemoryGameLevelRoute.page),
 
         //Activities
         AutoRoute(page: ActivitiesChapterRoute.page),

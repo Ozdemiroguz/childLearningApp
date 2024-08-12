@@ -25,72 +25,70 @@ class AccountEditPage extends ConsumerWidget {
             children: [
               SizedBox(height: 100.h),
               ProfileImage(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: bgColor,
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Padding(
-                          padding: EdgeInsets.all(16.r),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ListTile(
-                                leading: Icon(Icons.camera, color: darkBlue1),
-                                title: Text('Camera'),
-                                onTap: () async {
-                                  File? _image;
-                                  final picker = ImagePicker();
-                                  picker
-                                      .pickImage(source: ImageSource.camera)
-                                      .then((value) {
-                                    if (value != null) {
-                                      _image = File(value.path);
-                                      print('Image path: ${_image!.path}');
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: bgColor,
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Padding(
+                        padding: EdgeInsets.all(16.r),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                              leading:
+                                  const Icon(Icons.camera, color: darkBlue1),
+                              title: const Text('Camera'),
+                              onTap: () async {
+                                File? image;
+                                final picker = ImagePicker();
+                                picker
+                                    .pickImage(source: ImageSource.camera)
+                                    .then((value) {
+                                  if (value != null) {
+                                    image = File(value.path);
 
-                                      notifier.imageUrlChanged(
-                                        _image!.path,
-                                      );
-                                    }
-                                  });
-                                  Navigator.pop(context);
-                                },
-                              ),
-                              ListTile(
-                                leading:
-                                    Icon(Icons.photo_library, color: darkBlue1),
-                                title: Text('Gallery'),
-                                onTap: () {
-                                  File? _image;
-                                  final picker = ImagePicker();
-                                  picker
-                                      .pickImage(source: ImageSource.gallery)
-                                      .then((value) {
-                                    if (value != null) {
-                                      _image = File(value.path);
-                                      print('Image path: ${_image!.path}');
-                                      notifier.imageUrlChanged(
-                                        _image!.path,
-                                      );
-                                    }
-                                  });
+                                    notifier.imageUrlChanged(
+                                      image!.path,
+                                    );
+                                  }
+                                });
+                                Navigator.pop(context);
+                              },
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.photo_library,
+                                  color: darkBlue1),
+                              title: const Text('Gallery'),
+                              onTap: () {
+                                File? image;
+                                final picker = ImagePicker();
+                                picker
+                                    .pickImage(source: ImageSource.gallery)
+                                    .then((value) {
+                                  if (value != null) {
+                                    image = File(value.path);
+                                    notifier.imageUrlChanged(
+                                      image!.path,
+                                    );
+                                  }
+                                });
 
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ).then((value) {
-                      if (value != null) {
-                        print('Image path: $value');
-                      }
-                    });
-                  },
-                  size: 165,
-                  isChildAccount: false,
-                  imageUrl: user.imageUrl),
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ).then((value) {
+                    if (value != null) {}
+                  });
+                },
+                size: 165,
+                isChildAccount: false,
+                imageUrl: user.imageUrl,
+              ),
               SizedBox(height: 36.h),
               ProfileTextfield(
                 hintText: user.name,

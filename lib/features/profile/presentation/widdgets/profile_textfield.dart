@@ -31,7 +31,7 @@ class ProfileTextfield extends HookWidget {
             Theme.of(context).textTheme.displayMedium!.copyWith(color: blue),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.r),
-          borderSide: BorderSide(color: blue),
+          borderSide: const BorderSide(color: blue),
         ),
         filled: true,
         fillColor: bgColor,
@@ -41,15 +41,15 @@ class ProfileTextfield extends HookWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.r),
-          borderSide: BorderSide(color: blue),
+          borderSide: const BorderSide(color: blue),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.r),
-          borderSide: BorderSide(color: red),
+          borderSide: const BorderSide(color: red),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.r),
-          borderSide: BorderSide(color: blue),
+          borderSide: const BorderSide(color: blue),
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
       ),

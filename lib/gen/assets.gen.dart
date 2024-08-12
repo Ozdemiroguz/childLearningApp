@@ -159,6 +159,9 @@ class $AssetsImagesGen {
   AssetGenImage get clockgameback =>
       const AssetGenImage('assets/images/clockgameback.png');
 
+  /// File path: assets/images/closex.png
+  AssetGenImage get closex => const AssetGenImage('assets/images/closex.png');
+
   /// File path: assets/images/colors.png
   AssetGenImage get colors => const AssetGenImage('assets/images/colors.png');
 
@@ -201,6 +204,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/mathskill.png
   AssetGenImage get mathskill =>
       const AssetGenImage('assets/images/mathskill.png');
+
+  /// File path: assets/images/memoryback.png
+  AssetGenImage get memoryback =>
+      const AssetGenImage('assets/images/memoryback.png');
+
+  /// File path: assets/images/memorylevelback.png
+  AssetGenImage get memorylevelback =>
+      const AssetGenImage('assets/images/memorylevelback.png');
 
   /// File path: assets/images/morning.png
   AssetGenImage get morning => const AssetGenImage('assets/images/morning.png');
@@ -273,6 +284,7 @@ class $AssetsImagesGen {
         clock,
         clockback,
         clockgameback,
+        closex,
         colors,
         colorsback,
         contact,
@@ -286,6 +298,8 @@ class $AssetsImagesGen {
         language,
         lock,
         mathskill,
+        memoryback,
+        memorylevelback,
         morning,
         night,
         noon,

@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,9 +7,6 @@ import 'package:tododyst/constants/locales.dart';
 import 'package:tododyst/features/profile/presentation/widdgets/profile_button.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../../router/router.dart';
-import '../widdgets/profile_image.dart';
-import '../widdgets/profile_route_button.dart';
 
 @RoutePage()
 class LanguagePage extends ConsumerWidget {
@@ -120,7 +116,7 @@ class _BuildLanguageTile extends ConsumerWidget {
                   fontSize: 19.sp,
                 ),
           ),
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );

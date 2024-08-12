@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-const ligthBlue = Color.fromRGBO(225, 235, 251, 1);
-const textColor = Color.fromRGBO(83, 108, 147, 1);
-const darkBlue = Color.fromRGBO(9, 9, 55, 1);
+const ligthBlue = Color(0xFFE1EBFB);
+const textColor = Color(0xFF536C93);
+const darkBlue = Color(0xFF090937);
 
 const dropdownShadowColor = Color.fromRGBO(0, 69, 113, .08);
 
@@ -44,6 +44,10 @@ const clockTitleBack = Color(0xff8EAAAD);
 const clockTitleColor = Color(0xffFEFBEC);
 const clockButtonColor = Color(0xff94ae89);
 const clockButtonColor2 = Color(0xffC8DEBF);
+
+//memory game
+const memoryLevelColorUnlocked = Color(0xff7EBBDD);
+const memoryLevelColorLocked = Color(0xff5573A0);
 
 const List<Color> crosswordColors = [
   red,

@@ -1,23 +1,23 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../core/models/failure/failure.dart';
+import '../failure/failure.dart';
 
-part 'clock_level_state.freezed.dart';
+part 'level_state.freezed.dart';
 
 @freezed
-class ClockLevelState with _$ClockLevelState {
-  factory ClockLevelState({
+class LevelState with _$LevelState {
+  factory LevelState({
     required bool isLoading,
     required int level,
     required Option<Failure> failure,
-  }) = _ClockLevelState;
+  }) = _LevelState;
 
-  factory ClockLevelState.initial() => ClockLevelState(
+  factory LevelState.initial() => LevelState(
         isLoading: false,
         level: 0,
         failure: none(),
       );
 
-  const ClockLevelState._();
+  const LevelState._();
 }

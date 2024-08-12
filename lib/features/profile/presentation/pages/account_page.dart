@@ -15,46 +15,49 @@ class AccountPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
     return Scaffold(
-        body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 34.w),
-            child: Center(
-              child: user.isLoading
-                  ? CircularProgressIndicator()
-                  : user.failure.fold(
-                      () => Column(
-                            children: [
-                              SizedBox(height: 100.h),
-                              ProfileImage(
-                                  size: 140,
-                                  isChildAccount: false,
-                                  imageUrl: user.imageUrl),
-                              SizedBox(height: 80.h),
-                              ProfileRouteButtons(
-                                  title: "Personal Information",
-                                  onTap: () {
-                                    print("Personal Information");
-                                    context.router
-                                        .push(const AccountEditRoute());
-                                  },
-                                  icon: Assets.icons.solarPenBroken),
-                              SizedBox(height: 25.h),
-                              ProfileRouteButtons(
-                                title: "Lorem Ipsum",
-                                onTap: () {},
-                              ),
-                              SizedBox(height: 25.h),
-                              ProfileRouteButtons(
-                                title: "Lorem Ipsum",
-                                onTap: () {},
-                              ),
-                              SizedBox(height: 25.h),
-                              ProfileRouteButtons(
-                                title: "Lorem Ipsum",
-                                onTap: () {},
-                              ),
-                            ],
-                          ),
-                      (failure) => Text(failure.toString())),
-            )));
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 34.w),
+        child: Center(
+          child: user.isLoading
+              ? const CircularProgressIndicator()
+              : user.failure.fold(
+                  () => Column(
+                    children: [
+                      SizedBox(height: 100.h),
+                      ProfileImage(
+                        size: 140,
+                        isChildAccount: false,
+                        imageUrl: user.imageUrl,
+                      ),
+                      SizedBox(height: 80.h),
+                      ProfileRouteButtons(
+                        title: "Personal Information",
+                        onTap: () {
+                          context.router.push(const AccountEditRoute());
+                        },
+                        icon: Assets.icons.solarPenBroken,
+                      ),
+                      SizedBox(height: 25.h),
+                      ProfileRouteButtons(
+                        title: "Lorem Ipsum",
+                        onTap: () {},
+                      ),
+                      SizedBox(height: 25.h),
+                      ProfileRouteButtons(
+                        title: "Lorem Ipsum",
+                        onTap: () {},
+                      ),
+                      SizedBox(height: 25.h),
+                      ProfileRouteButtons(
+                        title: "Lorem Ipsum",
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                  (failure) => Text(failure.toString()),
+                ),
+        ),
+      ),
+    );
   }
 }

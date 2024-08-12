@@ -36,7 +36,7 @@ class ChildprofileEditPage extends ConsumerWidget {
                 hintText: user.age,
               ),
               SizedBox(height: 20.h),
-              ProfileTextfield(
+              const ProfileTextfield(
                 hintText: "Lorem Ipsum",
               ),
               SizedBox(height: 20.h),

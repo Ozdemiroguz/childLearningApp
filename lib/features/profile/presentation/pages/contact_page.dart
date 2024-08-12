@@ -35,7 +35,7 @@ class _ContactPart extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xfff1f1f1),
+        color: const Color(0xfff1f1f1),
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.all(30.w),
@@ -46,7 +46,7 @@ class _ContactPart extends ConsumerWidget {
             children: [
               Assets.images.abaout.image(),
               SizedBox(width: 10.w),
-              Text("About", style: Theme.of(context).textTheme.displayMedium)
+              Text("About", style: Theme.of(context).textTheme.displayMedium),
             ],
           ),
           SizedBox(height: 20.h),
@@ -57,7 +57,7 @@ class _ContactPart extends ConsumerWidget {
                 .displaySmall!
                 .copyWith(color: darkGray),
           ),
-          Spacer(),
+          const Spacer(),
           ProfileButton(title: "Contact Us", onTap: () {}),
           SizedBox(height: 10.h),
         ],

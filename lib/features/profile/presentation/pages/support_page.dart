@@ -36,7 +36,7 @@ class _SupportPart extends ConsumerWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xfff1f1f1),
+        color: const Color(0xfff1f1f1),
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.all(30.w),
@@ -48,8 +48,10 @@ class _SupportPart extends ConsumerWidget {
           SizedBox(width: 10.w),
           Text("Support", style: Theme.of(context).textTheme.displayLarge),
           SizedBox(height: 20.h),
-          Text("How can we help you?",
-              style: Theme.of(context).textTheme.displaySmall),
+          Text(
+            "How can we help you?",
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
           SizedBox(height: 20.h),
           _SupportButton(
             text: "Contact Us",

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tododyst/gen/assets.gen.dart';
 
@@ -42,10 +41,6 @@ class ProfileImage extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.all(20.r),
-                  child: Assets.icons.tablerMoodKidFilledSvg.svg(
-                    width: 50.w,
-                    height: 50.h,
-                  ),
                   width: size.w,
                   height: size.h,
                   decoration: BoxDecoration(
@@ -58,14 +53,19 @@ class ProfileImage extends StatelessWidget {
                     color: darkBlue1,
                     shape: BoxShape.circle,
                   ),
+                  child: Assets.icons.tablerMoodKidFilledSvg.svg(
+                    width: 50.w,
+                    height: 50.h,
+                  ),
                 ),
                 Container(
-                    margin: EdgeInsets.only(bottom: 6.h, right: 6.w),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Assets.icons.add
-                        .svg(width: 30.w, height: 30.h, color: white)),
+                  margin: EdgeInsets.only(bottom: 6.h, right: 6.w),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Assets.icons.add
+                      .svg(width: 30.w, height: 30.h, color: white),
+                ),
               ],
             ),
           )

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/constants/colors.dart';
-import 'package:tododyst/core/extensions/context_extensions.dart';
 import 'package:tododyst/features/profile/presentation/widdgets/back_button.dart';
 import 'package:tododyst/features/profile/presentation/widdgets/profile_button.dart';
 import 'package:tododyst/gen/assets.gen.dart';
@@ -46,22 +45,24 @@ class _UseCodePart extends ConsumerWidget {
             children: [
               Assets.images.gift.image(),
               SizedBox(width: 10.w),
-              Text("Use the code",
-                  style: Theme.of(context).textTheme.displayMedium)
+              Text(
+                "Use the code",
+                style: Theme.of(context).textTheme.displayMedium,
+              ),
             ],
           ),
           SizedBox(height: 20.h),
           SizedBox(
             width: 200.w,
             child: TextFormField(
-              style: TextStyle(color: black),
+              style: const TextStyle(color: black),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffC4C4C4)),
+                  borderSide: const BorderSide(color: Color(0xffC4C4C4)),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffC4C4C4)),
+                  borderSide: const BorderSide(color: Color(0xffC4C4C4)),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 fillColor: lightGray,
@@ -75,53 +76,57 @@ class _UseCodePart extends ConsumerWidget {
           ),
           SizedBox(height: 20.h),
           ProfileButton(
-              title: "Save",
-              onTap: () {
-                showAdaptiveDialog(
-                    barrierDismissible: true,
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: purple1,
-                        content: SizedBox(
-                          height: 200.h,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: 300.w,
-                              ),
-                              Assets.images.checkcirclewithstar.image(
-                                width: 50.w,
-                                height: 50.h,
-                              ),
-                              Text("The code has been saved",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displayMedium!
-                                      .copyWith(color: white)),
-                              SizedBox(height: 50.h),
-                            ],
+            title: "Save",
+            onTap: () {
+              showAdaptiveDialog(
+                barrierDismissible: true,
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    backgroundColor: purple1,
+                    content: SizedBox(
+                      height: 200.h,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 300.w,
                           ),
-                        ),
-                      );
-                      // SizedBox(
-                      //   height: 100.h,
-                      //   width: context.screenWidth - 68,
-                      //   child: Expanded(
-                      //     child: Container(
-                      //       decoration: BoxDecoration(
-                      //         color: purple1,
-                      //         borderRadius: BorderRadius.circular(10.r),
-                      //       ),
-                      //       height: 100.h,
-                      //       width: context.screenWidth - 68,
-                      //     ),
-                      //   ),
-                      // );
-                    });
-              }),
+                          Assets.images.checkcirclewithstar.image(
+                            width: 50.w,
+                            height: 50.h,
+                          ),
+                          Text(
+                            "The code has been saved",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium!
+                                .copyWith(color: white),
+                          ),
+                          SizedBox(height: 50.h),
+                        ],
+                      ),
+                    ),
+                  );
+                  // SizedBox(
+                  //   height: 100.h,
+                  //   width: context.screenWidth - 68,
+                  //   child: Expanded(
+                  //     child: Container(
+                  //       decoration: BoxDecoration(
+                  //         color: purple1,
+                  //         borderRadius: BorderRadius.circular(10.r),
+                  //       ),
+                  //       height: 100.h,
+                  //       width: context.screenWidth - 68,
+                  //     ),
+                  //   ),
+                  // );
+                },
+              );
+            },
+          ),
         ],
       ),
     );

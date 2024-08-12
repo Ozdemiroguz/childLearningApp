@@ -44,94 +44,107 @@ class _PastNotifications extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Notifications",
-              style: Theme.of(context).textTheme.displayMedium),
+          Text(
+            "Notifications",
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
           SizedBox(height: 22.h),
           Text("Today", style: Theme.of(context).textTheme.displaySmall),
           SizedBox(height: 10.h),
           Expanded(
             child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      border: index == 2
-                          ? null
-                          : Border(
-                              bottom: BorderSide(color: darkGray),
-                            ),
-                    ),
-                    padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Row(
-                      children: [
-                        Assets.images.notifications.image(),
-                        SizedBox(width: 10.w),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Lorem Ipsum Dolor Sit Amet",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .displaySmall!
-                                  .copyWith(color: darkGray),
-                            ),
-                            Text("10:31",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(
-                                        color: darkGray, fontSize: 10.sp)),
-                          ],
-                        )
-                      ],
-                    ),
-                  );
-                }),
+              padding: EdgeInsets.zero,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: index == 2
+                        ? null
+                        : const Border(
+                            bottom: BorderSide(color: darkGray),
+                          ),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  child: Row(
+                    children: [
+                      Assets.images.notifications.image(),
+                      SizedBox(width: 10.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Lorem Ipsum Dolor Sit Amet",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(color: darkGray),
+                          ),
+                          Text(
+                            "10:31",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  color: darkGray,
+                                  fontSize: 10.sp,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           SizedBox(height: 20.h),
           Text("Yesterday", style: Theme.of(context).textTheme.displaySmall),
           Expanded(
-              child: ListView.builder(
-                  itemCount: 3,
-                  padding: EdgeInsets.zero,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        border: index == 2
-                            ? null
-                            : Border(
-                                bottom: BorderSide(color: darkGray),
-                              ),
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 10.h),
-                      child: Row(
+            child: ListView.builder(
+              itemCount: 3,
+              padding: EdgeInsets.zero,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: index == 2
+                        ? null
+                        : const Border(
+                            bottom: BorderSide(color: darkGray),
+                          ),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  child: Row(
+                    children: [
+                      Assets.images.notifications.image(),
+                      SizedBox(width: 10.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Assets.images.notifications.image(),
-                          SizedBox(width: 10.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Lorem Ipsum Dolor Sit Amet",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(color: darkGray),
-                              ),
-                              Text("10:31",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                          color: darkGray, fontSize: 10.sp)),
-                            ],
-                          )
+                          Text(
+                            "Lorem Ipsum Dolor Sit Amet",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(color: darkGray),
+                          ),
+                          Text(
+                            "10:31",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  color: darkGray,
+                                  fontSize: 10.sp,
+                                ),
+                          ),
                         ],
                       ),
-                    );
-                  })),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

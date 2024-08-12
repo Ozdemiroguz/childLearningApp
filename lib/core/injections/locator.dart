@@ -5,9 +5,11 @@ import 'package:tododyst/core/injections/locator.config.dart';
 import 'package:tododyst/features/clock_game/domain/repository/clock_level_repository.dart';
 import 'package:tododyst/features/daily_goals/domain/repository.dart/daily_goals_repository.dart';
 import 'package:tododyst/features/profile/domain/repository/user_repository.dart';
+import 'package:tododyst/services/level/level_repository.dart';
 
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../../features/crossword/domain/repositories/crosword_repository.dart';
+import '../../features/memory_game/domain/repositories/memory_game_repository.dart';
 import '../../router/router.dart';
 import '../../services/locale/locale_resources_service.dart';
 
@@ -30,8 +32,14 @@ final crosswordRepositoryProvider =
 final clockLevelRepositoryProvider =
     Provider.autoDispose((ref) => getIt<ClockLevelRepository>());
 
+final levelRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<LevelRepository>());
+
 final dailyGoalsRepositoryProvider =
     Provider.autoDispose((ref) => getIt<DailyGoalsRepository>());
 
 final userRepositoryProvider =
     Provider.autoDispose((ref) => getIt<UserRepository>());
+
+final memoryGameRepositoryProvider =
+    Provider.autoDispose((ref) => getIt<MemoryGameRepository>());

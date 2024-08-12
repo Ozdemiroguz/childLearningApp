@@ -23,7 +23,7 @@ class IndroSliderPage extends StatefulHookConsumerWidget {
 }
 
 class _KidsAgePageState extends ConsumerState<IndroSliderPage> {
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _KidsAgePageState extends ConsumerState<IndroSliderPage> {
 }
 
 class _NextButton extends ConsumerWidget {
-  final CarouselController carouselController;
+  final CarouselSliderController carouselController;
 
   const _NextButton({required this.carouselController});
   @override
