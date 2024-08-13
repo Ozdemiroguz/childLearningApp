@@ -21,7 +21,7 @@ final class MemoryGameRepositoryImpl implements MemoryGameRepository {
       return Future.delayed(
           const Duration(milliseconds: 500),
           () =>
-              right(List.generate((level + 2) * 2, (index) => 'image$index')));
+              right(List.generate(level + 1, (index) => 'image${index + 1}')));
     } catch (e) {
       return Future.value(left(Failure.unknownError('unknown_error')));
     }

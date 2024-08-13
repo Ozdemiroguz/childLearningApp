@@ -24,6 +24,9 @@ class _HomeNotifier extends AutoDisposeNotifier<MemoryGameState> {
 
   Future<void> getHomeData() async {
     state = state.copyWith(isLoading: true);
+
+    print(
+        "ref.read(selectedLevelProvider) : ${ref.read(selectedLevelProvider)}");
     final result = await ref
         .read(memoryGameRepositoryProvider)
         .getMemoryGamesImages(ref.read(selectedLevelProvider));
@@ -36,23 +39,25 @@ class _HomeNotifier extends AutoDisposeNotifier<MemoryGameState> {
         );
       },
       (r) {
-        List<MemoryGameModel> memoryGameModels = [];
+        final List<MemoryGameModel> memoryGameModels = [];
         for (var i = 0; i < r.length; i++) {
           memoryGameModels.add(MemoryGameModel(
               url: r[i], flipCardController: FlipCardController()));
         }
-        //listeteyi 2 kere ekleyip karıştırıyoruz
-        memoryGameModels.addAll(memoryGameModels);
+        for (var i = 0; i < r.length; i++) {
+          memoryGameModels.add(MemoryGameModel(
+              url: r[i], flipCardController: FlipCardController()));
+        }
+
         memoryGameModels.shuffle();
         state = state.copyWith(
           isLoading: false,
           memoryGameModels: memoryGameModels,
         );
-        for (var i = 0; i < memoryGameModels.length; i++) {
-          print(memoryGameModels[i].toString());
-        }
       },
     );
+
+    void chooseCard(int index) {}
 
     state = state.copyWith(
       isLoading: false,

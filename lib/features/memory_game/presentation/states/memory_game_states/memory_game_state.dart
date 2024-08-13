@@ -12,8 +12,10 @@ class MemoryGameState with _$MemoryGameState {
   factory MemoryGameState({
     required bool isLoading,
     required int cardNumber,
+    required List<int> correctIndexes,
     required int level,
     required List<MemoryGameModel> memoryGameModels,
+    required MemoryGameModel? selectedMemoryGameModel,
     required Option<Failure> failure,
   }) = _MemoryGameState;
 
@@ -21,7 +23,9 @@ class MemoryGameState with _$MemoryGameState {
         isLoading: false,
         cardNumber: 0,
         level: 0,
+        correctIndexes: [],
         memoryGameModels: [],
+        selectedMemoryGameModel: null,
         failure: none(),
       );
 

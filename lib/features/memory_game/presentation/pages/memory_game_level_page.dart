@@ -88,7 +88,7 @@ class _Levels extends ConsumerWidget {
                       onTap: () {
                         if (index <= state.level) {
                           ref.read(selectedLevelProvider.notifier).state =
-                              index;
+                              index + 1;
 
                           context.router.push(MemoryGameRoute());
                           // ref.read(memoryGameProvider.notifier).setLevel(index);
