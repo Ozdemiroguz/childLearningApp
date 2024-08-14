@@ -14,8 +14,11 @@ class MemoryGameState with _$MemoryGameState {
     required int cardNumber,
     required List<int> correctIndexes,
     required int level,
+    required int verticalCount,
+    required int horizontalCount,
     required List<MemoryGameModel> memoryGameModels,
-    required MemoryGameModel? selectedMemoryGameModel,
+    required MemoryGameModel? selectedMemoryGameModel1,
+    required MemoryGameModel? selectedMemoryGameModel2,
     required Option<Failure> failure,
   }) = _MemoryGameState;
 
@@ -23,9 +26,12 @@ class MemoryGameState with _$MemoryGameState {
         isLoading: false,
         cardNumber: 0,
         level: 0,
+        verticalCount: 2,
+        horizontalCount: 2,
         correctIndexes: [],
         memoryGameModels: [],
-        selectedMemoryGameModel: null,
+        selectedMemoryGameModel1: null,
+        selectedMemoryGameModel2: null,
         failure: none(),
       );
 

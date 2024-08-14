@@ -148,6 +148,10 @@ class $AssetsImagesGen {
   AssetGenImage get childImg =>
       const AssetGenImage('assets/images/childImg.png');
 
+  /// File path: assets/images/circularcheckmemory.png
+  AssetGenImage get circularcheckmemory =>
+      const AssetGenImage('assets/images/circularcheckmemory.png');
+
   /// File path: assets/images/clock.png
   AssetGenImage get clock => const AssetGenImage('assets/images/clock.png');
 
@@ -248,6 +252,10 @@ class $AssetsImagesGen {
   AssetGenImage get profileImg =>
       const AssetGenImage('assets/images/profileImg.png');
 
+  /// File path: assets/images/quetionmark.png
+  AssetGenImage get quetionmark =>
+      const AssetGenImage('assets/images/quetionmark.png');
+
   /// File path: assets/images/support.png
   AssetGenImage get support => const AssetGenImage('assets/images/support.png');
 
@@ -281,6 +289,7 @@ class $AssetsImagesGen {
         check,
         checkcirclewithstar,
         childImg,
+        circularcheckmemory,
         clock,
         clockback,
         clockgameback,
@@ -311,6 +320,7 @@ class $AssetsImagesGen {
         prep4,
         prep5,
         profileImg,
+        quetionmark,
         support,
         timer,
         tododysLogo,

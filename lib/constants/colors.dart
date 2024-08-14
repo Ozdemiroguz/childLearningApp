@@ -37,6 +37,7 @@ const darkPurple = Color(0xff8A5B9F);
 const purple1 = Color(0xff947AFF);
 
 const brown = Color(0xffA67C5B);
+const lightBrown = Color(0xffF6BD86);
 
 //clock game
 const clockLevelColor = Color(0xffD4B872);

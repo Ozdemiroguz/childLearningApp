@@ -26,10 +26,12 @@ class _HomeNotifier extends AutoDisposeNotifier<MemoryGameState> {
     state = state.copyWith(isLoading: true);
 
     print(
-        "ref.read(selectedLevelProvider) : ${ref.read(selectedLevelProvider)}");
+        "ref.read(selectedLevelProvider) : ${ref.read(selectedLevelProvider) == 0 ? 2 : ref.read(selectedLevelProvider)!}");
     final result = await ref
         .read(memoryGameRepositoryProvider)
-        .getMemoryGamesImages(ref.read(selectedLevelProvider));
+        .getMemoryGamesImages(ref.read(selectedLevelProvider) == 0
+            ? 2
+            : ref.read(selectedLevelProvider)!);
 
     result.fold(
       (l) {
@@ -40,27 +42,79 @@ class _HomeNotifier extends AutoDisposeNotifier<MemoryGameState> {
       },
       (r) {
         final List<MemoryGameModel> memoryGameModels = [];
-        for (var i = 0; i < r.length; i++) {
+        for (var i = 0; i < r.urls.length; i++) {
           memoryGameModels.add(MemoryGameModel(
-              url: r[i], flipCardController: FlipCardController()));
-        }
-        for (var i = 0; i < r.length; i++) {
+              url: r.urls[i], flipCardController: FlipCardController()));
           memoryGameModels.add(MemoryGameModel(
-              url: r[i], flipCardController: FlipCardController()));
+              url: r.urls[i], flipCardController: FlipCardController()));
         }
 
         memoryGameModels.shuffle();
         state = state.copyWith(
+          level: r.level,
+          cardNumber: r.urls.length,
+          verticalCount: r.verticalCount,
+          horizontalCount: r.horizontalCount,
           isLoading: false,
           memoryGameModels: memoryGameModels,
         );
       },
     );
 
-    void chooseCard(int index) {}
-
     state = state.copyWith(
       isLoading: false,
     );
+  }
+
+  Future<void> chooseCard(int index) async {
+    if (state.selectedMemoryGameModel1 == null) {
+      state = state.copyWith(
+        selectedMemoryGameModel1: state.memoryGameModels[index],
+      );
+      state.memoryGameModels[index].flipCardController.toggleCard();
+    } else if (state.selectedMemoryGameModel2 == null &&
+        state.selectedMemoryGameModel1 != state.memoryGameModels[index]) {
+      state = state.copyWith(
+        selectedMemoryGameModel2: state.memoryGameModels[index],
+      );
+      state.memoryGameModels[index].flipCardController.toggleCard();
+
+      await checkCards();
+    }
+  }
+
+  Future<void> checkCards() async {
+    if (state.selectedMemoryGameModel1!.url ==
+        state.selectedMemoryGameModel2!.url) {
+      Future.delayed(const Duration(seconds: 1), () {
+        state = state.copyWith(
+          correctIndexes: [
+            ...state.correctIndexes,
+            state.memoryGameModels.indexOf(state.selectedMemoryGameModel1!),
+            state.memoryGameModels.indexOf(state.selectedMemoryGameModel2!),
+          ],
+        );
+      });
+    } else {
+      Future.delayed(const Duration(seconds: 1), () {
+        state
+            .memoryGameModels[
+                state.memoryGameModels.indexOf(state.selectedMemoryGameModel1!)]
+            .flipCardController
+            .toggleCard();
+        state
+            .memoryGameModels[
+                state.memoryGameModels.indexOf(state.selectedMemoryGameModel2!)]
+            .flipCardController
+            .toggleCard();
+      });
+    }
+
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      state = state.copyWith(
+        selectedMemoryGameModel1: null,
+        selectedMemoryGameModel2: null,
+      );
+    });
   }
 }

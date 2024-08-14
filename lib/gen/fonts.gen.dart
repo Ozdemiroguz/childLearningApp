@@ -15,4 +15,7 @@ class FontFamily {
 
   /// Font family: SansitaOne
   static const String sansitaOne = 'SansitaOne';
+
+  /// Font family: SedgwickAveDisplay
+  static const String sedgwickAveDisplay = 'SedgwickAveDisplay';
 }

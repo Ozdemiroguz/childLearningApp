@@ -20,9 +20,13 @@ mixin _$MemoryGameState {
   int get cardNumber => throw _privateConstructorUsedError;
   List<int> get correctIndexes => throw _privateConstructorUsedError;
   int get level => throw _privateConstructorUsedError;
+  int get verticalCount => throw _privateConstructorUsedError;
+  int get horizontalCount => throw _privateConstructorUsedError;
   List<MemoryGameModel> get memoryGameModels =>
       throw _privateConstructorUsedError;
-  MemoryGameModel? get selectedMemoryGameModel =>
+  MemoryGameModel? get selectedMemoryGameModel1 =>
+      throw _privateConstructorUsedError;
+  MemoryGameModel? get selectedMemoryGameModel2 =>
       throw _privateConstructorUsedError;
   Option<Failure> get failure => throw _privateConstructorUsedError;
 
@@ -42,8 +46,11 @@ abstract class $MemoryGameStateCopyWith<$Res> {
       int cardNumber,
       List<int> correctIndexes,
       int level,
+      int verticalCount,
+      int horizontalCount,
       List<MemoryGameModel> memoryGameModels,
-      MemoryGameModel? selectedMemoryGameModel,
+      MemoryGameModel? selectedMemoryGameModel1,
+      MemoryGameModel? selectedMemoryGameModel2,
       Option<Failure> failure});
 }
 
@@ -64,8 +71,11 @@ class _$MemoryGameStateCopyWithImpl<$Res, $Val extends MemoryGameState>
     Object? cardNumber = null,
     Object? correctIndexes = null,
     Object? level = null,
+    Object? verticalCount = null,
+    Object? horizontalCount = null,
     Object? memoryGameModels = null,
-    Object? selectedMemoryGameModel = freezed,
+    Object? selectedMemoryGameModel1 = freezed,
+    Object? selectedMemoryGameModel2 = freezed,
     Object? failure = null,
   }) {
     return _then(_value.copyWith(
@@ -85,13 +95,25 @@ class _$MemoryGameStateCopyWithImpl<$Res, $Val extends MemoryGameState>
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int,
+      verticalCount: null == verticalCount
+          ? _value.verticalCount
+          : verticalCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      horizontalCount: null == horizontalCount
+          ? _value.horizontalCount
+          : horizontalCount // ignore: cast_nullable_to_non_nullable
+              as int,
       memoryGameModels: null == memoryGameModels
           ? _value.memoryGameModels
           : memoryGameModels // ignore: cast_nullable_to_non_nullable
               as List<MemoryGameModel>,
-      selectedMemoryGameModel: freezed == selectedMemoryGameModel
-          ? _value.selectedMemoryGameModel
-          : selectedMemoryGameModel // ignore: cast_nullable_to_non_nullable
+      selectedMemoryGameModel1: freezed == selectedMemoryGameModel1
+          ? _value.selectedMemoryGameModel1
+          : selectedMemoryGameModel1 // ignore: cast_nullable_to_non_nullable
+              as MemoryGameModel?,
+      selectedMemoryGameModel2: freezed == selectedMemoryGameModel2
+          ? _value.selectedMemoryGameModel2
+          : selectedMemoryGameModel2 // ignore: cast_nullable_to_non_nullable
               as MemoryGameModel?,
       failure: null == failure
           ? _value.failure
@@ -114,8 +136,11 @@ abstract class _$$MemoryGameStateImplCopyWith<$Res>
       int cardNumber,
       List<int> correctIndexes,
       int level,
+      int verticalCount,
+      int horizontalCount,
       List<MemoryGameModel> memoryGameModels,
-      MemoryGameModel? selectedMemoryGameModel,
+      MemoryGameModel? selectedMemoryGameModel1,
+      MemoryGameModel? selectedMemoryGameModel2,
       Option<Failure> failure});
 }
 
@@ -134,8 +159,11 @@ class __$$MemoryGameStateImplCopyWithImpl<$Res>
     Object? cardNumber = null,
     Object? correctIndexes = null,
     Object? level = null,
+    Object? verticalCount = null,
+    Object? horizontalCount = null,
     Object? memoryGameModels = null,
-    Object? selectedMemoryGameModel = freezed,
+    Object? selectedMemoryGameModel1 = freezed,
+    Object? selectedMemoryGameModel2 = freezed,
     Object? failure = null,
   }) {
     return _then(_$MemoryGameStateImpl(
@@ -155,13 +183,25 @@ class __$$MemoryGameStateImplCopyWithImpl<$Res>
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
               as int,
+      verticalCount: null == verticalCount
+          ? _value.verticalCount
+          : verticalCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      horizontalCount: null == horizontalCount
+          ? _value.horizontalCount
+          : horizontalCount // ignore: cast_nullable_to_non_nullable
+              as int,
       memoryGameModels: null == memoryGameModels
           ? _value._memoryGameModels
           : memoryGameModels // ignore: cast_nullable_to_non_nullable
               as List<MemoryGameModel>,
-      selectedMemoryGameModel: freezed == selectedMemoryGameModel
-          ? _value.selectedMemoryGameModel
-          : selectedMemoryGameModel // ignore: cast_nullable_to_non_nullable
+      selectedMemoryGameModel1: freezed == selectedMemoryGameModel1
+          ? _value.selectedMemoryGameModel1
+          : selectedMemoryGameModel1 // ignore: cast_nullable_to_non_nullable
+              as MemoryGameModel?,
+      selectedMemoryGameModel2: freezed == selectedMemoryGameModel2
+          ? _value.selectedMemoryGameModel2
+          : selectedMemoryGameModel2 // ignore: cast_nullable_to_non_nullable
               as MemoryGameModel?,
       failure: null == failure
           ? _value.failure
@@ -179,8 +219,11 @@ class _$MemoryGameStateImpl extends _MemoryGameState {
       required this.cardNumber,
       required final List<int> correctIndexes,
       required this.level,
+      required this.verticalCount,
+      required this.horizontalCount,
       required final List<MemoryGameModel> memoryGameModels,
-      required this.selectedMemoryGameModel,
+      required this.selectedMemoryGameModel1,
+      required this.selectedMemoryGameModel2,
       required this.failure})
       : _correctIndexes = correctIndexes,
         _memoryGameModels = memoryGameModels,
@@ -200,6 +243,10 @@ class _$MemoryGameStateImpl extends _MemoryGameState {
 
   @override
   final int level;
+  @override
+  final int verticalCount;
+  @override
+  final int horizontalCount;
   final List<MemoryGameModel> _memoryGameModels;
   @override
   List<MemoryGameModel> get memoryGameModels {
@@ -210,13 +257,15 @@ class _$MemoryGameStateImpl extends _MemoryGameState {
   }
 
   @override
-  final MemoryGameModel? selectedMemoryGameModel;
+  final MemoryGameModel? selectedMemoryGameModel1;
+  @override
+  final MemoryGameModel? selectedMemoryGameModel2;
   @override
   final Option<Failure> failure;
 
   @override
   String toString() {
-    return 'MemoryGameState(isLoading: $isLoading, cardNumber: $cardNumber, correctIndexes: $correctIndexes, level: $level, memoryGameModels: $memoryGameModels, selectedMemoryGameModel: $selectedMemoryGameModel, failure: $failure)';
+    return 'MemoryGameState(isLoading: $isLoading, cardNumber: $cardNumber, correctIndexes: $correctIndexes, level: $level, verticalCount: $verticalCount, horizontalCount: $horizontalCount, memoryGameModels: $memoryGameModels, selectedMemoryGameModel1: $selectedMemoryGameModel1, selectedMemoryGameModel2: $selectedMemoryGameModel2, failure: $failure)';
   }
 
   @override
@@ -231,11 +280,18 @@ class _$MemoryGameStateImpl extends _MemoryGameState {
             const DeepCollectionEquality()
                 .equals(other._correctIndexes, _correctIndexes) &&
             (identical(other.level, level) || other.level == level) &&
+            (identical(other.verticalCount, verticalCount) ||
+                other.verticalCount == verticalCount) &&
+            (identical(other.horizontalCount, horizontalCount) ||
+                other.horizontalCount == horizontalCount) &&
             const DeepCollectionEquality()
                 .equals(other._memoryGameModels, _memoryGameModels) &&
             (identical(
-                    other.selectedMemoryGameModel, selectedMemoryGameModel) ||
-                other.selectedMemoryGameModel == selectedMemoryGameModel) &&
+                    other.selectedMemoryGameModel1, selectedMemoryGameModel1) ||
+                other.selectedMemoryGameModel1 == selectedMemoryGameModel1) &&
+            (identical(
+                    other.selectedMemoryGameModel2, selectedMemoryGameModel2) ||
+                other.selectedMemoryGameModel2 == selectedMemoryGameModel2) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -246,8 +302,11 @@ class _$MemoryGameStateImpl extends _MemoryGameState {
       cardNumber,
       const DeepCollectionEquality().hash(_correctIndexes),
       level,
+      verticalCount,
+      horizontalCount,
       const DeepCollectionEquality().hash(_memoryGameModels),
-      selectedMemoryGameModel,
+      selectedMemoryGameModel1,
+      selectedMemoryGameModel2,
       failure);
 
   @JsonKey(ignore: true)
@@ -264,8 +323,11 @@ abstract class _MemoryGameState extends MemoryGameState {
       required final int cardNumber,
       required final List<int> correctIndexes,
       required final int level,
+      required final int verticalCount,
+      required final int horizontalCount,
       required final List<MemoryGameModel> memoryGameModels,
-      required final MemoryGameModel? selectedMemoryGameModel,
+      required final MemoryGameModel? selectedMemoryGameModel1,
+      required final MemoryGameModel? selectedMemoryGameModel2,
       required final Option<Failure> failure}) = _$MemoryGameStateImpl;
   _MemoryGameState._() : super._();
 
@@ -278,9 +340,15 @@ abstract class _MemoryGameState extends MemoryGameState {
   @override
   int get level;
   @override
+  int get verticalCount;
+  @override
+  int get horizontalCount;
+  @override
   List<MemoryGameModel> get memoryGameModels;
   @override
-  MemoryGameModel? get selectedMemoryGameModel;
+  MemoryGameModel? get selectedMemoryGameModel1;
+  @override
+  MemoryGameModel? get selectedMemoryGameModel2;
   @override
   Option<Failure> get failure;
   @override

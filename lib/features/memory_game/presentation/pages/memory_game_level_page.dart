@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tododyst/common/background_image.dart';
 import 'package:tododyst/constants/colors.dart';
+import 'package:tododyst/features/memory_game/presentation/widgets/top_title.dart';
 import 'package:tododyst/gen/assets.gen.dart';
 import 'package:tododyst/services/level/level_provider.dart';
 import 'package:tododyst/splash_page.dart';
@@ -30,37 +31,11 @@ class MemoryGameLevelPage extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(height: 70.h),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                right: 35.w,
-                                bottom: 50.h,
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Assets.images.closex.image(
-                                        width: 50.w,
-                                        height: 50.h,
-                                        fit: BoxFit.fill),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Text("LEVELS",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge!
-                                    .copyWith(
-                                        fontSize: 50.sp,
-                                        fontFamily: "Righteous",
-                                        color: white)),
-                          ],
-                        ),
+                        TopTitle(
+                            title: "LEVELS",
+                            onTap: () {
+                              context.router.pop();
+                            }),
                         const _Levels(),
                       ],
                     ),
@@ -86,7 +61,7 @@ class _Levels extends ConsumerWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        if (index <= state.level) {
+                        if (index < 21) {
                           ref.read(selectedLevelProvider.notifier).state =
                               index + 1;
 

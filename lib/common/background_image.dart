@@ -34,7 +34,7 @@ class BackgroundImage extends StatelessWidget {
             color: color.withOpacity(opacity),
           ),
         ),
-        child,
+        Positioned.fill(child: child),
       ],
     );
   }
