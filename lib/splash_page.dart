@@ -39,7 +39,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         Future.delayed(const Duration(seconds: 1), () async {
           if (await ref.watch(_isTokenExpiredProvider.future)) {
             if (context.mounted) {
-              context.replaceRoute(const MemoryGameLevelRoute());
+              context.replaceRoute(MemoryGameLevelRoute());
             }
           } else {
             if (context.mounted) {

@@ -23,34 +23,38 @@ class LanguageActivityPage extends ConsumerWidget {
       body: Center(
         child: ref.watch(languageProvider).isLoading
             ? const CircularProgressIndicator()
-            : Column(
-                children: [
-                  SizedBox(height: 90.h),
-                  SizedBox(
-                    width: context.screenWidth,
-                    child: QuestionBar(
-                      isAppBar: true,
-                      decimalValue: state.answers.isEmpty
-                          ? 0
-                          : ((state.currentQuestion / state.answers.length) *
-                                  100)
-                              .toInt(),
+            : SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 90.h),
+                    SizedBox(
+                      width: context.screenWidth,
+                      child: QuestionBar(
+                        isAppBar: true,
+                        decimalValue: state.answers.isEmpty
+                            ? 0
+                            : ((state.currentQuestion / state.answers.length) *
+                                    100)
+                                .toInt(),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    "Language Skills - Activities",
-                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                          fontSize: 22.sp,
-                        ),
-                  ),
-                  SizedBox(height: 50.h),
-                  _QuestionPart(),
-                  SizedBox(height: 50.h),
-                  _Options(),
-                  SizedBox(height: 20.h),
-                  _NextButton(),
-                ],
+                    SizedBox(height: 20.h),
+                    Text(
+                      "Language Skills - Activities",
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                fontSize: 22.sp,
+                              ),
+                    ),
+                    SizedBox(height: 50.h),
+                    _QuestionPart(),
+                    SizedBox(height: 50.h),
+                    _Options(),
+                    SizedBox(height: 20.h),
+                    _NextButton(),
+                    SizedBox(height: 200.h),
+                  ],
+                ),
               ),
       ),
     );
