@@ -15,8 +15,11 @@ The **WordSearch Game** is a key feature designed to enhance **vocabulary** and 
 - **Interactive Themes**: Topics like animals, seasons, and colors keep learning fun.  
 - **Time Challenges**: Encourages focus and quick thinking.  
 
-![WordSearch Screenshot](screenShoots/Ekran Resmi 2024-11-24 11.40.10.png)  
+  <div>
+         <img src="screenShoots/Ekran Resmi 2024-11-24 11.40.10.png" alt="Home Screen" width="200" height="auto">
+        
 
+   </div>
 ---
 
 ### Time Exercises  
@@ -25,8 +28,12 @@ Help children learn how to read and manage time with **interactive clock exercis
 - **Customizable Challenges**: Adjust difficulty based on age and progress.  
 - **Visual Learning**: Engaging visuals make time concepts easier to grasp.  
 
-![Time Exercises Screenshot](screenShoots/Ekran Resmi 2024-11-24 11.40.16.png)  
+<div>
+         <img src="screenShoots/Ekran Resmi 2024-11-24 11.40.16.png" alt="Home Screen" width="200" height="auto">
+        
 
+   </div>
+---
 ---
 
 ### Memory Game  
@@ -35,15 +42,23 @@ The classic **Memory Game** enhances **focus**, **memory retention**, and **logi
 - **Dynamic Levels**: Difficulty scales with the player's progress.  
 - **Colorful Designs**: Cards feature kid-friendly, visually appealing themes.  
 
-![Memory Game Screenshot](screenShoots/Ekran Resmi 2024-11-24 11.40.21.png)  
+<div>
+         <img src="screenShoots/Ekran Resmi 2024-11-24 11.40.21.png" alt="Home Screen" width="200" height="auto">
+        
 
+   </div>
+---
 ---
 
 ### Activities  
 The app also offers a variety of **fun activities** to foster creativity and logical thinking. These activities include puzzles, matching games, and creative exercises designed to suit different age groups.  
 
-![Activities Screenshot](screenShoots/images/Ekran Resmi 2024-11-24 11.40.36.png)  
+<div>
+         <img src="screenShoots/Ekran Resmi 2024-11-24 11.40.36.png" alt="Home Screen" width="200" height="auto">
+        
 
+   </div>
+---
 ---
 
 ## How to Run  
